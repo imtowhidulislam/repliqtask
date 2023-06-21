@@ -1,0 +1,218 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+.container{
+  width: min(80rem, 90%);
+  margin: 0 auto;
+}
+li,a{
+  list-style: none;
+  text-decoration: none;
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  /* background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb)); */
+}
+
+.navList{
+  @apply bg-transparent hover:bg-blue-600 transition-all duration-200 ease-in-out py-2 px-4 rounded-sm hover:drop-shadow-md hover:text-gray-50;
+}
+.navLink{
+  @apply capitalize text-base font-bold cursor-pointer;
+}
+.flexRow{
+  @apply flex items-center;
+}
+
+/* ?? Footer Style Start */
+  .footerStyle{
+    @apply capitalize text-base font-bold text-left
+  }
+  .footerStyle > *:nth-child(1){
+    margin-bottom: .5rem;
+    color: #adafb1;
+  }
+  .footerSocialIcon{
+    @apply hover:text-blue-400 transition-colors ease-in-out duration-200 cursor-pointer;
+  }
+/* ?? Footer Style End */
+
+/* !! Unique Btn Style Start */
+.btn_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+.btn{
+  @apply capitalize text-sm font-bold px-8 py-2 rounded-full cursor-pointer bg-blue-600 text-gray-100 hover:bg-blue-300 hover:text-gray-700 transition-all duration-200 ease-in-out;
+}
+/* !! Unique Btn Style End */
+
+/* *** Product Image Container Style Start */
+.imgContainer{
+  max-width: 13rem;
+}
+.card{
+  @apply border-2 drop-shadow-md z-10 bg-[#ffff] hover:scale-105 transition-transform ease-in-out duration-200 overflow-hidden text-left border-gray-300 rounded-md;
+}
+/* *** Product Image Container Style End */
+
+/* ** Form Style Start */
+.contact{
+  background-image: url("https://unsplash.it/1000/1000?image=551");
+  background-repeat: no-repeat;
+  background-position: top left;
+  background-size: cover;
+}
+  .form{
+    background-color: hsla(60, 2%, 62%, 0.2);
+    padding: .4rem;
+    border-radius: .2rem;
+  }
+  .lableWidth{
+    min-width: 20%;
+    text-align: right;
+  }
+  .registerForm > *:not(:last-child){
+    margin-bottom: 1rem;
+  }
+/* ** Form Style End */
+
+/* ?? NavBar Style Start */
+.mobileNav{
+  inset: -100% 0% 100% 0%;
+  transition: inset 1s ease-in-out;
+}
+.mobileNav-active{
+  inset: 56px 0% 0% 0%;
+}
+/* ?? NavBar Style End */
+
+/* !! Dashboard Style Start */
+  .grid-layout{
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    /* place-items: center; */
+    /* gap: 1rem; */
+    min-height: 40rem;
+  }
+  .grid-layout > *:first-child{
+    background-color: #e4e2e2;
+    grid-row: 1;
+    grid-column: 1 / 5;
+    padding-block: 2rem;
+    padding-inline: 1rem;
+  }
+  .grid-layout > *:last-child{
+    background-color: #ccc9c9;
+    grid-row: 1;
+    grid-column: 5 / 13;
+    padding-block: 2rem;
+    padding-inline: 1rem;
+  }
+
+  @media (max-width: 600px) {
+    .grid-layout > *:first-child{
+      grid-column: 1 /13;
+    }
+    .grid-layout > *:last-child{
+      grid-row: 2;
+      grid-column:  1 /13;
+    }
+  }
+/* !! Dashboard Style End */
+/* ??? Cart style Start */
+.cartHeight{
+  min-height: 30rem;
+}
+.countCart{
+  position: relative;
+}
+.numberOfItem{
+  position: absolute;
+  top: -15px;
+  left: 40px;
+  font-weight: bold;
+  font-size: .6rem;
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+  background-color: #f46363;
+  
+}
+/* ??? Cart style End */
+
+/* *** Home Page Style Start */
+.topCard{
+  height: 100%;
+  max-height: 450px;
+  position: relative;
+  cursor: pointer;
+}
+.deleteBtn{
+  position: absolute;
+  font-size: 2rem;
+  font-weight: bolder;
+  color: white;
+  top: 10%;
+  right: 10%;
+}
+.topCard::after{
+  position: fixed;
+  display: none;
+  content: "this is just a demo text";
+  width: 400px;
+  height: 400px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  border-radius: .5rem;
+  color: white;
+  background-color: #0a4bbaa3;
+  padding: 2rem;
+  font-size: 1rem;
+
+}
+.topImgCon{
+  width: 100%;
+  overflow: hidden;
+  height: 60%;
+  display: grid;
+  place-items: center;
+}
+.topImg{
+  width: 250px;
+  display: block;
+  object-fit: cover;
+  object-position: center;
+}
+/* *** Home Page Style End */
+
+/* !! Product Details Style Start */
+.singleItmeImg{
+  max-width: 400px;
+}
+/* !! Product Details Style End */
