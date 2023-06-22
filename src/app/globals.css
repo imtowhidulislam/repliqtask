@@ -98,8 +98,11 @@ body {
     border-radius: .2rem;
   }
   .lableWidth{
-    min-width: 30%;
-    text-align: right;
+    /* min-width: 30%; */
+    /* text-align: right; */
+  }
+  input{
+    width: 100%;
   }
   .registerForm{
     background-color: #aeadad98;

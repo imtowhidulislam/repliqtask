@@ -1,10 +1,10 @@
 "use client"
-import React, { useEffect, useContext, useState } from 'react'
+import { useEffect, useContext, useState } from 'react'
 import ProductCategory from './components/productCategory';
 import ProductOfList from './components/ProductOfList';
 import { useQuery } from '@tanstack/react-query';
 
-const page = () => {
+const Page = () => {
 
     // const [cartValue, setCartValue] = cart;
     const [productValue, setProductValue] = useState([]);
@@ -17,6 +17,7 @@ const page = () => {
         if(!res.ok) throw Error("Url might be not found.");
     
         setProductValue([...data]);
+        return data;
       }
     
     const productList = useQuery({queryKey:['productData'], queryFn:fetchData});
@@ -25,16 +26,18 @@ const page = () => {
         const handleClick = e => {
             setFilterProduct(e.target.dataset.name);
         }
-        
+        console.log(productValue);
         const fetchCat = () => {
             let unique = productValue.map(but => but.category);
             unique = [...new Set(unique)]
+            console.log(unique);
             setButton(unique);
         }
         useEffect(() => {
             fetchCat();
         },[])
         console.log(productValue);
+        console.log(button);
   return (
     <div className='container py-24 px-8 md:px-0'>
         <div className='btn_container'>
@@ -62,4 +65,4 @@ const page = () => {
   )
 }
 
-export default page
+export default Page

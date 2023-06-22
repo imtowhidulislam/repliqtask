@@ -45,30 +45,30 @@ const page = () => {
           onSubmit={handleSubmit}
           className="registerForm w-full max-w-md px-4 rounded-md overflow-hidden my-8 py-6 border border-gray-200 bg-[#14141483] backdrop-filter backdrop-blur-md"
         >
-          <div className="flex items-center justify-center text-6xl text-cyan-700 pb-3">
+          <div className="flex items-center justify-center text-6xl text-cyan-700 pb-1">
             <div>
-              <h2 className="uppercase text-blue-600 text-4xl font-bold flex gap-2 items-center">
-                <span className="text-green-600">
+              <h2 className="uppercase text-lime-400 text-4xl font-bold flex gap-2 items-center">
+                <span className="text-lime-900">
                   <RiShoppingBagFill />
                 </span>
                 repliq
               </h2>
             </div>
           </div>
-          <div className="pb-4">
+          <div className="pb-2">
             <h2 className="text-center text-xl font-bold text-[#ffff] uppercase">
               sign up
             </h2>
           </div>
 
-          <div className="w-full flex items-center justify-center gap-4">
+          <div className="">
             <label
               className="lableWidth text-gray-100 font-bold"
               htmlFor="first name"
             >
               First Name
             </label>
-            <div className="relative p-2">
+            <div className="relative">
               <input
                 type="text"
                 id="fName"
@@ -78,8 +78,8 @@ const page = () => {
                 placeholder="enter your first name"
                 className={
                   errors.lName && touched.lName
-                    ? "form w-full placeholder:capitalize pl-4 border-2 border-red-500"
-                    : "form w-full placeholder:capitalize pl-4 bg-transparent"
+                    ? "form mt-2 placeholder:capitalize pl-4 border-2 border-red-500"
+                    : "form mt-2 placeholder:capitalize pl-4 bg-transparent"
                 }
               />
               {errors.fName && touched.fName && (
@@ -90,14 +90,14 @@ const page = () => {
             </div>
           </div>
 
-          <div className="w-full flex items-center justify-center gap-4">
+          <div className="">
             <label
               className="lableWidth text-gray-100 font-bold capitalize"
               htmlFor="lName"
             >
               Last Name
             </label>
-            <div className="relative p-2">
+            <div className="relative">
               <input
                 type="text"
                 name="lName"
@@ -106,8 +106,8 @@ const page = () => {
                 value={values.lName}
                 className={
                   errors.lName && touched.lName
-                    ? "form w-full placeholder:capitalize pl-4 border-2 border-red-500"
-                    : "bg-transparent form w-full placeholder:capitalize pl-4"
+                    ? "form mt-2 placeholder:capitalize pl-4 border-2 border-red-500"
+                    : "bg-transparent form mt-2 placeholder:capitalize pl-4"
                 }
                 placeholder="enter your last name"
               />
@@ -118,7 +118,7 @@ const page = () => {
               )}{" "}
             </div>
           </div>
-          <div className="w-full flex items-center justify-center gap-4">
+          <div className="">
             <label
               className="lableWidth text-gray-100 font-bold capitalize"
               htmlFor="email"
@@ -134,8 +134,8 @@ const page = () => {
                 value={values.email}
                 className={
                   errors.email && touched.email
-                    ? "form w-full placeholder:capitalize pl-4 border-2 border-red-500"
-                    : "'form w-full placeholder:capitalize pl-4'"
+                    ? "form mt-2 placeholder:capitalize pl-4 border-2 border-red-500"
+                    : "form mt-2 placeholder:capitalize pl-4"
                 }
                 placeholder="enter your email"
               />
@@ -146,14 +146,14 @@ const page = () => {
               )}
             </div>
           </div>
-          <div className="w-full flex items-center justify-center gap-4">
+          <div className="">
             <label
               className="lableWidth text-gray-100 font-bold capitalize"
               htmlFor="image"
             >
               Image
             </label>
-            <div className="relative border-2">
+            <div className="relative">
               <input
                 type="file"
                 // accept="/*"
@@ -162,8 +162,8 @@ const page = () => {
                 onChange={(e) => setFieldValue("file", e.target.files[0])}
                 className={
                   errors.file && touched.file
-                    ? "form w-full placeholder:capitalize pl-4 border-2 border-red-500"
-                    : "'form w-full placeholder:capitalize pl-4'"
+                    ? "form bg-transparent placeholder:capitalize mt-2 pl-4 border-2 border-red-500"
+                    : "form mt-2 bg-transparent placeholder:capitalize pl-4"
                 }
                 placeholder="enter your Image"
               />
@@ -174,9 +174,9 @@ const page = () => {
               )}
             </div>
           </div>
-          <div className="w-full flex items-center justify-center gap-4">
+          <div className="gap-4">
             <label
-              className="lableWidth text-gray-100 font-bold capitalize"
+              className="lableWidth mb-2 w-full text-gray-100 font-bold capitalize"
               htmlFor="password"
             >
               Password
@@ -190,8 +190,8 @@ const page = () => {
                 value={values.password}
                 className={
                   errors.password && touched.password
-                    ? "form w-full placeholder:capitalize pl-4 border-2 border-red-500"
-                    : "'form w-full placeholder:capitalize pl-4'"
+                    ? "form placeholder:capitalize pl-4 mt-2 border-2 border-red-500"
+                    : "form mt-2 placeholder:capitalize pl-4"
                 }
                 placeholder="enter you password"
               />
@@ -203,11 +203,11 @@ const page = () => {
             </div>
           </div>
 
-          <div className="mt-12 w-full ">
+          <div className="mt-12 w-full">
             <button
               type="submit"
               onClick={handleSubmit}
-              className="rounded-md capitalize w-full font-bold text-base bg-transparent border-2 border-lime-700 text-lime-100 hover:bg-bg-700 hover:text-lime-200 hover:border-transparent transition-all duration-200 ease-out cursor-pointer py-4 px-8"
+              className="rounded-md capitalize w-full font-bold text-base bg-transparent border-2 border-lime-700 text-lime-100 hover:bg-lime-700 hover:text-lime-100 hover:border-transparent transition-all duration-200 ease-out cursor-pointer py-2 px-8"
             >
               submit
             </button>
