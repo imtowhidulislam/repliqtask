@@ -35,7 +35,7 @@ const Page = () => {
         }
         useEffect(() => {
             fetchCat();
-        },[])
+        },[filterProduct])
         console.log(productValue);
         console.log(button);
   return (

@@ -77,7 +77,7 @@ const NavbarMain = () => {
                 <Link href="/Register"> Account</Link>
               </li>
               <li className="flex items-center gap-2">
-                <span className="countCart">
+                <span className="countCart animate-bounce">
                   <BsCartPlus />
                   {/* <p className='numberOfItem'>{cartValue.length}</p> */}
                 </span>
