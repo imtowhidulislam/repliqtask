@@ -38,7 +38,7 @@ const NavbarMain = () => {
                 <li className='flex items-center gap-2'>
                     <span><VscAccount/>
                     </span>
-                    <Link href="/Account"> Account</Link>
+                    <Link href="/Register"> Account</Link>
                 </li>
                 <li className='flex items-center gap-2'>
                     <span className='countCart'>
@@ -82,7 +82,7 @@ const NavbarMain = () => {
                             <div className='gap-4 m-auto'>
                                 <li className='flex items-center justify-center gap-2 py-2'>
                                     <span><VscAccount/></span>
-                                    <Link href="/account"> Account</Link>
+                                    <Link href="/Register"> Account</Link>
                                 </li>
                                 <li className='flex items-center justify-center gap-2 py-2'>
                                     <span><BsCartPlus/></span>

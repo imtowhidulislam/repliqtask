@@ -82,22 +82,26 @@ body {
 
 /* ** Form Style Start */
 .contact{
-  background-image: url("https://unsplash.it/1000/1000?image=551");
+  background-image: url("https://unsplash.it/1000/1000?image=222");
   background-repeat: no-repeat;
   background-position: top left;
   background-size: cover;
 }
   .form{
-    background-color: hsla(60, 2%, 62%, 0.2);
+    background-color: hsla(60, 4%, 95%, 0.247);
     padding: .4rem;
     border-radius: .2rem;
   }
   .lableWidth{
-    min-width: 20%;
+    min-width: 30%;
     text-align: right;
   }
+  .registerForm{
+    background-color: #aeadad98;
+    backdrop-filter: blur(.5rem);
+  }
   .registerForm > *:not(:last-child){
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
   }
 /* ** Form Style End */
 

@@ -23,10 +23,8 @@ const SearchButton = () => {
     }
   return (
     <div className='flex items-center justify-between border border-gray-500 rounded-full overflow-hidden'>
-        
         <form className='flex items-center justify-center' onSubmit={handleSumbit}>
             <input id='search' ref={focusSearch} name='search' value={search.search} onChange={handleChange} placeholder='search' className='w-full lg:w-full placeholder:capitalize bg-transparent pl-4 border-none outline-none'>
-            
             </input>
             <div className={`flex items-center justify-center px-2 transition-all duration-150 ease-in-out ${search.search ? 'visible':'collapse'}`}>
                 <button onClick={deleteSearchText}>
