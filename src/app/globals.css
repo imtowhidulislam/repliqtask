@@ -86,21 +86,11 @@ body {
 /* *** Product Image Container Style End */
 
 /* ** Form Style Start */
-.contact{
-  background-image: url("https://unsplash.it/1000/1000?image=222");
-  background-repeat: no-repeat;
-  background-position: top left;
-  background-size: cover;
-}
+
   .form{
-    background-color: hsla(60, 4%, 95%, 0.247);
-    padding: .4rem;
-    border-radius: .2rem;
+    @apply bg-gray-300 opacity-10 p-2 rounded;
   }
-  .lableWidth{
-    /* min-width: 30%; */
-    /* text-align: right; */
-  }
+  
   input{
     width: 100%;
   }
@@ -132,14 +122,14 @@ body {
     min-height: 40rem;
   }
   .grid-layout > *:first-child{
-    background-color: #e4e2e2;
+    /* background-color: #e4e2e2; */
     grid-row: 1;
     grid-column: 1 / 5;
     padding-block: 2rem;
     padding-inline: 1rem;
   }
   .grid-layout > *:last-child{
-    background-color: #ccc9c9;
+    /* background-color: #ccc9c9; */
     grid-row: 1;
     grid-column: 5 / 13;
     padding-block: 2rem;
@@ -228,3 +218,9 @@ body {
   max-width: 400px;
 }
 /* !! Product Details Style End */
+
+/* *** Top Btn Style Start */
+  .topBtn{
+    @apply text-3xl animate-pulse font-bold text-lime-900;
+  }
+/* *** Top Btn Style End */

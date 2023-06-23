@@ -54,7 +54,7 @@ const NavbarMain = () => {
                 </Link>
               </li>
               <li className="navList">
-                <Link className="navLink" href="/dashboard">
+                <Link className="navLink" href="/Dashboard">
                   Dashboard
                 </Link>
               </li>
@@ -81,7 +81,7 @@ const NavbarMain = () => {
                   <BsCartPlus />
                   {/* <p className='numberOfItem'>{cartValue.length}</p> */}
                 </span>
-                <Link href="/Cart"> Cart</Link>
+                <Link href="/Cart">Cart</Link>
               </li>
             </div>
           </nav>

@@ -25,34 +25,39 @@ const ProductOfList = ({ product, setProduct }) => {
 
         return (
           <div key={id} className="card">
-            <Link href={`/Product/${id}`} className="">
-              <div className="m-auto w-48 max-h-44 mb-4 p-4">
-                <img
-                  className="block h-44 object-cover w-full"
-                  src={img}
-                  alt=""
-                />
-              </div>
-              <div className="px-4 text-gray-700 pt-2 pb-4 z-20">
-                <div>
-                  <h2>Name : {title}</h2>
+            <Link
+              href={`/Product/${id}`}
+              className="flex h-full items-center justify-between gap-2 flex-col"
+            >
+              <div className="">
+                <div className="m-auto w-48 max-h-44 mb-4 p-4">
+                  <img
+                    className="block h-44 object-cover w-full"
+                    src={img}
+                    alt=""
+                  />
                 </div>
-                <div className="flex items-center justify-between gap-4 py-2">
-                  <h2>
-                    Price :{" "}
-                    <span className="font-bold text-blue-800">{price}$</span>
-                  </h2>
-                  <p>
-                    Rating :{" "}
-                    <span className="font-bold text-blue-600">
-                      {rating.rate}
-                    </span>
-                  </p>
+                <div className="px-4 text-gray-700 pt-2 pb-4 z-20">
+                  <div>
+                    <h2>Name : {title}</h2>
+                  </div>
+                  <div className="flex items-center justify-between gap-4 py-2">
+                    <h2>
+                      Price :{" "}
+                      <span className="font-bold text-blue-800">{price}$</span>
+                    </h2>
+                    <p>
+                      Rating :{" "}
+                      <span className="font-bold text-blue-600">
+                        {rating.rate}
+                      </span>
+                    </p>
+                  </div>
+                  <h2>Category : {cat}</h2>
+                  {/* <p>Detail : {desc}$</p> */}
                 </div>
-                <h2>Category : {cat}</h2>
-                {/* <p>Detail : {desc}$</p> */}
               </div>
-              <div className="flex items-center justify-between px-2 pb-4">
+              <div className="w-full flex items-center justify-between px-2 pb-4">
                 {/* <Button actionType="add to card" />
                                     <Button actionType="buy now" /> */}
 
