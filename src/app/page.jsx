@@ -3,7 +3,7 @@ import { useState } from "react";
 import Image from "next/image";
 import { RiH2 } from "react-icons/ri";
 import ImageOne from "../../public/imageOne.svg";
-// import ImageTwo from "../assets/imageTwo.svg"
+// import ImageTwo from "../..public/imageTwo.svg"
 import Link from "next/link";
 import TopratedProduct from "./components/TopratedProduct";
 import { useQuery } from "@tanstack/react-query";

@@ -22,7 +22,7 @@ const ProductOfList = ({ product, setProduct }) => {
           rating,
           category: cat,
         } = singleProduct;
-
+        const titleLength = title.split(" ").slice(0, 5).join(" ");
         return (
           <div key={id} className="card">
             <Link
@@ -39,7 +39,7 @@ const ProductOfList = ({ product, setProduct }) => {
                 </div>
                 <div className="px-4 text-gray-700 pt-2 pb-4 z-20">
                   <div>
-                    <h2>Name : {title}</h2>
+                    <h2>Name : {title.split(" ").length <= 5 ? `${titleLength}` : `${titleLength}...`}</h2>
                   </div>
                   <div className="flex items-center justify-between gap-4 py-2">
                     <h2>

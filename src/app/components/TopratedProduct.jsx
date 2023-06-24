@@ -14,8 +14,10 @@ const TopratedProduct = () => {
     const res = await fetch("https://fakestoreapi.com/products");
     const data = await res.json();
     if (!res.ok) throw Error("Url might be not found.");
+    const topProducts = data.filter((item) => item.rating.rate >= 4.0);
 
-    setProduct(data);
+    console.log(topProducts);
+    setTopRate(topProducts);
     return data;
   };
 
@@ -24,18 +26,14 @@ const TopratedProduct = () => {
     queryFn: fetchData,
   });
 
-  const fetchingTopRatedProducts = () => {
+/*   const fetchingTopRatedProducts = () => {
     const topProducts = product.filter((item) => item.rating.rate >= 4.0);
     return setTopRate(topProducts);
-  };
+  }; */
   // if(isLoading) return "Loading...";
   if (error) return "Url might not be found" + error.message;
 
-  useEffect(() => {
-    fetchingTopRatedProducts();
-  }, []);
-
-  return (
+    return (
     <div>
       <div>
         <div className="container py-20">

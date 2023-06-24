@@ -1,14 +1,13 @@
 "use client";
-import { useEffect, useState } from "react";
-import Link from "next/link";
+import { useEffect, useRef, useState } from "react";
 import ProductCategory from "./components/productCategory";
 import ProductOfList from "./components/ProductOfList";
 import { useQuery } from "@tanstack/react-query";
 import { HiOutlineArrowUpCircle, HiArrowUpCircle } from "react-icons/hi2";
-import { animateScroll as scroll } from "react-scroll";
 // import { useProductData } from "../Data/productData";
 
 const Page = () => {
+  const sectionRef = useRef(null);
   //   const { data, isLoading, error } = useProductData();
   // const [cartValue, setCartValue] = cart;
   const [backToTop, setBackToTop] = useState(false);
@@ -17,11 +16,17 @@ const Page = () => {
   const [button, setButton] = useState([]);
   const [filterProduct, setFilterProduct] = useState("All");
 
+  const fetchCat = (data) => {
+    let unique = data.map((but) => but.category);
+    unique = [...new Set(unique)];
+    setButton(unique);
+  };
   const fetchData = async () => {
     const res = await fetch("https://fakestoreapi.com/products");
     const data = await res.json();
     if (!res.ok) throw Error("Url might be not found.");
 
+    fetchCat(data);
     setProductValue([...data]);
     return data;
   };
@@ -33,21 +38,23 @@ const Page = () => {
   // !!! Back To Top
 
   const handleTop = () => {
-    setBackToTop(!backToTop);
+    sectionRef.current?.scrollIntoView({
+      behavior :"smooth"
+    })
   };
 
   // !! Fetching the Unique Category>>>
   const handleClick = (e) => {
     setFilterProduct(e.target.dataset.name);
   };
-  const fetchCat = () => {
+/*   const fetchCat = () => {
     let unique = productValue.map((but) => but.category);
     unique = [...new Set(unique)];
     setButton(unique);
-  };
+  }; */
   useEffect(() => {
-    fetchCat();
-  }, [, filterProduct]);
+    // fetchCat();
+  }, []);
   console.log(button);
 
   return (
@@ -73,7 +80,7 @@ const Page = () => {
           })}
         </div>
       </div>
-      <div className="grid grid-cols-productLayout gap-4 mt-10">
+      <div ref={sectionRef} className="grid grid-cols-productLayout gap-4 mt-10">
         {filterProduct === "All" ? (
           <ProductOfList
             filterProduct={filterProduct}
@@ -94,19 +101,11 @@ const Page = () => {
           className="border-2 border-lime-200 rounded-full p-1"
           onClick={handleTop}
         >
-          <Link
-            href="#buttonSection"
-            spy={true}
-            smooth={true}
-            offset={0}
-            duration={500}
-          >
             {backToTop ? (
               <HiOutlineArrowUpCircle className="topBtn" />
             ) : (
               <HiArrowUpCircle className="topBtn" />
             )}
-          </Link>
         </button>
       </div>
     </div>
