@@ -25,7 +25,7 @@ const ProductOfList = ({ product, setProduct }) => {
         } = singleProduct;
         const titleLength = title.split(" ").slice(0, 5).join(" ");
         return (
-          <div key={id} className="card">
+          <div key={id} className="card animate-moveUp z-10">
             <Link
               href={`/Product/${id}`}
               className="flex h-full items-center justify-between gap-2 flex-col"

@@ -36,7 +36,7 @@ const ProductCategory = ({ product, setProduct, filterProduct }) => {
         } = singleProduct;
 
         return (
-          <div key={id} className="card">
+          <div key={id} className="card z-10 animate-moveUp">
             <Link
               href={`/Product/${id}`}
               className="flex h-full items-center justify-between gap-2 flex-col"

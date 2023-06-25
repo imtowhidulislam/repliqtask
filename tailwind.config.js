@@ -24,6 +24,9 @@ module.exports = {
       },
       animation: {
         bounce : "bounce 2s ease-in-out infinite forwards",
+        moveUp : "moveUp .5s ease-in-out 1 forwards",
+        moveInLeft : "moveInLeft .5s ease-in-out 1 forwards",
+        moveInRight : "moveInRight .5s ease-in-out 1 forwards",
       },
       keyframes: {
         bounce : {
@@ -32,6 +35,18 @@ module.exports = {
           '50%' : {transform : 'translateY(5px)',color: "purple"},
           '75%' : {transform : 'rotate(15deg)',color: "#34ff34"},
           '100%' : {transform : 'translateY(0px)',color: "lime"},
+        },
+        moveUp : {
+          '0%' : {transform : 'translateY(100%)' , opacity : 0},
+          '100%' : {transform : 'translateY(0%)' , opacity : 1},
+        },
+        moveInLeft : {
+          '0%' : {transform : 'translateX(-100%)' , opacity : 0},
+          '100%' : {transform : 'translateY(0%)' , opacity : 1},
+        },
+        moveInRight : {
+          '0%' : {transform : 'translateX(100%)' , opacity : 0},
+          '100%' : {transform : 'translateY(0%)' , opacity : 1},
         }
       }
     },

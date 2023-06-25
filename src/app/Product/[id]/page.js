@@ -1,7 +1,9 @@
 "use client"
+import { ButtonFilled, ButtonOutlined } from '@/app/Util/ButtonOutlined';
 import { useQuery } from '@tanstack/react-query';
 import React, { useEffect, useState } from 'react'
 import { FaStar } from 'react-icons/fa';
+import Image from 'next/image';
 
 const ProductDetailsPage = ({params}) => {
     console.log(+params.id);
@@ -32,31 +34,78 @@ const ProductDetailsPage = ({params}) => {
     }
     console.log(uniqueItem);
   return (
-    
-    <div className='my-20'>
-        <h2 className='mb-24 text-center text-3xl font-bold font-sans capitalize first-letter:text-blue-600'>let know about the product</h2>
-        {
-            uniqueItem.map(itemId => {
-                const {id,category,image,title , description , price, rating} = itemId;
-                return(
-                <div key={id} className='container grid grid-cols-homepageLayoutHero1 place-items-center gap-6'>
-                    <div className=''>
-                        <div className='singleItmeImg'>
-                            <img src={image} alt="image" />
+    <div>
+        <div className="container ">
+            <>
+            {uniqueItem?.map((singleProduct) => {
+                
+                const {
+                id,
+                title,
+                description: desc,
+                image: img,
+                price,
+                rating,
+                category: cat,
+                } = singleProduct;
+                
+                const titleLength = title.split(" ").slice(0 , 5).join(" ");
+                return (
+                <div key={id} className="my-20">
+                    <div className="grid grid-cols-productLayout  gap-4">
+                        <div className="grid bg-gray-200 rounded-md place-items-center animate-moveInLeft">
+                            <Image
+                                className="block bg-gray-100 object-cover object-center m-4 rounded-md" 
+                                src={img}
+                                alt=""
+                                width={300}
+                                height={350}
+                            />
+                            <div className="flex my-4 items-cener  justify-between gap-3">
+                                <div className="w-24 bg-gray-100 h-24 overflow-hidden grid place-items-center rounded-sm p-1">
+                                <Image className="object-cover object-center" src={img} alt="" width={50} height={50} />
+                                </div>
+                                <div className="w-24 bg-gray-100 h-24 overflow-hidden grid place-items-center rounded-sm p-1">
+                                <Image className="object-cover object-center" src={img} alt="" width={50} height={50} />
+                                </div>
+                                <div className="w-24 bg-gray-100 h-24 overflow-hidden grid place-items-center rounded-sm p-1">
+                                <Image className="object-cover object-center" src={img} alt="" width={50} height={50} />
+                                </div>
+
+                            </div>
+                        </div>
+                        <div className="px-4 animate-moveInRight text-gray-700 pt-4 pb-4 z-20">
+                            <div>
+                                <h2 className="text-xl font-bold">Name :  {title.split(" ").length <= 5 ? `${titleLength}` : `${titleLength}...`}</h2>
+                            </div>
+                            <div className="py-2">
+                                <h2 className="py-4 max-w-md">
+                                Desc :{" "}
+                                <span className="">{desc}$</span>
+                                </h2>
+                                <h2 className="pb-4">
+                                Price :{" "}
+                                <span className="font-bold text-blue-800">{price}$</span>
+                                </h2>
+                                <p>
+                                Rating :{" "}
+                                <span className="font-bold text-blue-600">
+                                    {rating.rate}
+                                </span>
+                                </p>
+                            </div>
+                        <h2 className="max-w-lg">Category : {cat}</h2>
+                        <div className="w-max flex gap-4 px-2 pb-4 mt-8">
+                            <ButtonOutlined btnText="view details" />
+                            <ButtonFilled btnText="buy now" />
+                        </div>
                         </div>
                     </div>
-                    <div className='text-left capitalize'>
-                        <h2 className='text-lg sm:text-base font-bold pb-2'>{title}</h2>
-                        <h2 className='text-base sm:text-base font-semibold pb-2'>{category}</h2>
-                        <h2 className='text-sm sm:text-base font-light pb-4'>{description}</h2>
-                        <h2 className='text-sm sm:text-base font-bold pb-4 text-lime-600'>Price ${price} USD</h2>
-                        <h2 className='text-sm sm:text-base flex items-center justify-start font-bold pb-4 text-yellow-800'><span className='mr-2'><FaStar /></span> {rating.rate}<span className='pl-2 text-sm sm:text-base font-bold text-lime-600'>({rating.count})</span></h2>
-                        <div className='w-full'><button onClick={() => getProduct(id)} className='bg-lime-transparent text-lime-900 border-2 border-lime-500 py-2 px-8 rounded-full drop-shadow-md cursor-pointer hover:bg-lime-700 hover:text-lime-100 hover:border-transparent transition-all duration-200 ease-in-out capitalize mt-6'>add to cart</button></div>
-                    </div>
                 </div>
-                )
+                );
             })
-        } 
+            }</>
+        </div>
     </div>
   )
 }

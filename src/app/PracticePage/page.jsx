@@ -36,35 +36,36 @@ const page = () => {
                   href={`/Product/${id}`}
                   className=""
                 >
-                  <div className="grid grid-cols-productLayout gap-4">
-                    <div className="border-2 grid place-items-center border-gray-200 p-4">
+                  <div className="grid grid-cols-productLayout  gap-4">
+                    <div className="grid bg-gray-200 rounded-md place-items-center ">
                       <Image
-                        className="block object-cover"
+                        className="block bg-gray-100 object-cover object-center m-4 rounded-md" 
                         src={img}
                         alt=""
                         width={300}
                         height={350}
                       />
-                      <div className="flex my-4 items-cener justify-between gap-3">
-                        <div className="w-20 h-20 overflow-hidden grid place-items-center p-2">
-                          <Image className="object-cover object-center" src={img} alt="" width={70} height={70} />
+                      <div className="flex my-4 items-cener  justify-between gap-3">
+                        <div className="w-24 bg-gray-100 h-24 overflow-hidden grid place-items-center rounded-sm p-1">
+                          <Image className="object-cover object-center" src={img} alt="" width={50} height={50} />
                         </div>
-                        <div className="w-20 h-20 overflow-hidden grid place-items-center p-2">
-                          <Image className="object-cover object-center" src={img} alt="" width={70} height={70} />
+                        <div className="w-24 bg-gray-100 h-24 overflow-hidden grid place-items-center rounded-sm p-1">
+                          <Image className="object-cover object-center" src={img} alt="" width={50} height={50} />
                         </div>
-                        <div className="w-20 h-20 overflow-hidden grid place-items-center p-2">
-                          <Image className="object-cover object-center" src={img} alt="" width={70} height={70} />
+                        <div className="w-24 bg-gray-100 h-24 overflow-hidden grid place-items-center rounded-sm p-1">
+                          <Image className="object-cover object-center" src={img} alt="" width={50} height={50} />
                         </div>
+
                       </div>
                     </div>
-                    <div className="px-4 border-2 border-gray-200 text-gray-700 pt-2 pb-4 z-20">
+                    <div className="px-4 text-gray-700 pt-4 pb-4 z-20">
                       <div>
-                        <h2>Name :  {title.split(" ").length <= 5 ? `${titleLength}` : `${titleLength}...`}</h2>
+                        <h2 className="text-xl font-bold">Name :  {title.split(" ").length <= 5 ? `${titleLength}` : `${titleLength}...`}</h2>
                       </div>
                       <div className="py-2">
                         <h2 className="py-4 max-w-md">
                           Desc :{" "}
-                          <span className="font-bold text-lime-800">{desc}$</span>
+                          <span className="">{desc}$</span>
                         </h2>
                         <h2 className="pb-4">
                           Price :{" "}
