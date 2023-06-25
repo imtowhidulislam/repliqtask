@@ -1,19 +1,24 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useProductData } from "../Data/productData";
 import Link from "next/link";
+import Image from "next/image";
+import { ButtonFilled, ButtonOutlined } from "../Util/ButtonOutlined";
 
 const page = () => {
   const { data, isLoading, error } = useProductData();
-  // const [product, setProduct] = useState([]);
+  
+  const oneProduct = data?.filter(item => item.id === 9);
+  console.log(oneProduct);
 
   return (
     <div>
       <h2>This is Practice Page!!!</h2>
-      <div className="grid grid-cols-productLayout place-items-start gap-4">
+      <div className="container ">
 
           <>
-          {data?.map((singleProduct) => {
+           {oneProduct?.map((singleProduct) => {
+            
             const {
               id,
               title,
@@ -23,27 +28,45 @@ const page = () => {
               rating,
               category: cat,
             } = singleProduct;
+            
             const titleLength = title.split(" ").slice(0 , 5).join(" ");
             return (
-              <div key={id} className="card">
+              <div key={id} className="my-20">
                 <Link
                   href={`/Product/${id}`}
-                  className="flex h-full items-center justify-between gap-2 flex-col"
+                  className=""
                 >
-                  <div className="">
-                    <div className="m-auto w-48 max-h-44 mb-4 p-4">
-                      <img
-                        className="block h-44 object-cover w-full"
+                  <div className="grid grid-cols-productLayout gap-4">
+                    <div className="border-2 grid place-items-center border-gray-200 p-4">
+                      <Image
+                        className="block object-cover"
                         src={img}
                         alt=""
+                        width={300}
+                        height={350}
                       />
-                    </div>
-                    <div className="px-4 text-gray-700 pt-2 pb-4 z-20">
-                      <div>
-                        <h2>Name : {title.split(" ").length <= 5 ? `${titleLength}` : `${titleLength}...`}</h2>
+                      <div className="flex my-4 items-cener justify-between gap-3">
+                        <div className="w-20 h-20 overflow-hidden grid place-items-center p-2">
+                          <Image className="object-cover object-center" src={img} alt="" width={70} height={70} />
+                        </div>
+                        <div className="w-20 h-20 overflow-hidden grid place-items-center p-2">
+                          <Image className="object-cover object-center" src={img} alt="" width={70} height={70} />
+                        </div>
+                        <div className="w-20 h-20 overflow-hidden grid place-items-center p-2">
+                          <Image className="object-cover object-center" src={img} alt="" width={70} height={70} />
+                        </div>
                       </div>
-                      <div className="flex items-center justify-between gap-4 py-2">
-                        <h2>
+                    </div>
+                    <div className="px-4 border-2 border-gray-200 text-gray-700 pt-2 pb-4 z-20">
+                      <div>
+                        <h2>Name :  {title.split(" ").length <= 5 ? `${titleLength}` : `${titleLength}...`}</h2>
+                      </div>
+                      <div className="py-2">
+                        <h2 className="py-4 max-w-md">
+                          Desc :{" "}
+                          <span className="font-bold text-lime-800">{desc}$</span>
+                        </h2>
+                        <h2 className="pb-4">
                           Price :{" "}
                           <span className="font-bold text-blue-800">{price}$</span>
                         </h2>
@@ -54,17 +77,12 @@ const page = () => {
                           </span>
                         </p>
                       </div>
-                      <h2>Category : {cat}</h2>
+                      <h2 className="max-w-lg">Category : {cat}</h2>
+                      <div className="w-max flex gap-4 px-2 pb-4 mt-8">
+                          <ButtonOutlined btnText="view details" />
+                          <ButtonFilled btnText="buy now" />
+                      </div>
                     </div>
-                  </div>
-                  <div className="w-full flex items-center justify-between px-2 pb-4">
-                      <button
-                      type="button"
-                      onClick={() => getProduct(id)}
-                      className="capitalize w-full font-bold text-sm text-lime-800 border-2 border-lime-800 bg-transparent cursor-pointer py-2 px-4 rounded-full hover:drop-shadow-md transition-all duration-200 ease-in-out hover:text-lime-100 hover:border-transparent hover:bg-lime-900"
-                    >
-                      view details
-                    </button>
                   </div>
                 </Link>
               </div>

@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from "react";
 // import Button from '../../Util/Button';
 import Link from "next/link";
+import Image from "next/image";
 
 const ProductOfList = ({ product, setProduct }) => {
   // const [cart,setCart] = useState([]);
@@ -31,10 +32,12 @@ const ProductOfList = ({ product, setProduct }) => {
             >
               <div className="">
                 <div className="m-auto w-48 max-h-44 mb-4 p-4">
-                  <img
+                  <Image
                     className="block h-44 object-cover w-full"
                     src={img}
                     alt=""
+                    width={300}
+                    height={300}
                   />
                 </div>
                 <div className="px-4 text-gray-700 pt-2 pb-4 z-20">

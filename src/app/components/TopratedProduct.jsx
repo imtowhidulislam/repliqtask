@@ -3,34 +3,21 @@ import { RxCross1 } from "react-icons/rx";
 import Link from "next/link";
 import { useQuery } from "@tanstack/react-query";
 import Image from "next/image";
-// import { useProductData } from "../Data/productData";
+import { useProductData } from "../Data/productData";
 
 const TopratedProduct = () => {
-  //   const { data, isLoading, error } = useProductData();
+  const { data, isLoading, error:error } = useProductData();
   const [topRate, setTopRate] = useState([]);
   const [product, setProduct] = useState([]);
 
-  const fetchData = async () => {
-    const res = await fetch("https://fakestoreapi.com/products");
-    const data = await res.json();
-    if (!res.ok) throw Error("Url might be not found.");
-    const topProducts = data.filter((item) => item.rating.rate >= 4.0);
-
-    console.log(topProducts);
-    setTopRate(topProducts);
-    return data;
-  };
-
-  const { data, isLoading, error } = useQuery({
-    queryKey: ["productData"],
-    queryFn: fetchData,
-  });
-
-/*   const fetchingTopRatedProducts = () => {
-    const topProducts = product.filter((item) => item.rating.rate >= 4.0);
+  const fetchingTopRatedProducts = () => {
+    const topProducts = data?.filter((item) => item.rating.rate >= 4.0);
     return setTopRate(topProducts);
-  }; */
-  // if(isLoading) return "Loading...";
+  }; 
+  useEffect(() => {
+    fetchingTopRatedProducts();
+  },[])
+
   if (error) return "Url might not be found" + error.message;
 
     return (
@@ -45,16 +32,16 @@ const TopratedProduct = () => {
           ) : (
             <>
               <div className="grid place-items-center grid-cols-productLayout gap-8">
-                {topRate.map((topProduct) => {
+                {topRate?.map((topProduct) => {
                   const { id, title, price, rating, image } = topProduct;
 
                   return (
                     <Link key={id} href={`/${id}`}>
                       <div className="flex items-start justify-between flex-col topCard w-72 p-4 shadow-lg rounded-md overflow-hidden bg-lime-200">
                         <div className="topImgCon rounded-md">
-                          <img
+                          <Image
                             src={image}
-                            rel="product Image"
+                            alt="product Image"
                             width={300}
                             height={300}
                           />
