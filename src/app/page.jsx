@@ -9,6 +9,7 @@ import TopratedProduct from "./components/TopratedProduct";
 import { useQuery } from "@tanstack/react-query";
 import Subscribe from "./components/Subscribe";
 import { HiOutlineArrowCircleUp } from "react-icons/hi";
+import HomeTopratedProduct from "./components/HomeProduct/page";
 
 export default function Home() {
   const [product, setProduct] = useState([]);
@@ -48,7 +49,8 @@ export default function Home() {
               </div>
             </header>
           </div>
-          <TopratedProduct />
+          {/* <TopratedProduct /> */}
+          <HomeTopratedProduct />          
           <Subscribe />
         </div>
       </div>

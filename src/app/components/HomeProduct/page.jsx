@@ -3,9 +3,9 @@ import { RxCross1 } from "react-icons/rx";
 import Link from "next/link";
 import { useQuery } from "@tanstack/react-query";
 import Image from "next/image";
-import { useProductData } from "../Data/productData";
+import { useProductData } from "../../Data/productData";
 
-const TopratedProduct = () => {
+const HomeTopratedProduct = () => {
   const { data, isLoading, error:error } = useProductData();
   const [topRate, setTopRate] = useState([]);
   const [product, setProduct] = useState([]);
@@ -31,13 +31,14 @@ const TopratedProduct = () => {
             <h2 className="text-2xl font-bold text-center">Loading...</h2>
           ) : (
             <>
-              <div className="grid place-items-center grid-cols-productLayout gap-8">
+              <div className="grid place-items-start h-full grid-cols-homepageLayoutHero1 gap-8">
                 {topRate?.map((topProduct) => {
                   const { id, title, price, rating, image } = topProduct;
                   const consizeTitle = title.split(" ").slice(0, 5).join(" ");
+
                   return (
-                    <Link key={id} href={`/${id}`}>
-                      <div className="flex items-start justify-between flex-col topCard w-72 p-4 shadow-lg rounded-md overflow-hidden bg-lime-200">
+                    <Link key={id} href={`/Product/${id}`}>
+                      <div className="flex items-start justify-between flex-col topCard w-72 p-4 shadow-lg rounded-md overflow-hidden bg-lime-200 animate-moveUp">
                         <div className="topImgCon rounded-md">
                           <Image
                             src={image}
@@ -48,7 +49,7 @@ const TopratedProduct = () => {
                         </div>
                         <div className="text-left mt-4 w-full">
                           <h2 className="text-base capitalize font-bold">
-                            {title.split(" ").length <= 5 ? `${consizeTitle}` : `${consizeTitle}...`}
+                          {title.split(" ").length <= 5 ? `${consizeTitle}` : `${consizeTitle}...`}
                           </h2>
                           <h2 className="text-md font-bold capitalize my-3">
                             $<span className="text-blue-600">{price}</span> USD
@@ -81,4 +82,4 @@ const TopratedProduct = () => {
   );
 };
 
-export default TopratedProduct;
+export default HomeTopratedProduct;

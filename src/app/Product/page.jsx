@@ -80,7 +80,7 @@ const Page = () => {
           })}
         </div>
       </div>
-      <div ref={sectionRef} className="grid grid-cols-productLayout gap-4 mt-10">
+    <div ref={sectionRef} className="grid grid-cols-productLayout gap-4 mt-10">
         {filterProduct === "All" ? (
           <ProductOfList
             filterProduct={filterProduct}
