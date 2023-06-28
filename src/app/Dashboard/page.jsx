@@ -1,9 +1,12 @@
 "use client";
 import { useState } from "react";
+import toast, {Toaster} from 'react-hot-toast';
 import { RiShoppingBagFill } from "react-icons/ri";
 import { FaTrash } from "react-icons/fa";
 import Link from "next/link";
 import { useQuery } from "@tanstack/react-query";
+import { HiCheckCircle } from "react-icons/hi";
+import Image from "next/image";
 
 const Dashboard = () => {
   //   const { product, cart } = useContext(ProductContext);
@@ -25,8 +28,14 @@ const Dashboard = () => {
   });
 
   const removeItem = (id) => {
-    setProductValue((current) => current.filter((item) => item.id !== id));
-  };
+    try{
+      setProductValue((current) => current.filter((item) => item.id !== id));
+      toast.success("product deleted successfully");
+    }
+     catch(error){
+      toast.error("Product not found")
+     } 
+  }
 
   return (
     <div>
@@ -67,10 +76,12 @@ const Dashboard = () => {
                 >
                   <div className="flex items-center gap-6">
                     <div className="h-20 w-20 rounded-md overflow-hidden">
-                      <img
+                      <Image
                         className="object-cover h-20 w-full"
                         src={image}
                         alt="image"
+                        width={80}
+                        height={80}
                       />
                     </div>
                     <div>
@@ -106,3 +117,15 @@ const Dashboard = () => {
 };
 
 export default Dashboard;
+/* 
+{
+      toast.success("product deleted successfully",{
+        // icon : <HiCheckCircle />,
+        style: {
+          borderRadius : '10px',
+          background : "#95faa2",
+          color : "#2a2929",
+        }
+      });
+    }
+ */

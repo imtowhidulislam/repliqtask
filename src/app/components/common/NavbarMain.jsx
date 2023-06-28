@@ -1,17 +1,20 @@
 "use client";
 import Link from "next/link";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { VscAccount } from "react-icons/vsc";
 import { RiShoppingBagFill } from "react-icons/ri";
 import { FaBars } from "react-icons/fa";
 import { RxCross1 } from "react-icons/rx";
 import { BsCartPlus } from "react-icons/bs";
 import SearchButton from "../SearchButton";
+import CartContextProvider from "@/app/context/cartContext";
 
 const NavbarMain = () => {
   // const [width, setWidth] = useState(768);
+  const {cart} = useContext(CartContextProvider);
   const [toggleNav, setToggleNav] = useState(false);
   const [width, setWidth] = useState(window?.innerWidth);
+  
 
   useEffect(() => {
     const calcSize = () => {
@@ -76,12 +79,13 @@ const NavbarMain = () => {
                 </span>
                 <Link href="/Register"> Account</Link>
               </li>
-              <li className="flex items-center gap-2">
-                <span className="countCart animate-bounce">
+              <li className="flex items-center gap-2 ">
+                <span className="countCart">
                   <BsCartPlus />
-                  {/* <p className='numberOfItem'>{cartValue.length}</p> */}
+
                 </span>
-                <Link href="/Cart">Cart</Link>
+                <Link className="relative" href="/Cart">Cart <span>
+                <p className='absolute top-0 left-full flex items-center justify-center w-4 h-4 rounded-full font-bold text-extraSmall bg-gray-200 ml-1 mb-1'>{cart.length}</p></span></Link>
               </li>
             </div>
           </nav>

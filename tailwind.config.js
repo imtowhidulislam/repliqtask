@@ -11,10 +11,11 @@ module.exports = {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic':
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+        'contact-image' : "url('https://unsplash.it/1000/1000?image=789')",
       },
       gridTemplateColumns: {
         "footerLayout" : "repeat(auto-fit, minmax(14rem, 1fr))",
-        "productLayout" : "repeat(auto-fit, minmax(16rem, 1fr))",
+        "productLayout" : "repeat(auto-fit,minmax(16rem, 1fr))",
         "collectionLayout" : "repeat(auto-fit, minmax(12rem, 1fr))",
         "homepageLayoutHero" : "repeat(auto-fit, minmax(22rem, 1fr))",
         "homepageLayoutHero1" : "repeat(auto-fit, minmax(18rem, 1fr))"

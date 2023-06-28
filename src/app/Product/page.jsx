@@ -1,15 +1,18 @@
 "use client";
-import { useEffect, useRef, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import ProductCategory from "./components/productCategory";
 import ProductOfList from "./components/ProductOfList";
 import { useQuery } from "@tanstack/react-query";
 import { HiOutlineArrowUpCircle, HiArrowUpCircle } from "react-icons/hi2";
 // import { useProductData } from "../Data/productData";
+import CartContextProvider from "../context/cartContext";
+
 
 const Page = () => {
   const sectionRef = useRef(null);
   //   const { data, isLoading, error } = useProductData();
-  // const [cartValue, setCartValue] = cart;
+  const { cart } = useContext(CartContextProvider);
+  const [cartValue, setCartValue] = cart;
   const [backToTop, setBackToTop] = useState(false);
   //   const [productValue, setProductValue] = useState(data);
   const [productValue, setProductValue] = useState([]);
@@ -86,12 +89,16 @@ const Page = () => {
             filterProduct={filterProduct}
             product={productValue}
             // setProduct={setProductValue}
+            cart={cartValue}
+            setCart={setCartValue}
           />
         ) : (
           <ProductCategory
             filterProduct={filterProduct}
             product={productValue}
             // setProduct={setProductValue}
+            cart={cartValue}
+            setCart={setCartValue}
           />
         )}
       </div>

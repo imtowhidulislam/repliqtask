@@ -1,33 +1,35 @@
 "use client";
-import React, { useEffect, useRef, useState } from "react";
-// import Counter from "../components/Counter";
+import React, { useEffect,useContext, useRef, useState } from "react";
 import { HiArchiveBoxXMark } from "react-icons/hi2";
-// import {
-//   CounterContextProvider,
-//   CounterContext,
-// } from "../context/counterContext";
+import CartContextProvider from "../context/cartContext";
+import Image from "next/image";
+import { toast } from "react-hot-toast";
+import Counter from "../components/Counter";
 
 const Cart = () => {
-  //   const { cart, product } = useContext(ProductContext);
-  const [cartValue, setCartValue] = useState([]);
+    const { cart } = useContext(CartContextProvider);
+  const [cartValue, setCartValue] = cart;
   const [uniqueCart, setUniqueCart] = useState([]);
   const counterRef = useRef(null);
 
   const deleteItem = () => {
-    setCartValue([]);
-    setUniqueCart([]);
+    try{
+      setCartValue([]);
+      setUniqueCart([]);
+
+      toast.success("Cart is empty");
+    }catch(error) {
+      toast.error("Can't perform the operation.");
+    }
   };
   const fetchUniqueCart = () => {
-    let uniqueItem = cartValue.map((item) => item);
-    uniqueItem = [...new Set(uniqueItem)];
-
-    setUniqueCart((prevItem) => [...prevItem, ...uniqueItem]);
+    const uniqueItem = new Set(cartValue.map(JSON.stringify));
+    const uniqueProduct = Array.from(uniqueItem).map(JSON.parse);
+    setUniqueCart((prevItem) => [...prevItem, ...uniqueProduct]);
   };
   useEffect(() => {
     fetchUniqueCart();
-    console.log(uniqueCart);
-    console.log(cartValue);
-  }, []);
+  },[])
   console.log(uniqueCart);
 
   return (
@@ -58,10 +60,12 @@ const Cart = () => {
                 >
                   <div className="flex items-center gap-6">
                     <div className="h-20 w-20 rounded-md overflow-hidden">
-                      <img
-                        className="object-cover h-20 w-full"
+                      <Image
+                        className="object-cover h-20 w-full object-center"
                         src={image}
                         alt="image"
+                        width={60}
+                        height={40}
                       />
                     </div>
                     <div>

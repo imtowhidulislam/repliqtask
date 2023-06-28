@@ -3,8 +3,15 @@ import React, { useState, useEffect } from "react";
 // import Button from "../../Util/Button"
 import Link from "next/link";
 import Image from "next/image";
+import { toast } from "react-hot-toast";
 
-const ProductCategory = ({ product, setProduct, filterProduct }) => {
+const ProductCategory = ({
+  product,
+  cart,
+  setCart,
+  setProduct,
+  filterProduct,
+}) => {
   const [filterProductData, setFilterProductData] = useState([]);
 
   const filterCategory = () => {
@@ -18,8 +25,13 @@ const ProductCategory = ({ product, setProduct, filterProduct }) => {
   }, [filterProduct]);
 
   const getProduct = (id) => {
-    const fetchCartItem = product.find((item) => item.id === id);
-    setCart((prevValue) => [...prevValue, fetchCartItem]);
+    try {
+      const fetchCartItem = product.find((item) => item.id === id);
+      setCart((prevValue) => [...prevValue, fetchCartItem]);
+      toast.success("Product added successfully");
+    } catch (error) {
+      toast.error("Product not found");
+    }
   };
 
   return (
@@ -82,7 +94,7 @@ const ProductCategory = ({ product, setProduct, filterProduct }) => {
                   onClick={() => getProduct(id)}
                   className="w-full capitalize font-bold text-sm text-lime-900  bg-transparent cursor-pointer py-2 px-4 rounded-md hover:drop-shadow-md transition-all duration-200 ease-in-out border-2 border-lime-900 hover:text-lime-100 hover:bg-lime-700 hover:border-transparent"
                 >
-                  View details
+                  add to cart
                 </button>
               </div>
             </Link>

@@ -1,3 +1,4 @@
+import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import { FaStar } from "react-icons/fa";
 
@@ -28,7 +29,7 @@ const ProductDetailsPage = ({
           >
             <div className="">
               <div className="singleItmeImg">
-                <img src={image} alt="image" />
+                <Image src={image} alt="image" width={300} height={300} />
               </div>
             </div>
             <div className="text-left capitalize">

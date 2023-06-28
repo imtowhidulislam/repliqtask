@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import Image from "next/image";
 import { RiH2 } from "react-icons/ri";
 import ImageOne from "../../public/imageOne.svg";
@@ -10,8 +10,11 @@ import { useQuery } from "@tanstack/react-query";
 import Subscribe from "./components/Subscribe";
 import { HiOutlineArrowCircleUp } from "react-icons/hi";
 import HomeTopratedProduct from "./components/HomeProduct/page";
+import CartContextProvider from "./context/cartContext";
 
 export default function Home() {
+  const {cart} = useContext(CartContextProvider);
+  const [cartValue, setCartValue] = cart;
   const [product, setProduct] = useState([]);
 
   return (
@@ -49,7 +52,6 @@ export default function Home() {
               </div>
             </header>
           </div>
-          {/* <TopratedProduct /> */}
           <HomeTopratedProduct />          
           <Subscribe />
         </div>

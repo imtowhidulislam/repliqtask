@@ -3,13 +3,24 @@ import React, { useEffect, useState } from "react";
 // import Button from '../../Util/Button';
 import Link from "next/link";
 import Image from "next/image";
+import { toast } from "react-hot-toast";
 
-const ProductOfList = ({ product, setProduct }) => {
+const ProductOfList = ({ product, cart, setCart }) => {
   // const [cart,setCart] = useState([]);
   const getProduct = (id) => {
-    const fetchCartItem = product.find((item) => item.id === id);
-    setCart((prevItem) => [...prevItem, fetchCartItem]);
+    try{
+      const fetchCartItem = product.find((item) => {
+        item.quantity = 1; 
+        return item.id === id
+      });
+      setCart((prevItem) => [...prevItem, fetchCartItem]);
+
+      toast.success("product added successfully");
+    }catch(error) {
+      toast.error("product not found");
+    }
   };
+  console.log(cart);
 
   return (
     <>
@@ -60,7 +71,7 @@ const ProductOfList = ({ product, setProduct }) => {
                   {/* <p>Detail : {desc}$</p> */}
                 </div>
               </div>
-              <div className="w-full flex items-center justify-between px-2 pb-4">
+              <div cla ssName="w-full flex items-center justify-between px-2 pb-4">
                 {/* <Button actionType="add to card" />
                                     <Button actionType="buy now" /> */}
 
@@ -69,7 +80,7 @@ const ProductOfList = ({ product, setProduct }) => {
                   onClick={() => getProduct(id)}
                   className="capitalize w-full font-bold text-sm text-lime-800 border-2 border-lime-800 bg-transparent cursor-pointer py-2 px-4 rounded-full hover:drop-shadow-md transition-all duration-200 ease-in-out hover:text-lime-100 hover:border-transparent hover:bg-lime-900"
                 >
-                  view details
+                  add to cart
                 </button>
               </div>
             </Link>

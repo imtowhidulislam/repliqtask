@@ -6,6 +6,8 @@ import Navbar from './components/common/Navbar'
 import Footer from './components/common/Footer'
 import NavbarMain from './components/common/NavbarMain'
 import FooterMain from './components/common/FooterMain'
+import { CartProvider } from './context/cartContext'
+import { Toaster } from 'react-hot-toast'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -19,13 +21,16 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={inter.className}>
+          <CartProvider>
           <NavbarMain/>
-          <QueryClientProvider client={queryClient} >
-            {/* <main> */}
-              {children}
-            {/* </main> */}
-          </QueryClientProvider>
+            <QueryClientProvider client={queryClient} >
+              {/* <main> */}
+                {children}
+              {/* </main> */}
+              <Toaster />
+            </QueryClientProvider>
           <Footer />
+          </CartProvider>
         </body>
     </html>
   )

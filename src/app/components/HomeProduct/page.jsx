@@ -1,15 +1,28 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { RxCross1 } from "react-icons/rx";
 import Link from "next/link";
 import { useQuery } from "@tanstack/react-query";
 import Image from "next/image";
 import { useProductData } from "../../Data/productData";
+import { toast } from "react-hot-toast";
+import CartContextProvider from "@/app/context/cartContext";
 
 const HomeTopratedProduct = () => {
+  const {cart} = useContext(CartContextProvider);
   const { data, isLoading, error:error } = useProductData();
   const [topRate, setTopRate] = useState([]);
+  const [cartValue, setCartValue] = cart;
   const [product, setProduct] = useState([]);
 
+  const addToCart = (id) => {
+    try{
+      const fetchCartItem = product.find((item) => item.id === id);
+      setCartValue((prevItem) => [...prevItem, fetchCartItem]);
+      toast.success("product added successfully");
+    }catch(error) {
+      toast.error("Product not found");
+    }
+  };
   const fetchingTopRatedProducts = () => {
     const topProducts = data?.filter((item) => item.rating.rate >= 4.0);
     return setTopRate(topProducts);
@@ -64,7 +77,7 @@ const HomeTopratedProduct = () => {
                             </span>
                           </h2>
                           <div>
-                            <button className="capitalize font-base cursor-pointer py-2 px-8 rounded-full w-full mt-4 bg-lime-600 text-lime-100 hover:bg-lime-400 hover:text-lime-900 transition-all duration-200 ease-in-out font-bold font-serif">
+                            <button onClick={() => addToCart(id)} className="capitalize font-base cursor-pointer py-2 px-8 rounded-full w-full mt-4 bg-lime-600 text-lime-100 hover:bg-lime-400 hover:text-lime-900 transition-all duration-200 ease-in-out font-bold font-serif">
                               add to cart
                             </button>
                           </div>

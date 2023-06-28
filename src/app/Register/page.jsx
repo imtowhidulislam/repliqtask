@@ -3,19 +3,17 @@ import React from "react";
 import { RiShoppingBagFill } from "react-icons/ri";
 import { useFormik } from "formik";
 import { formSchema } from "../Register/schemas/page";
-import toast, { Toaster } from "react-hot-toast";
+import toast from "react-hot-toast";
 import FormikError from "../Register/components/formikError";
 
 const page = () => {
-  const message = () => toast("form Submitted successfully");
 
   const onSubmit = async (actions, values) => {
     console.log(values);
-    // console.log(actions);
-    console.log("submitted");
+    console.log(actions);
     await new Promise((resolve) => resolve, 1000);
     actions.resetForm();
-    message();
+    toast.success("Submitted successfully");
   };
   const {
     values,
@@ -40,20 +38,20 @@ const page = () => {
   console.log(errors);
   return (
     <>
-      <div className=" flex bg-form-image bg-left-top bg-no-repeat bg-cover h-full w-full items-center justify-center">
+      <div className="relative flex bg-contact-image before:absolute before:w-full before:h-full before:bg-[rgba(10,46,16,0.57)] before:backdrop-blur-sm before:top-0 before:left-0  bg-center bg-no-repeat bg-cover h-full w-full items-center justify-center">
         <form
           onSubmit={handleSubmit}
-          className="registerForm w-full max-w-md px-4 rounded-md overflow-hidden mx-4 sm:mx-0 my-8 py-6 border border-gray-200 bg-[#14141483] backdrop-filter backdrop-blur-md"
+          className="registerForm animate-moveUp w-full max-w-md px-4 rounded-md overflow-hidden mx-4 sm:mx-0 my-8 py-6 border border-gray-200 bg-[#14141483] backdrop-filter backdrop-blur-md"
         >
           <div className="flex items-center justify-center text-6xl text-cyan-700 pb-1">
-            <div>
+            {/* <div>
               <h2 className="uppercase text-lime-300 text-4xl font-bold flex gap-2 items-center">
                 <span className="text-lime-600">
                   <RiShoppingBagFill />
                 </span>
                 repliq
               </h2>
-            </div>
+            </div> */}
           </div>
           <div className="pb-2">
             <h2 className="text-center text-xl font-bold text-[#ffff] uppercase">
@@ -78,8 +76,8 @@ const page = () => {
                 placeholder="enter your first name"
                 className={
                   errors.lName && touched.lName
-                    ? "form placeholder:capitalize pl-4 border-2 border-red-500"
-                    : "form placeholder:capitalize pl-4 bg-transparent"
+                    ? "form placeholder:capitalize placeholder:text-gray-900 pl-4 border-2 border-red-500"
+                    : "form placeholder:capitalize pl-4 "
                 }
               />
               {errors.fName && touched.fName && (
@@ -107,7 +105,7 @@ const page = () => {
                 className={
                   errors.lName && touched.lName
                     ? "form placeholder:capitalize pl-4 border-2 border-red-500"
-                    : "bg-transparent form placeholder:capitalize pl-4"
+                    : "form placeholder:capitalize pl-4"
                 }
                 placeholder="enter your last name"
               />
@@ -135,7 +133,7 @@ const page = () => {
                 className={
                   errors.email && touched.email
                     ? "form placeholder:capitalize placeholder:text-lime-700 pl-4 border-2 border-red-500"
-                    : "form placeholder:capitalize placeholder:text-time-700 pl-4"
+                    : "form placeholder:capitalize pl-4"
                 }
                 placeholder="enter your email"
               />
@@ -207,11 +205,10 @@ const page = () => {
             <button
               type="submit"
               onClick={handleSubmit}
-              className="rounded-md capitalize w-full font-bold text-base bg-transparent border-2 border-lime-700 text-lime-100 hover:bg-lime-700 hover:text-lime-200 hover:border-transparent transition-all duration-200 ease-out cursor-pointer py-2 px-8"
+              className="rounded-md capitalize w-full font-bold text-base bg-transparent border-2 border-lime-700 text-lime-100 hover:bg-lime-700 hover:text-lime-100 hover:border-transparent transition-all duration-200 ease-out cursor-pointer py-2 px-8"
             >
               submit
             </button>
-            <Toaster />
           </div>
 
           {/* <div><p className='capitalize text-gray-300'>{account}<span><button type='button' className='uppercase text-sky-400 underline cursor-pointer'>{acctionType}</button></span></p></div> */}

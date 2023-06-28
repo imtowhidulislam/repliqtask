@@ -22,12 +22,10 @@ const ProductDetails = () => {
         const productId = +params.id; 
         setItemsId(productId)
     },[pathName])
-    console.log(itemsId);
 
     useEffect(() => {
         singleItem();
     },[itemsId]);
-    console.log(uniqueItem);
 
   return (
     <div className=''>

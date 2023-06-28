@@ -3,6 +3,7 @@ import { ButtonFilled, ButtonOutlined } from '@/app/Util/ButtonOutlined';
 import { useQuery } from '@tanstack/react-query';
 import React, { useEffect, useState } from 'react'
 import { FaStar } from 'react-icons/fa';
+import Link from 'next/link';
 import Image from 'next/image';
 
 const ProductDetailsPage = ({params}) => {
@@ -97,7 +98,9 @@ const ProductDetailsPage = ({params}) => {
                         <h2 className="max-w-lg">Category : {cat}</h2>
                         <div className="w-max flex gap-4 px-2 pb-4 mt-8">
                             <ButtonOutlined btnText="view details" />
-                            <ButtonFilled btnText="buy now" />
+                            <Link href="/Cart">
+                                <ButtonFilled btnText="buy now" />
+                            </Link>
                         </div>
                         </div>
                     </div>
