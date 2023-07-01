@@ -16,9 +16,11 @@ module.exports = {
       gridTemplateColumns: {
         "footerLayout" : "repeat(auto-fit, minmax(14rem, 1fr))",
         "productLayout" : "repeat(auto-fit,minmax(16rem, 1fr))",
+        "productLayoutTop" : "repeat(auto-fit,minmax(13rem, 1fr))",
         "collectionLayout" : "repeat(auto-fit, minmax(12rem, 1fr))",
         "homepageLayoutHero" : "repeat(auto-fit, minmax(22rem, 1fr))",
-        "homepageLayoutHero1" : "repeat(auto-fit, minmax(18rem, 1fr))"
+        "homepageLayoutHero1" : "repeat(auto-fit, minmax(18rem, 1fr))",
+        "userLayout" : "repeat(auto-fit, minmax(5rem, 1fr))"
       },
       fontSize: {
         extraSmall : "8px",

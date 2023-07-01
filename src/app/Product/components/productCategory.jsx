@@ -46,6 +46,7 @@ const ProductCategory = ({
           rating,
           category: cat,
         } = singleProduct;
+        const titleLength = title.split(" ").slice(0, 5).join(" ");
 
         return (
           <div key={id} className="card z-10 animate-moveUp">
@@ -63,9 +64,9 @@ const ProductCategory = ({
                     height={300}
                   />
                 </div>
-                <div className="px-4 text-gray-700 pt-2 pb-4 z-20">
+                <div className="px-4 text-gray-700 pt-2 pb-4 z-20 text-left">
                   <div>
-                    <h2>Name : {title}</h2>
+                    <h2>Name : {title.split(" ").length <= 5 ? `${titleLength}` : `${titleLength}...`}</h2>
                   </div>
                   <div className="flex items-center justify-between gap-4 py-2">
                     <h2>

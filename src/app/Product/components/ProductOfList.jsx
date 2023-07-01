@@ -10,6 +10,8 @@ const ProductOfList = ({ product, cart, setCart }) => {
   const getProduct = (id) => {
     try{
       const fetchCartItem = product.find((item) => {
+        if(item.id === id) item.quantity += 1;
+
         item.quantity = 1; 
         return item.id === id
       });
@@ -20,7 +22,6 @@ const ProductOfList = ({ product, cart, setCart }) => {
       toast.error("product not found");
     }
   };
-  console.log(cart);
 
   return (
     <>
@@ -36,12 +37,12 @@ const ProductOfList = ({ product, cart, setCart }) => {
         } = singleProduct;
         const titleLength = title.split(" ").slice(0, 5).join(" ");
         return (
-          <div key={id} className="card animate-moveUp z-10">
+          <div key={id} className="card z-10 animate-moveUp">
             <Link
               href={`/Product/${id}`}
               className="flex h-full items-center justify-between gap-2 flex-col"
             >
-              <div className="">
+              <div>
                 <div className="m-auto w-48 max-h-44 mb-4 p-4">
                   <Image
                     className="block h-44 object-cover w-full"
@@ -58,11 +59,13 @@ const ProductOfList = ({ product, cart, setCart }) => {
                   <div className="flex items-center justify-between gap-4 py-2">
                     <h2>
                       Price :{" "}
-                      <span className="font-bold text-blue-800">{price}$</span>
+                      <span className="font-bold text-yellow-400">
+                        {price}$
+                      </span>
                     </h2>
                     <p>
                       Rating :{" "}
-                      <span className="font-bold text-blue-600">
+                      <span className="font-bold text-yellow-400">
                         {rating.rate}
                       </span>
                     </p>
@@ -71,14 +74,14 @@ const ProductOfList = ({ product, cart, setCart }) => {
                   {/* <p>Detail : {desc}$</p> */}
                 </div>
               </div>
-              <div cla ssName="w-full flex items-center justify-between px-2 pb-4">
+              <div className="flex items-center w-full justify-between px-2 pb-4 w-full">
                 {/* <Button actionType="add to card" />
-                                    <Button actionType="buy now" /> */}
+                            <Button actionType="buy now" /> */}
 
                 <button
                   type="button"
                   onClick={() => getProduct(id)}
-                  className="capitalize w-full font-bold text-sm text-lime-800 border-2 border-lime-800 bg-transparent cursor-pointer py-2 px-4 rounded-full hover:drop-shadow-md transition-all duration-200 ease-in-out hover:text-lime-100 hover:border-transparent hover:bg-lime-900"
+                  className="w-full capitalize font-bold text-sm text-lime-900  bg-transparent cursor-pointer py-2 px-4 rounded-md hover:drop-shadow-md transition-all duration-200 ease-in-out border-2 border-lime-900 hover:text-lime-100 hover:bg-lime-700 hover:border-transparent"
                 >
                   add to cart
                 </button>

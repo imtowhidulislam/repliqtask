@@ -50,15 +50,6 @@ const Page = () => {
   const handleClick = (e) => {
     setFilterProduct(e.target.dataset.name);
   };
-/*   const fetchCat = () => {
-    let unique = productValue.map((but) => but.category);
-    unique = [...new Set(unique)];
-    setButton(unique);
-  }; */
-  useEffect(() => {
-    // fetchCat();
-  }, []);
-  console.log(button);
 
   return (
     <div className="container py-24 px-8 md:px-0">

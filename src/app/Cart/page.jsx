@@ -30,7 +30,9 @@ const Cart = () => {
   useEffect(() => {
     fetchUniqueCart();
   },[])
-  console.log(uniqueCart);
+
+  const total = uniqueCart.reduce((total, item) => total + (item.quantity * item.price) ,0).toFixed(2);
+  
 
   return (
     <div className="bg-lime-100 py-16 cartHeight">
@@ -48,7 +50,7 @@ const Cart = () => {
             <HiArchiveBoxXMark className="text-xl text-red-500 hover:animate-shake" />
           </button>
         </div>
-        <div className="grid grid-cols-homepageLayoutHero gap-4">
+        <div className="grid grid-cols-homepageLayoutHero gap-24">
           <div>
             {uniqueCart.map((item) => {
               const { id, title, price, image, category } = item;
@@ -82,7 +84,7 @@ const Cart = () => {
                   </div>
                   <div>
                     <div>
-                      <Counter />
+                      <Counter id={id} />
                     </div>
                   </div>
                 </div>
@@ -97,7 +99,7 @@ const Cart = () => {
                   subtotal
                 </h2>
                 <h2 className="text-base font-medium capitalize text-left">
-                  $34.42
+                  ${total}
                 </h2>
               </div>
               <div className="flex items-center justify-between gap-4">
@@ -114,7 +116,7 @@ const Cart = () => {
                 total
               </h2>
               <h2 className="text-base font-medium capitalize text-left">
-                $456.56
+                ${(+total + 3.45).toFixed(2)}
               </h2>
             </div>
           </div>

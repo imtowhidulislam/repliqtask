@@ -9,8 +9,6 @@ import { HiCheckCircle } from "react-icons/hi";
 import Image from "next/image";
 
 const Dashboard = () => {
-  //   const { product, cart } = useContext(ProductContext);
-  //   const [cartValue, setCartValue] = cart;
   const [productValue, setProductValue] = useState([]);
 
   const fetchData = async () => {
@@ -39,28 +37,6 @@ const Dashboard = () => {
 
   return (
     <div>
-      <div className="grid-layout container">
-        <div className="">
-          <div className="mb-6">
-            <h2 className="uppercase text-lime-900 text-2xl font-bold flex gap-2 items-center">
-              <span className="text-lime-400">
-                <RiShoppingBagFill />
-              </span>
-              repliq
-            </h2>
-          </div>
-          <div className="w-full grid place-items-start gap-3">
-            <button className="w-full bg-lime-300 text-lime-900 font-medium font-serif py-2 px-8 rounded-full cursor-pointer capitalize hover:text-lime-900 border-2 border-transparent hover:bg-transparent hover:border-lime-600">
-              products
-            </button>
-            <button className="w-full bg-lime-300 text-lime-900 font-medium font-serif py-2 px-8 rounded-full cursor-pointer capitalize hover:text-lime-900 border-2 border-transparent hover:bg-transparent hover:border-lime-600">
-              add products
-            </button>
-            <button className="w-full bg-lime-300 text-lime-900 font-medium font-serif py-2 px-8 rounded-full cursor-pointer capitalize hover:text-lime-900 border-2 border-transparent hover:bg-transparent hover:border-lime-600">
-              add customer
-            </button>
-          </div>
-        </div>
         <div>
           <h2 className="capitalize mb-4 text-2xl font-bold font-mono">
             total no of product is : {productValue.length}
@@ -68,11 +44,11 @@ const Dashboard = () => {
           <div>
             {productValue.map((item) => {
               const { id, title, price, image, category } = item;
-
+              const setDelay = id * 100;
               return (
                 <div
                   key={id}
-                  className="flex items-center justify-between gap-8 p-3 rounded-md drop-shadow-md mb-2 bg-lime-100 border-1 border-lime-600"
+                  className={`flex items-center justify-between gap-8 p-3 rounded-md drop-shadow-md mb-2 bg-lime-100 border-1 border-lime-600 animate-moveUp delay-[${setDelay}]`}
                 >
                   <div className="flex items-center gap-6">
                     <div className="h-20 w-20 rounded-md overflow-hidden">
@@ -111,21 +87,8 @@ const Dashboard = () => {
             })}
           </div>
         </div>
-      </div>
     </div>
   );
 };
 
 export default Dashboard;
-/* 
-{
-      toast.success("product deleted successfully",{
-        // icon : <HiCheckCircle />,
-        style: {
-          borderRadius : '10px',
-          background : "#95faa2",
-          color : "#2a2929",
-        }
-      });
-    }
- */

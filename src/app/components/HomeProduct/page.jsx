@@ -8,86 +8,100 @@ import { toast } from "react-hot-toast";
 import CartContextProvider from "@/app/context/cartContext";
 
 const HomeTopratedProduct = () => {
-  const {cart} = useContext(CartContextProvider);
-  const { data, isLoading, error:error } = useProductData();
+  const { cart } = useContext(CartContextProvider);
+  const { data, isLoading, error: error } = useProductData();
   const [topRate, setTopRate] = useState([]);
   const [cartValue, setCartValue] = cart;
   const [product, setProduct] = useState([]);
 
   const addToCart = (id) => {
-    try{
+    try {
       const fetchCartItem = product.find((item) => item.id === id);
       setCartValue((prevItem) => [...prevItem, fetchCartItem]);
       toast.success("product added successfully");
-    }catch(error) {
+    } catch (error) {
       toast.error("Product not found");
     }
   };
   const fetchingTopRatedProducts = () => {
     const topProducts = data?.filter((item) => item.rating.rate >= 4.0);
     return setTopRate(topProducts);
-  }; 
+  };
   useEffect(() => {
     fetchingTopRatedProducts();
-  },[])
+  }, []);
 
   if (error) return "Url might not be found" + error.message;
 
-    return (
+  return (
     <div>
       <div>
         <div className="container py-20">
-          <h2 className="text-xl uppercase mb-6 sm:text-2xl md:text-3xl font-bold font-mono text-left text-[#13194a]">
+          <h2 className="mb-6 text-left font-mono text-xl font-bold uppercase text-[#13194a] sm:text-2xl md:text-3xl">
             Top Rated Items
           </h2>
           {isLoading ? (
-            <h2 className="text-2xl font-bold text-center">Loading...</h2>
+            <h2 className="text-center text-2xl font-bold">Loading...</h2>
           ) : (
-            <>
-              <div className="grid place-items-start h-full grid-cols-homepageLayoutHero1 gap-8">
-                {topRate?.map((topProduct) => {
-                  const { id, title, price, rating, image } = topProduct;
-                  const consizeTitle = title.split(" ").slice(0, 5).join(" ");
-
-                  return (
-                    <Link key={id} href={`/Product/${id}`}>
-                      <div className="flex items-start justify-between flex-col topCard w-72 p-4 shadow-lg rounded-md overflow-hidden bg-lime-200 animate-moveUp">
-                        <div className="topImgCon rounded-md">
+            <div className="grid grid-cols-productLayoutTop gap-4 place-items-start">
+              {topRate?.map((topProduct) => {
+                const { id, title, price, rating, image } = topProduct;
+                const titleLength = title.split(" ").slice(0, 5).join(" ");
+                return (
+                  <div key={id} className="card z-10 animate-moveUp">
+                    <Link
+                      href={`/Product/${id}`}
+                      className="flex h-full flex-col items-center justify-between gap-2"
+                    >
+                      <div>
+                        <div className="m-auto mb-4 p-4 w-52 h-44 overflow-hidden">
                           <Image
+                            className="block object-center object-cover"
                             src={image}
-                            alt="product Image"
-                            width={300}
-                            height={300}
+                            alt=""
+                            width={250}
+                            height={200}
                           />
                         </div>
-                        <div className="text-left mt-4 w-full">
-                          <h2 className="text-base capitalize font-bold">
-                          {title.split(" ").length <= 5 ? `${consizeTitle}` : `${consizeTitle}...`}
-                          </h2>
-                          <h2 className="text-md font-bold capitalize my-3">
-                            $<span className="text-blue-600">{price}</span> USD
-                          </h2>
-                          <h2 className="text-sm capitalize ">
-                            rating :{" "}
-                            <span className="text-bold text-blue-800">
-                              {rating.rate}
-                            </span>
-                            <span className="capitalize text-blue-600 font-bold ml-4">
-                              ({rating.count})
-                            </span>
-                          </h2>
+                        <div className="z-20 px-4 pb-4 pt-2 text-gray-700">
                           <div>
-                            <button onClick={() => addToCart(id)} className="capitalize font-base cursor-pointer py-2 px-8 rounded-full w-full mt-4 bg-lime-600 text-lime-100 hover:bg-lime-400 hover:text-lime-900 transition-all duration-200 ease-in-out font-bold font-serif">
-                              add to cart
-                            </button>
+                            <h2>
+                              Name :{" "}
+                              {title.split(" ").length <= 5
+                                ? `${titleLength}`
+                                : `${titleLength}...`}
+                            </h2>
+                          </div>
+                          <div className="flex items-center justify-between gap-4 py-2">
+                            <h2>
+                              Price :{" "}
+                              <span className="text-sm font-bold text-lime-400">
+                                {price}$
+                              </span>
+                            </h2>
+                            <p>
+                              Rating :{" "}
+                              <span className="text-sm font-bold text-lime-400">
+                                {rating.rate}
+                              </span>
+                            </p>
                           </div>
                         </div>
                       </div>
+                      <div className="flex w-full w-full items-center justify-between px-2 pb-4">
+                        <button
+                          type="button"
+                          onClick={() => addToCart(id)}
+                          className="w-full cursor-pointer rounded-md border-2 border-lime-900  bg-transparent px-4 py-2 text-sm font-bold capitalize text-lime-900 transition-all duration-200 ease-in-out hover:border-transparent hover:bg-lime-700 hover:text-lime-100 hover:drop-shadow-md"
+                        >
+                          add to cart
+                        </button>
+                      </div>
                     </Link>
-                  );
-                })}
-              </div>
-            </>
+                  </div>
+                );
+              })}
+            </div>
           )}
         </div>
       </div>

@@ -2,14 +2,17 @@
 import React, { useContext, useState } from "react";
 import { RiShoppingBagFill } from "react-icons/ri";
 import { useFormik } from "formik";
-import { formSchema } from "../Register/schemas/page";
 import toast from "react-hot-toast";
-import FormikError from "../Register/components/formikError";
-import CartContextProvider from "../context/cartContext";
+import CartContextProvider from "@/app/context/cartContext";
+import { useProductData } from "@/app/Data/productData";
+import { productSchema } from "@/app/Register/schemas/page";
 
 const page = () => {
+  const {data, isLoading, error} = useProductData();
   const {user} = useContext(CartContextProvider);
   const [users, setUsers] = user;
+
+  console.log(data);
 
   const {
     values,
@@ -21,13 +24,13 @@ const page = () => {
     handleBlur,
   } = useFormik({
     initialValues: {
-      fName: "",
-      lName: "",
-      email: "",
+      title: "",
+      desc: "",
+      price: null,
       file: null,
-      password: "",
+      category: "",
     },
-    validationSchema: formSchema,
+    validationSchema: productSchema,
     onSubmit : async ({fName,lName,email,password,file},{resetForm}) => {
       const userId = new Date().getTime().toString();
       const newUser = {...values, userId};
@@ -70,20 +73,20 @@ const page = () => {
             <div className="relative">
               <input
                 type="text"
-                id="fName"
-                value={values.fName}
+                id="title"
+                value={values.title}
                 onChange={handleChange}
                 onBlur={handleBlur}
-                placeholder="enter your first name"
+                placeholder="enter product title"
                 className={
-                  errors.lName && touched.lName
+                  errors.title && touched.title
                     ? "form placeholder:capitalize placeholder:text-gray-900 pl-4 border-2 border-red-500"
                     : "form placeholder:capitalize pl-4 "
                 }
               />
-              {errors.fName && touched.fName && (
+              {errors.title && touched.title && (
                 <p className="text-red-600 text-sm font-semibold capitalize absolute top-full left-0">
-                  {errors.fName}
+                  {errors.title}
                 </p>
               )}
             </div>
@@ -92,27 +95,27 @@ const page = () => {
           <div className="">
             <label
               className="lableWidth text-gray-100 font-bold capitalize"
-              htmlFor="lName"
+              htmlFor="desc"
             >
-              Last Name
+              desc
             </label>
             <div className="relative">
               <input
                 type="text"
-                name="lName"
+                name="desc"
                 onBlur={handleBlur}
                 onChange={handleChange}
-                value={values.lName}
+                value={values.desc}
                 className={
-                  errors.lName && touched.lName
+                  errors.desc && touched.desc
                     ? "form placeholder:capitalize pl-4 border-2 border-red-500"
                     : "form placeholder:capitalize pl-4"
                 }
-                placeholder="enter your last name"
+                placeholder="enter product desc"
               />
-              {errors.lName && touched.lName && (
+              {errors.desc && touched.desc && (
                 <p className="text-red-600 text-sm font-semibold capitalize absolute top-full left-0">
-                  {errors.lName}
+                  {errors.desc}
                 </p>
               )}{" "}
             </div>
@@ -120,27 +123,27 @@ const page = () => {
           <div className="">
             <label
               className="lableWidth text-gray-100 font-bold capitalize"
-              htmlFor="email"
+              htmlFor="price"
             >
-              Email
+              price
             </label>
             <div className="relative">
               <input
-                type="email"
-                name="email"
+                type="number"
+                name="price"
                 onBlur={handleBlur}
                 onChange={handleChange}
-                value={values.email}
+                value={values.price}
                 className={
-                  errors.email && touched.email
+                  errors.price && touched.price
                     ? "form placeholder:capitalize placeholder:text-lime-700 pl-4 border-2 border-red-500"
                     : "form placeholder:capitalize pl-4"
                 }
-                placeholder="enter your email"
+                placeholder="enter product price"
               />
-              {errors.email && touched.email && (
+              {errors.price && touched.price && (
                 <p className="text-red-600 text-sm font-semibold capitalize absolute top-full left-0">
-                  {errors.email}
+                  {errors.price}
                 </p>
               )}
             </div>
@@ -164,7 +167,7 @@ const page = () => {
                     ? "form placeholder:capitalize pl-4 border-2 border-red-500"
                     : "form placeholder:capitalize pl-4"
                 }
-                placeholder="enter your Image"
+                placeholder="enter product Image"
               />
               {errors.file && touched.file && (
                 <p className="text-red-600 text-sm font-semibold capitalize absolute top-full left-0">
@@ -176,27 +179,27 @@ const page = () => {
           <div className="">
             <label
               className="lableWidth text-gray-100 font-bold capitalize"
-              htmlFor="password"
+              htmlFor="categor"
             >
-              Password
+              Category
             </label>
             <div className="relative">
               <input
-                type="password"
-                name="password"
+                type="text"
+                name="category"
                 onBlur={handleBlur}
                 onChange={handleChange}
-                value={values.password}
+                value={values.category}
                 className={
-                  errors.password && touched.password
+                  errors.category && touched.category
                     ? "form placeholder:capitalize pl-4 border-2 border-red-500"
                     : "form bg-transparent placeholder:capitalize pl-4"
                 }
-                placeholder="enter you password"
+                placeholder="enter product category"
               />
-              {errors.password && touched.password && (
+              {errors.category && touched.category && (
                 <p className="text-red-600 text-sm font-semibold capitalize absolute top-full left-0">
-                  {errors.password}
+                  {errors.category}
                 </p>
               )}
             </div>
