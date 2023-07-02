@@ -52,9 +52,9 @@ const Page = () => {
   };
 
   return (
-    <div className="container py-24 px-3 md:px-0">
+    <div className="container py-8 sm:py-24 px-3 md:px-0">
       <div id="buttonSection" className="btn_container">
-        <button className="btn" onClick={handleClick} data-name="All">
+        <button className="btn w-full sm:w-max" onClick={handleClick} data-name="All">
           All
         </button>
         <div className="flex items-center justify-center flex-wrap gap-2">
@@ -63,7 +63,7 @@ const Page = () => {
               <>
                 <button
                   key={btns.id}
-                  className="btn"
+                  className="btn w-full sm:w-max"
                   onClick={handleClick}
                   data-name={btns}
                 >
