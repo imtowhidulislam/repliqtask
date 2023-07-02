@@ -81,7 +81,7 @@ const NavbarMain = ({params}) => {
                 <span>
                   <VscAccount />
                 </span>
-                <Link className={currentPath === "/Account" ? "navLink text-lime-500" : "navLink"} href="/Register"> Account</Link>
+                <Link className={currentPath === "/Register" ? "navLink text-lime-500" : "navLink"} href="/Register"> Account</Link>
               </li>
               <li className="flex items-center gap-2 ">
                 <span className="countCart">
@@ -144,7 +144,7 @@ const NavbarMain = ({params}) => {
                     <span>
                       <VscAccount />
                     </span>
-                    <Link className={currentPath === "/Account" ? "navLink text-lime-500" : "navLink"} href="/Register"> Account</Link>
+                    <Link className={currentPath === "/Register" ? "navLink text-lime-500" : "navLink"} href="/Register"> Account</Link>
                   </li>
                   <li className="navList flex items-center justify-start gap-2 py-2">
                     <span>

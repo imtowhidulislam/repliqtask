@@ -39,21 +39,12 @@ const page = () => {
  
   return (
     <>
-      <div className="relative flex bg-contact-image before:absolute before:w-full before:h-full before:bg-[rgba(10,46,16,0.57)] before:backdrop-blur-sm before:top-0 before:left-0  bg-center bg-no-repeat bg-cover h-full w-full items-center justify-center">
+      <div className="relative overflow-hidden flex bg-contact-image before:absolute before:w-full before:h-full before:bg-[rgba(10,46,16,0.57)] before:backdrop-blur-sm before:top-0 before:left-0  bg-center bg-no-repeat bg-cover h-full w-full items-center justify-center">
         <form
           onSubmit={handleSubmit}
           className="registerForm animate-moveUp w-full max-w-md px-4 rounded-md overflow-hidden mx-4 sm:mx-0 my-8 py-6 border border-gray-200 bg-[#14141483] backdrop-filter backdrop-blur-md"
         >
-          <div className="flex items-center justify-center text-6xl text-cyan-700 pb-1">
-            {/* <div>
-              <h2 className="uppercase text-lime-300 text-4xl font-bold flex gap-2 items-center">
-                <span className="text-lime-600">
-                  <RiShoppingBagFill />
-                </span>
-                repliq
-              </h2>
-            </div> */}
-          </div>
+          
           <div className="pb-2">
             <h2 className="text-center text-xl font-bold text-[#ffff] uppercase">
               sign up
