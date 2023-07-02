@@ -17,8 +17,6 @@ const NavbarMain = ({params}) => {
   const [toggleNav, setToggleNav] = useState(false);
   const [width, setWidth] = useState(window?.innerWidth);
   
-  console.log(currentPath);
-  
   useEffect(() => {
     const calcSize = () => {
       setWidth(window.innerWidth);

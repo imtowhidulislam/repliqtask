@@ -13,7 +13,6 @@ const HomeTopratedProduct = () => {
   const [topRate, setTopRate] = useState([]);
   const [cartValue, setCartValue] = cart;
 
-  console.log(data);
   const addToCart = (id) => {
     try {
       const fetchCartItem = data?.find((item) => {

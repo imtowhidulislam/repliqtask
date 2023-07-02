@@ -4,6 +4,7 @@ import CartContextProvider from "@/app/context/cartContext";
 import Image from "next/image";
 import Link from "next/link";
 import React, { useContext } from "react";
+import Empty from "../../../../public/emptyUser.svg";
 import { toast } from "react-hot-toast";
 
 const page = () => {
@@ -22,11 +23,14 @@ const page = () => {
   return (
     <div>
       {users.length <= 0 ? (
-        <div>
-          <h2 className="text-2xl font-bold py-4">
-            User not found, Create first.
-          </h2>
-          <div>
+        <div className="grid place-items-center overflow-hidden">
+          <div className="animate-moveInLeft">
+            <Image src={Empty} alt={user} width={400} height={400} />
+          </div>
+          <div className="grid place-items-center">
+            <h2 className="py-4 text-2xl font-bold">
+              User not found, Create first.
+            </h2>
             <Link href="/Register">
               <ButtonOutlined btnText="Create user" />
             </Link>
@@ -38,9 +42,9 @@ const page = () => {
           return (
             <div
               key={id}
-              className="mb-2 flex flex-wrap items-center justify-center sm:justify-between flex-col sm:flex-row gap-2 sm:gap-1 rounded-md border-2 border-gray-200 p-4 shadow-lg"
+              className="mb-2 flex flex-col flex-wrap items-center justify-center gap-2 rounded-md border-2 border-gray-200 p-4 shadow-lg sm:flex-row sm:justify-between sm:gap-1"
             >
-              <div className="w-12 border border-lime-700 overflow-hidden rounded-full">
+              <div className="w-12 overflow-hidden rounded-full border border-lime-700">
                 <Image
                   src={`/${image?.name}`}
                   alt={fName}
@@ -48,8 +52,12 @@ const page = () => {
                   height={50}
                 />
               </div>
-              <p className="capitalize font-bold text-xl text-lime-900">{fName}</p>
-              <p className="capitalize font-bold sm:font-light break-words text-small sm:text-base">{email}</p>
+              <p className="text-xl font-bold capitalize text-lime-900">
+                {fName}
+              </p>
+              <p className="break-words text-small font-bold capitalize sm:text-base sm:font-light">
+                {email}
+              </p>
               <div>
                 <button
                   type="button"
