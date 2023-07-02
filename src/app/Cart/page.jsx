@@ -58,7 +58,7 @@ const Cart = () => {
               return (
                 <div
                   key={id}
-                  className="flex items-center justify-between gap-8 p-3 rounded-md drop-shadow-md mb-2 bg-slate-200 border-b border-gray-400"
+                  className="flex items-center justify-between gap-8 p-3 rounded-md drop-shadow-md mb-2 bg-lime-200 border-b border-gray-400"
                 >
                   <div className="flex items-center gap-6">
                     <div className="h-20 w-20 rounded-md overflow-hidden">

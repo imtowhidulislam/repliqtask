@@ -34,7 +34,7 @@ const Page = () => {
     return data;
   };
 
-  const productList = useQuery({
+  const {data,isLoading, error} = useQuery({
     queryKey: ["productData"],
     queryFn: fetchData,
   });
@@ -52,7 +52,7 @@ const Page = () => {
   };
 
   return (
-    <div className="container py-24 px-8 md:px-0">
+    <div className="container py-24 px-3 md:px-0">
       <div id="buttonSection" className="btn_container">
         <button className="btn" onClick={handleClick} data-name="All">
           All
@@ -74,12 +74,13 @@ const Page = () => {
           })}
         </div>
       </div>
-    <div ref={sectionRef} className="grid grid-cols-productLayout gap-4 mt-10">
+    <div ref={sectionRef} className="grid grid-cols-productLayout place-items-start gap-4 mt-10">
         {filterProduct === "All" ? (
           <ProductOfList
             filterProduct={filterProduct}
             product={productValue}
             // setProduct={setProductValue}
+            loading={isLoading}
             cart={cartValue}
             setCart={setCartValue}
           />
@@ -88,6 +89,7 @@ const Page = () => {
             filterProduct={filterProduct}
             product={productValue}
             // setProduct={setProductValue}
+            loading={isLoading}
             cart={cartValue}
             setCart={setCartValue}
           />

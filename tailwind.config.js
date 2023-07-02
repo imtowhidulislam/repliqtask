@@ -24,6 +24,7 @@ module.exports = {
       },
       fontSize: {
         extraSmall : "8px",
+        small : "10px",
       },
       animation: {
         bounce : "bounce 2s ease-in-out infinite forwards",

@@ -21,6 +21,7 @@ const NavbarMain = () => {
       setWidth(window.innerWidth);
     };
 
+    setToggleNav(false);
     window.addEventListener("resize", calcSize);
     return () => {
       window.removeEventListener("resize", calcSize);
@@ -34,7 +35,7 @@ const NavbarMain = () => {
 
   return (
     <div className="bg-gray-100">
-      <div className="container py-2">
+      <div className="container py-4">
         {width > 768 ? (
           <nav className="flex items-center justify-between gap-2 max-w-7xl w-full">
             <div>
@@ -105,8 +106,8 @@ const NavbarMain = () => {
             <div
               className={
                 toggleNav
-                  ? "mobileNav z-10 py-20 fixed top left-0 px-32 backdrop-blur-md backdrop-filter bg-[#1e1e1c89]"
-                  : "mobileNav-active z-10 py-20 fixed top left-0 px-32 backdrop-blur-md backdrop-filter bg-[#1e1e1c89] "
+                  ? "mobileNav z-50 py-20 fixed top left-0 px-4 sm:px-32 backdrop-blur-md backdrop-filter bg-[#1e1e1c89]"
+                  : "mobileNav-active z-50 py-20 fixed top left-0 px-4 sm:px-32 backdrop-blur-md backdrop-filter bg-[#1e1e1c89] "
               }
             >
               <div className="">
@@ -115,7 +116,7 @@ const NavbarMain = () => {
                     <SearchButton />
                   </li>
                 </div>
-                <div className="gap-2">
+                <div className="gap-2 mt-4">
                   <li className="navList">
                     <Link className="navLink" href="/">
                       Home
@@ -127,7 +128,7 @@ const NavbarMain = () => {
                     </Link>
                   </li>
                   <li className="navList">
-                    <Link className="navLink" href="/dashboard">
+                    <Link className="navLink" href="/Dashboard">
                       Dashboard
                     </Link>
                   </li>
@@ -136,13 +137,13 @@ const NavbarMain = () => {
                       Practice
                     </Link>
                   </li>
-                  <li className="flex items-center justify-center gap-2 py-2">
+                  <li className="navList flex items-center justify-start gap-2 py-2">
                     <span>
                       <VscAccount />
                     </span>
                     <Link href="/Register"> Account</Link>
                   </li>
-                  <li className="flex items-center justify-center gap-2 py-2">
+                  <li className="navList flex items-center justify-start gap-2 py-2">
                     <span>
                       <BsCartPlus />
                     </span>

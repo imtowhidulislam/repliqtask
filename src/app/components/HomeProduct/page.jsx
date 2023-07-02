@@ -12,12 +12,18 @@ const HomeTopratedProduct = () => {
   const { data, isLoading, error: error } = useProductData();
   const [topRate, setTopRate] = useState([]);
   const [cartValue, setCartValue] = cart;
-  const [product, setProduct] = useState([]);
 
+  console.log(data);
   const addToCart = (id) => {
     try {
-      const fetchCartItem = product.find((item) => item.id === id);
+      const fetchCartItem = data?.find((item) => {
+        if (item.id === id) item.quantity += 1;
+
+        item.quantity = 1;
+        return item.id === id;
+      });
       setCartValue((prevItem) => [...prevItem, fetchCartItem]);
+
       toast.success("product added successfully");
     } catch (error) {
       toast.error("Product not found");
@@ -43,20 +49,20 @@ const HomeTopratedProduct = () => {
           {isLoading ? (
             <h2 className="text-center text-2xl font-bold">Loading...</h2>
           ) : (
-            <div className="grid grid-cols-productLayoutTop gap-4 place-items-start">
+            <div className="grid grid-cols-productLayoutTop place-items-start gap-4">
               {topRate?.map((topProduct) => {
                 const { id, title, price, rating, image } = topProduct;
                 const titleLength = title.split(" ").slice(0, 5).join(" ");
                 return (
-                  <div key={id} className="card z-10 animate-moveUp">
+                  <div key={id} className="card z-10 animate-moveUp flex h-full flex-col items-center justify-between gap-2">
                     <Link
                       href={`/Product/${id}`}
-                      className="flex h-full flex-col items-center justify-between gap-2"
+                      className=""
                     >
                       <div>
-                        <div className="m-auto mb-4 p-4 w-52 h-44 overflow-hidden">
+                        <div className="m-auto mb-4 h-44 w-52 overflow-hidden p-4">
                           <Image
-                            className="block object-center object-cover"
+                            className="block object-cover object-center"
                             src={image}
                             alt=""
                             width={250}
@@ -88,16 +94,16 @@ const HomeTopratedProduct = () => {
                           </div>
                         </div>
                       </div>
-                      <div className="flex w-full w-full items-center justify-between px-2 pb-4">
-                        <button
-                          type="button"
-                          onClick={() => addToCart(id)}
-                          className="w-full cursor-pointer rounded-md border-2 border-lime-900  bg-transparent px-4 py-2 text-sm font-bold capitalize text-lime-900 transition-all duration-200 ease-in-out hover:border-transparent hover:bg-lime-700 hover:text-lime-100 hover:drop-shadow-md"
-                        >
-                          add to cart
-                        </button>
-                      </div>
                     </Link>
+                    <div className="flex w-full items-center justify-between px-2 pb-4">
+                      <button
+                        type="button"
+                        onClick={() => addToCart(id)}
+                        className="w-full cursor-pointer rounded-md border-2 border-lime-900  bg-transparent px-4 py-2 text-sm font-bold capitalize text-lime-900 transition-all duration-200 ease-in-out hover:border-transparent hover:bg-lime-700 hover:text-lime-100 hover:drop-shadow-md"
+                      >
+                        add to cart
+                      </button>
+                    </div>
                   </div>
                 );
               })}

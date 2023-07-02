@@ -56,7 +56,6 @@ body {
   }
   .footerStyle > *:nth-child(1){
     margin-bottom: .5rem;
-    color: #adafb1;
   }
   .footerSocialIcon{
     @apply hover:text-blue-400 transition-colors ease-in-out duration-200 cursor-pointer;
@@ -105,8 +104,8 @@ body {
 
 /* ?? NavBar Style Start */
 .mobileNav{
-  inset: -100% 0% 100% 0%;
-  transition: inset 1s ease-in-out;
+  inset: -90% 0% 100% 0%;
+  transition: inset .3s ease-in-out;
 }
 .mobileNav-active{
   inset: 56px 0% 0% 0%;

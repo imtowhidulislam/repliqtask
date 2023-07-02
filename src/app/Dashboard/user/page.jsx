@@ -38,9 +38,9 @@ const page = () => {
           return (
             <div
               key={id}
-              className="mb-2 flex flex-wrap items-center justify-between gap-1 rounded-md border-2 border-gray-200 p-4 shadow-lg"
+              className="mb-2 flex flex-wrap items-center justify-center sm:justify-between flex-col sm:flex-row gap-2 sm:gap-1 rounded-md border-2 border-gray-200 p-4 shadow-lg"
             >
-              <div className="w-12 overflow-hidden rounded-full">
+              <div className="w-12 border border-lime-700 overflow-hidden rounded-full">
                 <Image
                   src={`/${image?.name}`}
                   alt={fName}
@@ -48,8 +48,8 @@ const page = () => {
                   height={50}
                 />
               </div>
-              <p>{fName}</p>
-              <p>{email}</p>
+              <p className="capitalize font-bold text-xl text-lime-900">{fName}</p>
+              <p className="capitalize font-bold sm:font-light break-words text-small sm:text-base">{email}</p>
               <div>
                 <button
                   type="button"
