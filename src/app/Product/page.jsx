@@ -74,7 +74,7 @@ const Page = () => {
           })}
         </div>
       </div>
-    <div ref={sectionRef} className="grid grid-cols-productLayout place-items-start gap-4 mt-10">
+    <div ref={sectionRef} className="grid overflow-hidden grid-cols-productLayout place-items-start0 gap-4 mt-10">
         {filterProduct === "All" ? (
           <ProductOfList
             filterProduct={filterProduct}

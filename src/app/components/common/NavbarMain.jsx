@@ -8,14 +8,17 @@ import { RxCross1 } from "react-icons/rx";
 import { BsCartPlus } from "react-icons/bs";
 import SearchButton from "../SearchButton";
 import CartContextProvider from "@/app/context/cartContext";
+import {usePathname} from "next/navigation"
 
-const NavbarMain = () => {
+const NavbarMain = ({params}) => {
   // const [width, setWidth] = useState(768);
+  const currentPath = usePathname();
   const {cart} = useContext(CartContextProvider);
   const [toggleNav, setToggleNav] = useState(false);
   const [width, setWidth] = useState(window?.innerWidth);
   
-
+  console.log(currentPath);
+  
   useEffect(() => {
     const calcSize = () => {
       setWidth(window.innerWidth);
@@ -48,22 +51,22 @@ const NavbarMain = () => {
             </div>
             <div className="flexRow gap-2">
               <li className="navList">
-                <Link className="navLink" href="/">
+                <Link className={currentPath === "/" ? "navLink text-lime-500" : "navLink"} href="/">
                   Home
                 </Link>
               </li>
               <li className="navList">
-                <Link className="navLink" href="/Product">
+                <Link className={currentPath === "/Product" ? "navLink text-lime-500" : "navLink"} href="/Product">
                   Product
                 </Link>
               </li>
               <li className="navList">
-                <Link className="navLink" href="/Dashboard">
+                <Link className={currentPath === "/Dashboard" ? "navLink text-lime-500" : "navLink"} href="/Dashboard">
                   Dashboard
                 </Link>
               </li>
               <li className="navList">
-                <Link className="navLink" href="/PracticePage">
+                <Link className={currentPath === "/PracticePage" ? "navLink text-lime-500" : "navLink"} href="/PracticePage">
                   Practice
                 </Link>
               </li>
@@ -78,14 +81,14 @@ const NavbarMain = () => {
                 <span>
                   <VscAccount />
                 </span>
-                <Link href="/Register"> Account</Link>
+                <Link className={currentPath === "/Account" ? "navLink text-lime-500" : "navLink"} href="/Register"> Account</Link>
               </li>
               <li className="flex items-center gap-2 ">
                 <span className="countCart">
                   <BsCartPlus />
 
                 </span>
-                <Link className="relative" href="/Cart">Cart <span>
+                <Link className={currentPath === "/Cart" ? "navLink relative text-lime-500" : "navLink relative"} href="/Cart">Cart <span>
                 <p className='absolute top-0 left-full flex items-center justify-center w-4 h-4 rounded-full font-bold text-extraSmall bg-gray-200 ml-1 mb-1'>{cart.length}</p></span></Link>
               </li>
             </div>
@@ -118,22 +121,22 @@ const NavbarMain = () => {
                 </div>
                 <div className="gap-2 mt-4">
                   <li className="navList">
-                    <Link className="navLink" href="/">
+                    <Link className={currentPath === "/" ? "navLink text-lime-500" : "navLink"} href="/">
                       Home
                     </Link>
                   </li>
                   <li className="navList">
-                    <Link className="navLink" href="/Product">
+                    <Link className={currentPath === "/Product" ? "navLink text-lime-500" : "navLink"} href="/Product">
                       Product
                     </Link>
                   </li>
                   <li className="navList">
-                    <Link className="navLink" href="/Dashboard">
+                    <Link className={currentPath === "/Dashboard" ? "navLink text-lime-500" : "navLink"} href="/Dashboard">
                       Dashboard
                     </Link>
                   </li>
                   <li className="navList">
-                    <Link className="navLink" href="/PracticePage">
+                    <Link className={currentPath === "/PracticePage" ? "navLink text-lime-500" : "navLink"} href="/PracticePage">
                       Practice
                     </Link>
                   </li>
@@ -141,13 +144,13 @@ const NavbarMain = () => {
                     <span>
                       <VscAccount />
                     </span>
-                    <Link href="/Register"> Account</Link>
+                    <Link className={currentPath === "/Account" ? "navLink text-lime-500" : "navLink"} href="/Register"> Account</Link>
                   </li>
                   <li className="navList flex items-center justify-start gap-2 py-2">
                     <span>
                       <BsCartPlus />
                     </span>
-                    <Link href="/cart"> Cart</Link>
+                    <Link className={currentPath === "/Cart" ? "navLink text-lime-500" : "navLink"} href="/cart"> Cart</Link>
                   </li>
                 </div>
                 {/*                 <div className="gap-4 m-auto">

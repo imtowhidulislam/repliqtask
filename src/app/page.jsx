@@ -21,9 +21,9 @@ export default function Home() {
     <>
       <div>
         <div>
-          <div className="bg-lime-200 py-12">
+          <div className="bg-lime-200 py-12 overflow-hidden">
             <header className="container grid grid-cols-homepageLayoutHero1 place-items-center gap-12 md:gap-16 lg:gap-20">
-              <div>
+              <div className="animate-moveUp">
                 <h2 className="capitalize text-4xl sm:text-5xl lg:text-7xl font-bold font-mono text-left text-lime-950">
                   shopping and department store
                 </h2>
@@ -47,7 +47,7 @@ export default function Home() {
                   </li>
                 </div>
               </div>
-              <div className="md:m-8 lg:m-12">
+              <div className="md:m-8 lg:m-12 animate-moveUp">
                 <Image src={ImageOne} alt="" width={700} height={700} />
               </div>
             </header>

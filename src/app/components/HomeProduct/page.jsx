@@ -49,7 +49,7 @@ const HomeTopratedProduct = () => {
           {isLoading ? (
             <h2 className="text-center text-2xl font-bold">Loading...</h2>
           ) : (
-            <div className="grid grid-cols-productLayoutTop place-items-start gap-4">
+            <div className="grid overflow-hidden grid-cols-productLayoutTop place-items-start gap-4">
               {topRate?.map((topProduct) => {
                 const { id, title, price, rating, image } = topProduct;
                 const titleLength = title.split(" ").slice(0, 5).join(" ");
