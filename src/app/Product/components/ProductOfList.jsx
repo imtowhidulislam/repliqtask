@@ -5,6 +5,8 @@ import Link from "next/link";
 import Image from "next/image";
 import { toast } from "react-hot-toast";
 import Loading from "../loading";
+import {HiShoppingCart,HiOutlineHeart,HiHeart} from "react-icons/hi"
+import FavoriteBtn from "./FavoriteBtn";
 
 const ProductOfList = ({ product, loading, cart, setCart }) => {
   // const [cart,setCart] = useState([]);
@@ -43,8 +45,11 @@ const ProductOfList = ({ product, loading, cart, setCart }) => {
           return (
             <div
               key={id}
-              className="card z-10 flex h-full animate-moveUp flex-col items-center justify-between gap-2"
+              className="card z-10 flex h-full animate-moveUp flex-col items-center justify-between gap-2 relative"
             >
+              <div className="absolute top-3 left-3/4">
+                <FavoriteBtn />
+              </div>
               <Link href={`/Product/${id}`} className="">
                 <div>
                   <div className="m-auto mb-4 h-60 max-w-xs p-4">
@@ -84,7 +89,7 @@ const ProductOfList = ({ product, loading, cart, setCart }) => {
                   </div>
                 </div>
               </Link>
-              <div className="flex w-full w-full items-center justify-between px-2 pb-4">
+              <div className="flex w-full items-center justify-between px-2 pb-4">
                 {/* <Button actionType="add to card" />
                               <Button actionType="buy now" /> */}
 

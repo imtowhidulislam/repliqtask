@@ -5,6 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { toast } from "react-hot-toast";
 import Loading from "../loading";
+import FavoriteBtn from "./FavoriteBtn";
 
 const ProductCategory = ({
   product,
@@ -56,8 +57,11 @@ const ProductCategory = ({
           return (
             <div
               key={id}
-              className="card z-10 flex h-full animate-moveUp flex-col items-center justify-between gap-2"
+              className="card relative z-10 flex h-full animate-moveUp flex-col items-center justify-between gap-2"
             >
+              <div className="absolute top-3 left-3/4">
+                <FavoriteBtn />
+              </div>
               <Link href={`/Product/${id}`} className="">
                 <div>
                   <div className="m-auto mb-4 max-h-44 w-48 p-4">
