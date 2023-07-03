@@ -23,7 +23,7 @@ const HomeTopratedProduct = () => {
       });
       setCartValue((prevItem) => [...prevItem, fetchCartItem]);
 
-      toast.success("product added successfully");
+      toast.success("Product Added");
     } catch (error) {
       toast.error("Product not found");
     }
@@ -48,16 +48,16 @@ const HomeTopratedProduct = () => {
           {isLoading ? (
             <h2 className="text-center text-2xl font-bold">Loading...</h2>
           ) : (
-            <div className="grid overflow-hidden grid-cols-productLayoutTop place-items-start gap-4">
+            <div className="grid grid-cols-productLayoutTop place-items-start gap-4 overflow-hidden">
               {topRate?.map((topProduct) => {
                 const { id, title, price, rating, image } = topProduct;
                 const titleLength = title.split(" ").slice(0, 5).join(" ");
                 return (
-                  <div key={id} className="card z-10 animate-moveUp flex h-full flex-col items-center justify-between gap-2">
-                    <Link
-                      href={`/Product/${id}`}
-                      className=""
-                    >
+                  <div
+                    key={id}
+                    className="card z-10 flex h-full animate-moveUp flex-col items-center justify-between gap-2"
+                  >
+                    <Link href={`/Product/${id}`} className="">
                       <div>
                         <div className="m-auto mb-4 h-44 w-52 overflow-hidden p-4">
                           <Image

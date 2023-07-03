@@ -70,13 +70,13 @@ const Footer = () => {
               </Link>
               <Link
                 className="transition-all duration-200 ease-in-out hover:text-gray-200"
-                href="/Product"
+                href="/product"
               >
                 Product
               </Link>
               <Link
                 className="transition-all duration-200 ease-in-out hover:text-gray-200"
-                href="/Dashboard"
+                href="/dashboard"
               >
                 Dashboard
               </Link>

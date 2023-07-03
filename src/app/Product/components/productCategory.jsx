@@ -32,7 +32,7 @@ const ProductCategory = ({
     try {
       const fetchCartItem = product.find((item) => item.id === id);
       setCart((prevValue) => [...prevValue, fetchCartItem]);
-      toast.success("Product added successfully");
+      toast.success("Product Added");
     } catch (error) {
       toast.error("Product not found");
     }

@@ -20,7 +20,7 @@ const ProductOfList = ({ product, loading, cart, setCart }) => {
       });
       setCart((prevItem) => [...prevItem, fetchCartItem]);
 
-      toast.success("product added successfully");
+      toast.success("Product Added");
     } catch (error) {
       toast.error("product not found");
     }
@@ -95,7 +95,7 @@ const ProductOfList = ({ product, loading, cart, setCart }) => {
               >
                 add to cart{" "}
                 <span>
-                  <HiShoppingCart className="text-2xl group-hover:animate-cartAnimate text-lime-100" />
+                  <HiShoppingCart className="text-2xl text-lime-100 group-hover:animate-cartAnimate" />
                 </span>
               </button>
             </div>

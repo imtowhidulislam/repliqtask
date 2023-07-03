@@ -13,6 +13,9 @@ module.exports = {
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
         'contact-image' : "url('https://unsplash.it/1000/1000?image=789')",
       },
+      height: {
+        productSection :'min(70%, 600px)' 
+      },
       gridTemplateColumns: {
         "footerLayout" : "repeat(auto-fit, minmax(14rem, 1fr))",
         "productLayout" : "repeat(auto-fit,minmax(16rem, 1fr))",

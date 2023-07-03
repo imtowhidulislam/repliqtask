@@ -83,7 +83,7 @@ const Page = () => {
       ) : (
         <div
           ref={sectionRef}
-          className="place-items-start0 mt-10 grid grid-cols-productLayout gap-4 overflow-hidden"
+          className="mt-10 grid h-productSection grid-cols-productLayout place-items-start gap-4 overflow-hidden"
         >
           {filterProduct === "All" ? (
             <ProductOfList

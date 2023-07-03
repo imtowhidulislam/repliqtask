@@ -40,18 +40,20 @@ const NavbarMain = ({ params }) => {
         {width > 768 ? (
           <nav className="flex w-full max-w-7xl items-center justify-between gap-2">
             <div>
-              <h2 className="flex items-center gap-2 text-2xl font-bold uppercase text-blue-600">
-                <span className="text-green-600">
-                  <RiShoppingBagFill />
-                </span>
-                repliq
-              </h2>
+              <Link href="/">
+                <h2 className="flex items-center gap-2 text-2xl font-bold uppercase text-blue-600">
+                  <span className="text-green-600">
+                    <RiShoppingBagFill />
+                  </span>
+                  repliq
+                </h2>
+              </Link>
             </div>
             <div className="flexRow gap-2">
               <li className="navList">
                 <Link
                   className={
-                    currentPath === "/" ? "navLink text-lime-500" : "navLink"
+                    currentPath === "/" ? "navLink text-lime-200" : "navLink"
                   }
                   href="/"
                 >
@@ -61,11 +63,11 @@ const NavbarMain = ({ params }) => {
               <li className="navList">
                 <Link
                   className={
-                    currentPath === "/Product"
+                    currentPath === "/product"
                       ? "navLink text-lime-500"
                       : "navLink"
                   }
-                  href="/Product"
+                  href="/product"
                 >
                   Product
                 </Link>
@@ -73,11 +75,11 @@ const NavbarMain = ({ params }) => {
               <li className="navList">
                 <Link
                   className={
-                    currentPath === "/Dashboard"
+                    currentPath === "/dashboard"
                       ? "navLink text-lime-500"
                       : "navLink"
                   }
-                  href="/Dashboard"
+                  href="/dashboard"
                 >
                   Dashboard
                 </Link>
@@ -107,11 +109,11 @@ const NavbarMain = ({ params }) => {
                 </span>
                 <Link
                   className={
-                    currentPath === "/Register"
+                    currentPath === "/register"
                       ? "navLink text-lime-500"
                       : "navLink"
                   }
-                  href="/Register"
+                  href="/register"
                 >
                   {" "}
                   Account
@@ -123,11 +125,11 @@ const NavbarMain = ({ params }) => {
                 </span>
                 <Link
                   className={
-                    currentPath === "/Cart"
+                    currentPath === "/cart"
                       ? "navLink relative text-lime-500"
                       : "navLink relative"
                   }
-                  href="/Cart"
+                  href="/cart"
                 >
                   Cart{" "}
                   <span>
@@ -181,11 +183,11 @@ const NavbarMain = ({ params }) => {
                   <li className="navList">
                     <Link
                       className={
-                        currentPath === "/Product"
+                        currentPath === "/product"
                           ? "navLink text-lime-500"
                           : "navLink"
                       }
-                      href="/Product"
+                      href="/product"
                     >
                       Product
                     </Link>
@@ -193,11 +195,11 @@ const NavbarMain = ({ params }) => {
                   <li className="navList">
                     <Link
                       className={
-                        currentPath === "/Dashboard"
+                        currentPath === "/dashboard"
                           ? "navLink text-lime-500"
                           : "navLink"
                       }
-                      href="/Dashboard"
+                      href="/dashboard"
                     >
                       Dashboard
                     </Link>
@@ -220,11 +222,11 @@ const NavbarMain = ({ params }) => {
                     </span>
                     <Link
                       className={
-                        currentPath === "/Register"
+                        currentPath === "/register"
                           ? "navLink text-lime-500"
                           : "navLink"
                       }
-                      href="/Register"
+                      href="/register"
                     >
                       {" "}
                       Account
@@ -236,7 +238,7 @@ const NavbarMain = ({ params }) => {
                     </span>
                     <Link
                       className={
-                        currentPath === "/Cart"
+                        currentPath === "/cart"
                           ? "navLink text-lime-500"
                           : "navLink"
                       }
