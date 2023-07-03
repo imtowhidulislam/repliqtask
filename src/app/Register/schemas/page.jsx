@@ -10,7 +10,7 @@ export const formSchema = yup.object().shape({
     .required("field can't be empty"),
   file: yup.mixed().required("Image need to be uploaded"),
   password: yup
-  .string()
+    .string()
     .matches(passValidator, {
       message: "Minimum eight characters, at least one letter and one number",
     })
@@ -23,4 +23,11 @@ export const productSchema = yup.object().shape({
   price: yup.number().required("price is required"),
   category: yup.string().required("category is required"),
   file: yup.mixed().required("Image need to be uploaded"),
-})
+});
+export const loginSchema = yup.object().shape({
+  email: yup
+    .string()
+    .email("Invalid email address")
+    .required("Email is required"),
+  password: yup.string().required("Password is required"),
+});
