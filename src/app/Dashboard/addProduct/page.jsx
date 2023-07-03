@@ -8,8 +8,8 @@ import { useProductData } from "@/app/Data/productData";
 import { productSchema } from "@/app/Register/schemas/page";
 
 const page = () => {
-  const {data, isLoading, error} = useProductData();
-  const {user} = useContext(CartContextProvider);
+  const { data, isLoading, error } = useProductData();
+  const { user } = useContext(CartContextProvider);
   const [users, setUsers] = user;
 
   console.log(data);
@@ -31,41 +31,35 @@ const page = () => {
       category: "",
     },
     validationSchema: productSchema,
-    onSubmit : async ({fName,lName,email,password,file},{resetForm}) => {
+    onSubmit: async (
+      { fName, lName, email, password, file },
+      { resetForm }
+    ) => {
       const userId = new Date().getTime().toString();
-      const newUser = {...values, userId};
+      const newUser = { ...values, userId };
       setUsers([...users, newUser]);
       resetForm();
       toast.success("Submitted successfully");
-    }
+    },
   });
- 
+
   return (
     <>
-      <div className="relative flex bg-contact-image before:absolute before:w-full before:h-full before:bg-[rgba(10,46,16,0.57)] before:backdrop-blur-sm before:top-0 before:left-0  bg-center bg-no-repeat bg-cover h-full w-full items-center justify-center">
+      <div className="relative flex h-full w-full items-center justify-center bg-contact-image bg-cover bg-center bg-no-repeat  before:absolute before:left-0 before:top-0 before:h-full before:w-full before:bg-[rgba(10,46,16,0.57)] before:backdrop-blur-sm">
         <form
           onSubmit={handleSubmit}
-          className="registerForm animate-moveUp w-full max-w-md px-4 rounded-md overflow-hidden mx-4 sm:mx-0 my-8 py-6 border border-gray-200 bg-[#14141483] backdrop-filter backdrop-blur-md"
+          className="registerForm mx-4 my-8 w-full max-w-md animate-moveUp overflow-hidden rounded-md border border-gray-200 bg-[#14141483] px-4 py-6 backdrop-blur-md backdrop-filter sm:mx-0"
         >
-          <div className="flex items-center justify-center text-6xl text-cyan-700 pb-1">
-            {/* <div>
-              <h2 className="uppercase text-lime-300 text-4xl font-bold flex gap-2 items-center">
-                <span className="text-lime-600">
-                  <RiShoppingBagFill />
-                </span>
-                repliq
-              </h2>
-            </div> */}
-          </div>
+          <div className="flex items-center justify-center pb-1 text-6xl text-cyan-700"></div>
           <div className="pb-2">
-            <h2 className="text-center text-xl font-bold text-[#ffff] uppercase">
-              sign up
+            <h2 className="text-center text-xl font-bold uppercase text-[#ffff]">
+              Create Product
             </h2>
           </div>
 
           <div className="">
             <label
-              className="lableWidth text-gray-100 font-bold"
+              className="lableWidth font-bold text-gray-100"
               htmlFor="first name"
             >
               First Name
@@ -80,12 +74,12 @@ const page = () => {
                 placeholder="enter product title"
                 className={
                   errors.title && touched.title
-                    ? "form placeholder:capitalize placeholder:text-gray-900 pl-4 border-2 border-red-500"
-                    : "form placeholder:capitalize pl-4 "
+                    ? "form border-2 border-red-500 pl-4 placeholder:capitalize placeholder:text-gray-900"
+                    : "form pl-4 placeholder:capitalize "
                 }
               />
               {errors.title && touched.title && (
-                <p className="text-red-600 text-sm font-semibold capitalize absolute top-full left-0">
+                <p className="absolute left-0 top-full text-sm font-semibold capitalize text-red-600">
                   {errors.title}
                 </p>
               )}
@@ -94,7 +88,7 @@ const page = () => {
 
           <div className="">
             <label
-              className="lableWidth text-gray-100 font-bold capitalize"
+              className="lableWidth font-bold capitalize text-gray-100"
               htmlFor="desc"
             >
               desc
@@ -108,13 +102,13 @@ const page = () => {
                 value={values.desc}
                 className={
                   errors.desc && touched.desc
-                    ? "form placeholder:capitalize pl-4 border-2 border-red-500"
-                    : "form placeholder:capitalize pl-4"
+                    ? "form border-2 border-red-500 pl-4 placeholder:capitalize"
+                    : "form pl-4 placeholder:capitalize"
                 }
                 placeholder="enter product desc"
               />
               {errors.desc && touched.desc && (
-                <p className="text-red-600 text-sm font-semibold capitalize absolute top-full left-0">
+                <p className="absolute left-0 top-full text-sm font-semibold capitalize text-red-600">
                   {errors.desc}
                 </p>
               )}{" "}
@@ -122,7 +116,7 @@ const page = () => {
           </div>
           <div className="">
             <label
-              className="lableWidth text-gray-100 font-bold capitalize"
+              className="lableWidth font-bold capitalize text-gray-100"
               htmlFor="price"
             >
               price
@@ -136,13 +130,13 @@ const page = () => {
                 value={values.price}
                 className={
                   errors.price && touched.price
-                    ? "form placeholder:capitalize placeholder:text-lime-700 pl-4 border-2 border-red-500"
-                    : "form placeholder:capitalize pl-4"
+                    ? "form border-2 border-red-500 pl-4 placeholder:capitalize placeholder:text-lime-700"
+                    : "form pl-4 placeholder:capitalize"
                 }
                 placeholder="enter product price"
               />
               {errors.price && touched.price && (
-                <p className="text-red-600 text-sm font-semibold capitalize absolute top-full left-0">
+                <p className="absolute left-0 top-full text-sm font-semibold capitalize text-red-600">
                   {errors.price}
                 </p>
               )}
@@ -150,7 +144,7 @@ const page = () => {
           </div>
           <div className="">
             <label
-              className="lableWidth text-gray-100 font-bold capitalize"
+              className="lableWidth font-bold capitalize text-gray-100"
               htmlFor="image"
             >
               Image
@@ -164,13 +158,13 @@ const page = () => {
                 onChange={(e) => setFieldValue("file", e.target.files[0])}
                 className={
                   errors.file && touched.file
-                    ? "form placeholder:capitalize pl-4 border-2 border-red-500"
-                    : "form placeholder:capitalize pl-4"
+                    ? "form border-2 border-red-500 pl-4 placeholder:capitalize"
+                    : "form pl-4 placeholder:capitalize"
                 }
                 placeholder="enter product Image"
               />
               {errors.file && touched.file && (
-                <p className="text-red-600 text-sm font-semibold capitalize absolute top-full left-0">
+                <p className="absolute left-0 top-full text-sm font-semibold capitalize text-red-600">
                   {errors.file}
                 </p>
               )}
@@ -178,7 +172,7 @@ const page = () => {
           </div>
           <div className="">
             <label
-              className="lableWidth text-gray-100 font-bold capitalize"
+              className="lableWidth font-bold capitalize text-gray-100"
               htmlFor="categor"
             >
               Category
@@ -192,13 +186,13 @@ const page = () => {
                 value={values.category}
                 className={
                   errors.category && touched.category
-                    ? "form placeholder:capitalize pl-4 border-2 border-red-500"
-                    : "form bg-transparent placeholder:capitalize pl-4"
+                    ? "form border-2 border-red-500 pl-4 placeholder:capitalize"
+                    : "form bg-transparent pl-4 placeholder:capitalize"
                 }
                 placeholder="enter product category"
               />
               {errors.category && touched.category && (
-                <p className="text-red-600 text-sm font-semibold capitalize absolute top-full left-0">
+                <p className="absolute left-0 top-full text-sm font-semibold capitalize text-red-600">
                   {errors.category}
                 </p>
               )}
@@ -209,7 +203,7 @@ const page = () => {
             <button
               type="submit"
               // onClick={handleSubmit}
-              className="rounded-md capitalize w-full font-bold text-base bg-transparent border-2 border-lime-700 text-lime-100 hover:bg-lime-700 hover:text-lime-100 hover:border-transparent transition-all duration-200 ease-out cursor-pointer py-2 px-8"
+              className="w-full cursor-pointer rounded-md border-2 border-lime-700 bg-transparent px-8 py-2 text-base font-bold capitalize text-lime-100 transition-all duration-200 ease-out hover:border-transparent hover:bg-lime-700 hover:text-lime-100"
             >
               submit
             </button>

@@ -31,6 +31,7 @@ module.exports = {
         moveUp : "moveUp .5s ease-in-out 1 forwards",
         moveInLeft : "moveInLeft .5s ease-in-out 1 forwards",
         moveInRight : "moveInRight .5s ease-in-out 1 forwards",
+        cartAnimate : "cartAnimate 1s ease-in-out infinite forwards"
       },
       keyframes: {
         bounce : {
@@ -51,6 +52,12 @@ module.exports = {
         moveInRight : {
           '0%' : {transform : 'translateX(100%)' , opacity : 0},
           '100%' : {transform : 'translateY(0%)' , opacity : 1},
+        },
+        cartAnimate : {
+          '0%' : {transform : 'translateX(0%)' , opacity : 0},
+          '50%' : {transform : 'translateX(50%)' , opacity : 0.5, transform: 'scale(1.2)'},
+          '100%' : {transform : 'translateX(100%)' , opacity : 1, color: '#67ffee'},
+
         }
       }
     },

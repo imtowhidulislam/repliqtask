@@ -39,11 +39,11 @@ const Footer = () => {
   return (
     <div className="bg-lime-700 px-4 py-8">
       <div className="container">
-        <div className="text-6xl flex items-center justify-start mb-10 text-gray-100">
+        <div className="mb-10 flex items-center justify-start text-6xl text-gray-100">
           <div>
             <Link href="/" className="cursor-pointer">
-              <h2 className="uppercase text-white text-2xl font-bold flex gap-2 items-center">
-                <span className="text-lime-400 text-4xl">
+              <h2 className="flex items-center gap-2 text-2xl font-bold uppercase text-white">
+                <span className="text-4xl text-lime-400">
                   <RiShoppingBagFill />
                 </span>
                 repliq
@@ -63,20 +63,20 @@ const Footer = () => {
             <h2>Navigate</h2>
             <div className="flex items-center gap-2">
               <Link
-                className="hover:text-gray-200 transition-all duration-200 ease-in-out"
+                className="transition-all duration-200 ease-in-out hover:text-gray-200"
                 href="/"
               >
                 Home
               </Link>
               <Link
-                className="hover:text-gray-200 transition-all duration-200 ease-in-out"
+                className="transition-all duration-200 ease-in-out hover:text-gray-200"
                 href="/Product"
               >
                 Product
               </Link>
               <Link
-                className="hover:text-gray-200 transition-all duration-200 ease-in-out"
-                href="/dashboard"
+                className="transition-all duration-200 ease-in-out hover:text-gray-200"
+                href="/Dashboard"
               >
                 Dashboard
               </Link>
@@ -88,7 +88,7 @@ const Footer = () => {
           <div className="footerStyle">
             <h2>Follow Us</h2>
 
-            <div className="flex text-2xl text-gray-300 gap-2 mt-2">
+            <div className="mt-2 flex gap-2 text-2xl text-gray-300">
               <FaFacebookSquare className="footerSocialIcon" />
               <FaTwitterSquare className="footerSocialIcon" />
               <FaInstagramSquare className="footerSocialIcon" />
@@ -96,9 +96,9 @@ const Footer = () => {
             </div>
           </div>
         </div>
-        <div className="mt-12 capitalize text-gray-300 flex items-center justify-start gap-1">
+        <div className="mt-12 flex items-center justify-start gap-1 capitalize text-gray-300">
           <FaCopyright className="text-small sm:text-base" />
-          <p className="font-light text-small sm:text-base">
+          <p className="text-small font-light sm:text-base">
             copyright <span>2023. </span>all rights reserve to Repliq
           </p>
         </div>

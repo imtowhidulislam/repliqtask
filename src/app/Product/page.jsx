@@ -6,7 +6,7 @@ import { useQuery } from "@tanstack/react-query";
 import { HiOutlineArrowUpCircle, HiArrowUpCircle } from "react-icons/hi2";
 // import { useProductData } from "../Data/productData";
 import CartContextProvider from "../context/cartContext";
-
+import Loading from "./loading";
 
 const Page = () => {
   const sectionRef = useRef(null);
@@ -34,7 +34,7 @@ const Page = () => {
     return data;
   };
 
-  const {data,isLoading, error} = useQuery({
+  const { data, isLoading, error } = useQuery({
     queryKey: ["productData"],
     queryFn: fetchData,
   });
@@ -42,8 +42,8 @@ const Page = () => {
 
   const handleTop = () => {
     sectionRef.current?.scrollIntoView({
-      behavior :"smooth"
-    })
+      behavior: "smooth",
+    });
   };
 
   // !! Fetching the Unique Category>>>
@@ -52,12 +52,16 @@ const Page = () => {
   };
 
   return (
-    <div className="container py-8 sm:py-24 px-3 md:px-0">
+    <div className="container px-3 py-8 sm:py-24 md:px-0">
       <div id="buttonSection" className="btn_container">
-        <button className="btn w-full sm:w-max" onClick={handleClick} data-name="All">
-          All
+        <button
+          className="btn w-full sm:w-max"
+          onClick={handleClick}
+          data-name="All"
+        >
+          {button && "All"}
         </button>
-        <div className="flex items-center justify-center flex-wrap gap-2">
+        <div className="flex flex-wrap items-center justify-center gap-2">
           {button.map((btns) => {
             return (
               <>
@@ -74,38 +78,45 @@ const Page = () => {
           })}
         </div>
       </div>
-    <div ref={sectionRef} className="grid overflow-hidden grid-cols-productLayout place-items-start0 gap-4 mt-10">
-        {filterProduct === "All" ? (
-          <ProductOfList
-            filterProduct={filterProduct}
-            product={productValue}
-            // setProduct={setProductValue}
-            loading={isLoading}
-            cart={cartValue}
-            setCart={setCartValue}
-          />
-        ) : (
-          <ProductCategory
-            filterProduct={filterProduct}
-            product={productValue}
-            // setProduct={setProductValue}
-            loading={isLoading}
-            cart={cartValue}
-            setCart={setCartValue}
-          />
-        )}
-      </div>
+      {isLoading ? (
+        <Loading />
+      ) : (
+        <div
+          ref={sectionRef}
+          className="place-items-start0 mt-10 grid grid-cols-productLayout gap-4 overflow-hidden"
+        >
+          {filterProduct === "All" ? (
+            <ProductOfList
+              filterProduct={filterProduct}
+              product={productValue}
+              // setProduct={setProductValue}
+              loading={isLoading}
+              cart={cartValue}
+              setCart={setCartValue}
+            />
+          ) : (
+            <ProductCategory
+              filterProduct={filterProduct}
+              product={productValue}
+              // setProduct={setProductValue}
+              loading={isLoading}
+              cart={cartValue}
+              setCart={setCartValue}
+            />
+          )}
+        </div>
+      )}
 
       <div className="fixed bottom-5 left-3/4 z-50">
         <button
-          className="border-2 border-lime-200 rounded-full p-1"
+          className="rounded-full border-2 border-lime-200 p-1"
           onClick={handleTop}
         >
-            {backToTop ? (
-              <HiOutlineArrowUpCircle className="topBtn" />
-            ) : (
-              <HiArrowUpCircle className="topBtn" />
-            )}
+          {backToTop ? (
+            <HiOutlineArrowUpCircle className="topBtn" />
+          ) : (
+            <HiArrowUpCircle className="topBtn" />
+          )}
         </button>
       </div>
     </div>
