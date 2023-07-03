@@ -37,7 +37,7 @@ const NavbarMain = ({ params }) => {
   };
 
   return (
-    <div className="fixed left-0 top-0 z-50 w-full bg-lime-100 sm:relative sm:bg-[#0b0f0bab] sm:backdrop-blur-sm">
+    <div className="fixed left-0 top-0 z-50 w-full bg-lime-100 sm:relative sm:bg-[#0b0f0bab] md:backdrop-blur-sm">
       <div className="container py-4">
         {width > 768 ? (
           <nav className="flex w-full max-w-7xl items-center justify-between gap-2">
@@ -217,9 +217,7 @@ const NavbarMain = ({ params }) => {
                     </Link>
                   </li>
                   <li className="navList flex items-center justify-start gap-2 py-2">
-                    <span>
-                      <VscAccount />
-                    </span>
+                    
                     <Link
                       className={
                         currentPath === "/register"
@@ -229,13 +227,13 @@ const NavbarMain = ({ params }) => {
                       href="/register"
                     >
                       {" "}
-                      Account
+                      <span>
+                      <VscAccount />
+                    </span> Account
                     </Link>
                   </li>
                   <li className="navList flex items-center justify-start gap-2 py-2">
-                    <span>
-                      <BsCartPlus />
-                    </span>
+                    
                     <Link
                       className={
                         currentPath === "/cart"
@@ -245,7 +243,9 @@ const NavbarMain = ({ params }) => {
                       href="/cart"
                     >
                       {" "}
-                      Cart
+                      <span>
+                      <BsCartPlus />
+                    </span> Cart
                     </Link>
                   </li>
                 </div>

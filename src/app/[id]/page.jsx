@@ -36,7 +36,7 @@ const page = ({params}) => {
     console.log(uniqueItem);
   return (
     <div>
-        <div className="container ">
+        {/* <div className="container ">
             <>
             {uniqueItem?.map((singleProduct) => {
                 
@@ -106,7 +106,7 @@ const page = ({params}) => {
                 );
             })
             }</>
-        </div>
+        </div> */}
     </div>
   )
 }
