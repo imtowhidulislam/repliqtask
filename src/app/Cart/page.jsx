@@ -22,6 +22,16 @@ const Cart = () => {
       toast.error("Can't perform the operation.");
     }
   };
+  // ?? delete Individual Cart Item..
+  const deleteCartItem = (id) => {
+    console.log("deleted" + id);
+    try {
+      setUniqueCart((currItem) => currItem.filter((item) => item.id !== id));
+      toast.success("Product Removed");
+    } catch (error) {
+      toast.error("Product not found");
+    }
+  };
   const fetchUniqueCart = () => {
     const uniqueItem = new Set(cartValue.map(JSON.stringify));
     const uniqueProduct = Array.from(uniqueItem).map(JSON.parse);
@@ -59,8 +69,16 @@ const Cart = () => {
               return (
                 <div
                   key={id}
-                  className="mb-2 flex items-center justify-between gap-8 rounded-md border-b border-gray-400 bg-lime-200 p-3 drop-shadow-md"
+                  className="group relative mb-2 flex items-center justify-between gap-8 rounded-md border-b border-gray-400 bg-lime-200 p-3 drop-shadow-md"
                 >
+                  <div className="absolute left-0 top-0 flex h-8 w-8 -translate-x-1/2 -translate-y-2/4  items-center justify-center rounded-full bg-[#999a98a6] p-1 opacity-0 transition-all duration-200 ease-in-out group-hover:left-2/4 group-hover:opacity-100">
+                    <button
+                      onClick={() => deleteCartItem(id)}
+                      className="cursor-pointer"
+                    >
+                      <HiArchiveBoxXMark className="text-xl text-red-500" />
+                    </button>
+                  </div>
                   <div className="flex items-center gap-6">
                     <div className="h-20 w-20 overflow-hidden rounded-md">
                       <Image

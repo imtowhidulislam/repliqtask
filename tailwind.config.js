@@ -35,6 +35,7 @@ module.exports = {
         moveInLeft: "moveInLeft .5s ease-in-out 1 forwards",
         moveInRight: "moveInRight .5s ease-in-out 1 forwards",
         cartAnimate: "cartAnimate 1s ease-in-out infinite forwards",
+        cartDeleteBtnAnimate: "cartDeleteBtnAnimate .4s ease-in-out 1 forwards",
       },
       keyframes: {
         bounce: {
@@ -67,6 +68,13 @@ module.exports = {
             transform: "translateX(100%)",
             opacity: 1,
             color: "#67ffee",
+          },
+        },
+        cartDeleteBtnAnimate: {
+          "0%": { transform: "scale(0)", opacity: 0 },
+          "100%": {
+            transform: "scale(1)",
+            opacity: 1,
           },
         },
       },
