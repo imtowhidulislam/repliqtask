@@ -31,7 +31,7 @@ const page = () => {
             <h2 className="py-4 text-2xl font-bold">
               User not found, Create first.
             </h2>
-            <Link href="/Register">
+            <Link href="/register">
               <ButtonOutlined btnText="Create user" />
             </Link>
           </div>

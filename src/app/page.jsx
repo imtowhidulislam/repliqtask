@@ -13,7 +13,7 @@ import HomeTopratedProduct from "./components/HomeProduct/page";
 import CartContextProvider from "./context/cartContext";
 
 export default function Home() {
-  const {cart} = useContext(CartContextProvider);
+  const { cart } = useContext(CartContextProvider);
   const [cartValue, setCartValue] = cart;
   const [product, setProduct] = useState([]);
 
@@ -21,39 +21,41 @@ export default function Home() {
     <>
       <div>
         <div>
-          <div className="bg-lime-200 py-12 overflow-hidden">
-            <header className="container grid grid-cols-homepageLayoutHero1 place-items-center gap-12 md:gap-16 lg:gap-20">
-              <div className="animate-moveUp">
-                <h2 className="capitalize text-4xl sm:text-5xl lg:text-7xl font-bold font-mono text-left text-lime-950">
+          <div className="z-10 overflow-hidden bg-lime-200 py-12">
+            <header className="container z-0 grid grid-cols-homepageLayoutHero1 place-items-center gap-12 md:gap-16 lg:gap-20">
+              <div className="z-0 animate-moveUp">
+                <h2 className="text-left font-mono text-4xl font-bold capitalize text-lime-950 sm:text-5xl lg:text-7xl">
                   shopping and department store
                 </h2>
-                <p className="text-sm sm:text-base md:text-base text-lime-800 py-4 text-left">
+                <p className="py-4 text-left text-sm text-lime-800 sm:text-base md:text-base">
                   Lorem ipsum, dolor sit amet consectetur adipisicing elit.
                   Dolores eaque eligendi animi accusamus voluptatibus cupiditate
                   consequuntur doloribus repudiandae adipisci temporibus?
                 </p>
-                <p className="text-sm sm:text-base md:text-base text-lime-800 pb-4 text-left">
+                <p className="pb-4 text-left text-sm text-lime-800 sm:text-base md:text-base">
                   Lorem ipsum dolor, sit amet consectetur adipisicing elit.
                   Reprehenderit, voluptatem!
                 </p>
                 <div className="">
-                  <li className=" flex justify-start w-max bg-lime-600 text-lime-100 hover:bg-lime-100 hover:text-lime-600 transition-colors ease-in-out duration-300 font-bold cursor-pointer py-3 px-8 rounded-full">
-                    <Link href="/Product">
-                      <button className="capitalize flex items-center justify-between gap-2">
+                  <li className=" flex w-max cursor-pointer justify-start rounded-full bg-lime-600 px-8 py-3 font-bold text-lime-100 transition-colors duration-300 ease-in-out hover:bg-lime-100 hover:text-lime-600">
+                    <Link href="/product">
+                      <button className="flex items-center justify-between gap-2 capitalize">
                         shop now{" "}
-                        <HiOutlineArrowCircleUp className="text-xl animate-pulse" />{" "}
+                        <HiOutlineArrowCircleUp className="animate-pulse text-xl" />{" "}
                       </button>
                     </Link>
                   </li>
                 </div>
               </div>
-              <div className="md:m-8 lg:m-12 animate-moveUp">
+              <div className="animate-moveUp md:m-8 lg:m-12">
                 <Image src={ImageOne} alt="" width={700} height={700} />
               </div>
             </header>
           </div>
-          <HomeTopratedProduct />          
-          <Subscribe />
+          <HomeTopratedProduct />
+          <div className="z-0">
+            <Subscribe />
+          </div>
         </div>
       </div>
     </>

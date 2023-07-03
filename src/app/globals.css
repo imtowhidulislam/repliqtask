@@ -36,7 +36,7 @@ body {
 }
 
 .navList{
-  @apply bg-transparent text-lime-900 hover:bg-lime-600 transition-all duration-200 ease-in-out py-2 px-4 rounded-sm hover:drop-shadow-md hover:text-gray-50;
+  @apply bg-transparent text-gray-300 hover:bg-lime-600 transition-all duration-200 ease-in-out py-2 px-4 rounded-sm hover:drop-shadow-md hover:text-gray-50;
 }
 .navLink{
   @apply capitalize text-base font-bold cursor-pointer;

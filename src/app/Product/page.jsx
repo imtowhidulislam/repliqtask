@@ -38,15 +38,15 @@ const Page = () => {
     queryKey: ["productData"],
     queryFn: fetchData,
   });
-  // !!! Back To Top
 
+  // !!! Back To Top
   const handleTop = () => {
     sectionRef.current?.scrollIntoView({
       behavior: "smooth",
     });
   };
 
-  // !! Fetching the Unique Category>>>
+  // !! Fetching the Unique Category Product >>>
   const handleClick = (e) => {
     setFilterProduct(e.target.dataset.name);
   };
@@ -83,7 +83,7 @@ const Page = () => {
       ) : (
         <div
           ref={sectionRef}
-          className="mt-10 grid h-productSection grid-cols-productLayout place-items-start gap-4 overflow-hidden"
+          className="z-10 mt-10 grid min-h-custom-min-h grid-cols-productLayout place-items-start gap-4 overflow-hidden"
         >
           {filterProduct === "All" ? (
             <ProductOfList

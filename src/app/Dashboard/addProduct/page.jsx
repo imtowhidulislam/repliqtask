@@ -130,7 +130,7 @@ const page = () => {
                 value={values.price}
                 className={
                   errors.price && touched.price
-                    ? "form border-2 border-red-500 pl-4 placeholder:capitalize placeholder:text-lime-700"
+                    ? "form border-2 border-red-500 pl-4 placeholder:capitalize"
                     : "form pl-4 placeholder:capitalize"
                 }
                 placeholder="enter product price"

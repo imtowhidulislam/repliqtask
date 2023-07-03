@@ -57,7 +57,7 @@ const HomeTopratedProduct = () => {
                     key={id}
                     className="card z-10 flex h-full animate-moveUp flex-col items-center justify-between gap-2"
                   >
-                    <Link href={`/Product/${id}`} className="">
+                    <Link href={`/product/${id}`} className="">
                       <div>
                         <div className="m-auto mb-4 h-44 w-52 overflow-hidden p-4">
                           <Image

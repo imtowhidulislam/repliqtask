@@ -35,14 +35,14 @@ const NavbarMain = ({ params }) => {
   };
 
   return (
-    <div className="fixed left-0 top-0 bg-gray-100 sm:static">
+    <div className="fixed left-0 top-0 z-50 w-full bg-lime-100 sm:relative sm:bg-[#0b0f0bab] sm:backdrop-blur-sm">
       <div className="container py-4">
         {width > 768 ? (
           <nav className="flex w-full max-w-7xl items-center justify-between gap-2">
             <div>
               <Link href="/">
-                <h2 className="flex items-center gap-2 text-2xl font-bold uppercase text-blue-600">
-                  <span className="text-green-600">
+                <h2 className="flex items-center gap-2 text-2xl font-bold uppercase text-lime-900">
+                  <span className="text-pink-500">
                     <RiShoppingBagFill />
                   </span>
                   repliq
@@ -53,7 +53,7 @@ const NavbarMain = ({ params }) => {
               <li className="navList">
                 <Link
                   className={
-                    currentPath === "/" ? "navLink text-lime-200" : "navLink"
+                    currentPath === "/" ? "navLink text-pink-300" : "navLink"
                   }
                   href="/"
                 >
@@ -64,7 +64,7 @@ const NavbarMain = ({ params }) => {
                 <Link
                   className={
                     currentPath === "/product"
-                      ? "navLink text-lime-500"
+                      ? "navLink text-pink-300"
                       : "navLink"
                   }
                   href="/product"
@@ -76,7 +76,7 @@ const NavbarMain = ({ params }) => {
                 <Link
                   className={
                     currentPath === "/dashboard"
-                      ? "navLink text-lime-500"
+                      ? "navLink text-pink-300"
                       : "navLink"
                   }
                   href="/dashboard"
@@ -88,7 +88,7 @@ const NavbarMain = ({ params }) => {
                 <Link
                   className={
                     currentPath === "/PracticePage"
-                      ? "navLink text-lime-500"
+                      ? "navLink text-pink-300"
                       : "navLink"
                   }
                   href="/PracticePage"
@@ -110,7 +110,7 @@ const NavbarMain = ({ params }) => {
                 <Link
                   className={
                     currentPath === "/register"
-                      ? "navLink text-lime-500"
+                      ? "navLink text-pink-300"
                       : "navLink"
                   }
                   href="/register"
@@ -126,7 +126,7 @@ const NavbarMain = ({ params }) => {
                 <Link
                   className={
                     currentPath === "/cart"
-                      ? "navLink relative text-lime-500"
+                      ? "navLink relative text-pink-300"
                       : "navLink relative"
                   }
                   href="/cart"
@@ -172,7 +172,7 @@ const NavbarMain = ({ params }) => {
                     <Link
                       className={
                         currentPath === "/"
-                          ? "navLink text-lime-500"
+                          ? "navLink text-pink-300"
                           : "navLink"
                       }
                       href="/"
@@ -184,7 +184,7 @@ const NavbarMain = ({ params }) => {
                     <Link
                       className={
                         currentPath === "/product"
-                          ? "navLink text-lime-500"
+                          ? "navLink text-pink-300"
                           : "navLink"
                       }
                       href="/product"
@@ -196,7 +196,7 @@ const NavbarMain = ({ params }) => {
                     <Link
                       className={
                         currentPath === "/dashboard"
-                          ? "navLink text-lime-500"
+                          ? "navLink text-pink-300"
                           : "navLink"
                       }
                       href="/dashboard"
@@ -208,7 +208,7 @@ const NavbarMain = ({ params }) => {
                     <Link
                       className={
                         currentPath === "/PracticePage"
-                          ? "navLink text-lime-500"
+                          ? "navLink text-pink-300"
                           : "navLink"
                       }
                       href="/PracticePage"
@@ -223,7 +223,7 @@ const NavbarMain = ({ params }) => {
                     <Link
                       className={
                         currentPath === "/register"
-                          ? "navLink text-lime-500"
+                          ? "navLink text-pink-300"
                           : "navLink"
                       }
                       href="/register"
@@ -239,7 +239,7 @@ const NavbarMain = ({ params }) => {
                     <Link
                       className={
                         currentPath === "/cart"
-                          ? "navLink text-lime-500"
+                          ? "navLink text-pink-300"
                           : "navLink"
                       }
                       href="/cart"
