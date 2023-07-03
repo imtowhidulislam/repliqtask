@@ -24,9 +24,9 @@ const Cart = () => {
   };
   // ?? delete Individual Cart Item..
   const deleteCartItem = (id) => {
-    console.log("deleted" + id);
     try {
       setUniqueCart((currItem) => currItem.filter((item) => item.id !== id));
+      setCartValue((currItem) => currItem.filter((item) => item.id !== id));
       toast.success("Product Removed");
     } catch (error) {
       toast.error("Product not found");
