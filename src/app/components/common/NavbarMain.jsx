@@ -8,15 +8,15 @@ import { RxCross1 } from "react-icons/rx";
 import { BsCartPlus } from "react-icons/bs";
 import SearchButton from "../SearchButton";
 import CartContextProvider from "@/app/context/cartContext";
-import {usePathname} from "next/navigation"
+import { usePathname } from "next/navigation";
 
-const NavbarMain = ({params}) => {
+const NavbarMain = ({ params }) => {
   // const [width, setWidth] = useState(768);
   const currentPath = usePathname();
-  const {cart} = useContext(CartContextProvider);
+  const { cart } = useContext(CartContextProvider);
   const [toggleNav, setToggleNav] = useState(false);
   const [width, setWidth] = useState(window?.innerWidth);
-  
+
   useEffect(() => {
     const calcSize = () => {
       setWidth(window.innerWidth);
@@ -35,12 +35,12 @@ const NavbarMain = ({params}) => {
   };
 
   return (
-    <div className="bg-gray-100">
+    <div className="fixed left-0 top-0 bg-gray-100 sm:static">
       <div className="container py-4">
         {width > 768 ? (
-          <nav className="flex items-center justify-between gap-2 max-w-7xl w-full">
+          <nav className="flex w-full max-w-7xl items-center justify-between gap-2">
             <div>
-              <h2 className="uppercase text-blue-600 text-2xl font-bold flex gap-2 items-center">
+              <h2 className="flex items-center gap-2 text-2xl font-bold uppercase text-blue-600">
                 <span className="text-green-600">
                   <RiShoppingBagFill />
                 </span>
@@ -49,22 +49,48 @@ const NavbarMain = ({params}) => {
             </div>
             <div className="flexRow gap-2">
               <li className="navList">
-                <Link className={currentPath === "/" ? "navLink text-lime-500" : "navLink"} href="/">
+                <Link
+                  className={
+                    currentPath === "/" ? "navLink text-lime-500" : "navLink"
+                  }
+                  href="/"
+                >
                   Home
                 </Link>
               </li>
               <li className="navList">
-                <Link className={currentPath === "/Product" ? "navLink text-lime-500" : "navLink"} href="/Product">
+                <Link
+                  className={
+                    currentPath === "/Product"
+                      ? "navLink text-lime-500"
+                      : "navLink"
+                  }
+                  href="/Product"
+                >
                   Product
                 </Link>
               </li>
               <li className="navList">
-                <Link className={currentPath === "/Dashboard" ? "navLink text-lime-500" : "navLink"} href="/Dashboard">
+                <Link
+                  className={
+                    currentPath === "/Dashboard"
+                      ? "navLink text-lime-500"
+                      : "navLink"
+                  }
+                  href="/Dashboard"
+                >
                   Dashboard
                 </Link>
               </li>
               <li className="navList">
-                <Link className={currentPath === "/PracticePage" ? "navLink text-lime-500" : "navLink"} href="/PracticePage">
+                <Link
+                  className={
+                    currentPath === "/PracticePage"
+                      ? "navLink text-lime-500"
+                      : "navLink"
+                  }
+                  href="/PracticePage"
+                >
                   Practice
                 </Link>
               </li>
@@ -79,22 +105,44 @@ const NavbarMain = ({params}) => {
                 <span>
                   <VscAccount />
                 </span>
-                <Link className={currentPath === "/Register" ? "navLink text-lime-500" : "navLink"} href="/Register"> Account</Link>
+                <Link
+                  className={
+                    currentPath === "/Register"
+                      ? "navLink text-lime-500"
+                      : "navLink"
+                  }
+                  href="/Register"
+                >
+                  {" "}
+                  Account
+                </Link>
               </li>
               <li className="flex items-center gap-2 ">
                 <span className="countCart">
                   <BsCartPlus />
-
                 </span>
-                <Link className={currentPath === "/Cart" ? "navLink relative text-lime-500" : "navLink relative"} href="/Cart">Cart <span>
-                <p className='absolute top-0 left-full flex items-center justify-center w-4 h-4 rounded-full font-bold text-extraSmall bg-gray-200 ml-1 mb-1'>{cart.length}</p></span></Link>
+                <Link
+                  className={
+                    currentPath === "/Cart"
+                      ? "navLink relative text-lime-500"
+                      : "navLink relative"
+                  }
+                  href="/Cart"
+                >
+                  Cart{" "}
+                  <span>
+                    <p className="absolute left-full top-0 mb-1 ml-1 flex h-4 w-4 items-center justify-center rounded-full bg-gray-200 text-extraSmall font-bold">
+                      {cart.length}
+                    </p>
+                  </span>
+                </Link>
               </li>
             </div>
           </nav>
         ) : (
-          <nav className="relative z-20 flex items-center justify-between gap-4 max-w-7xl w-full">
+          <nav className="relative z-20 flex w-full max-w-7xl items-center justify-between gap-4">
             <div>
-              <h2 className="uppercase text-blue-600 text-2xl font-bold flex gap-2 items-center">
+              <h2 className="flex items-center gap-2 text-2xl font-bold uppercase text-blue-600">
                 <span className="text-green-600">
                   <RiShoppingBagFill />
                 </span>
@@ -107,8 +155,8 @@ const NavbarMain = ({params}) => {
             <div
               className={
                 toggleNav
-                  ? "mobileNav z-50 py-20 fixed top left-0 px-4 sm:px-32 backdrop-blur-md backdrop-filter bg-[#1e1e1c89]"
-                  : "mobileNav-active z-50 py-20 fixed top left-0 px-4 sm:px-32 backdrop-blur-md backdrop-filter bg-[#1e1e1c89] "
+                  ? "mobileNav top fixed left-0 z-50 bg-[#1e1e1c89] px-4 py-20 backdrop-blur-md backdrop-filter sm:px-32"
+                  : "mobileNav-active top fixed left-0 z-50 bg-[#1e1e1c89] px-4 py-20 backdrop-blur-md backdrop-filter sm:px-32 "
               }
             >
               <div className="">
@@ -117,24 +165,52 @@ const NavbarMain = ({params}) => {
                     <SearchButton />
                   </li>
                 </div>
-                <div className="gap-2 mt-4">
+                <div className="mt-4 gap-2">
                   <li className="navList">
-                    <Link className={currentPath === "/" ? "navLink text-lime-500" : "navLink"} href="/">
+                    <Link
+                      className={
+                        currentPath === "/"
+                          ? "navLink text-lime-500"
+                          : "navLink"
+                      }
+                      href="/"
+                    >
                       Home
                     </Link>
                   </li>
                   <li className="navList">
-                    <Link className={currentPath === "/Product" ? "navLink text-lime-500" : "navLink"} href="/Product">
+                    <Link
+                      className={
+                        currentPath === "/Product"
+                          ? "navLink text-lime-500"
+                          : "navLink"
+                      }
+                      href="/Product"
+                    >
                       Product
                     </Link>
                   </li>
                   <li className="navList">
-                    <Link className={currentPath === "/Dashboard" ? "navLink text-lime-500" : "navLink"} href="/Dashboard">
+                    <Link
+                      className={
+                        currentPath === "/Dashboard"
+                          ? "navLink text-lime-500"
+                          : "navLink"
+                      }
+                      href="/Dashboard"
+                    >
                       Dashboard
                     </Link>
                   </li>
                   <li className="navList">
-                    <Link className={currentPath === "/PracticePage" ? "navLink text-lime-500" : "navLink"} href="/PracticePage">
+                    <Link
+                      className={
+                        currentPath === "/PracticePage"
+                          ? "navLink text-lime-500"
+                          : "navLink"
+                      }
+                      href="/PracticePage"
+                    >
                       Practice
                     </Link>
                   </li>
@@ -142,29 +218,35 @@ const NavbarMain = ({params}) => {
                     <span>
                       <VscAccount />
                     </span>
-                    <Link className={currentPath === "/Register" ? "navLink text-lime-500" : "navLink"} href="/Register"> Account</Link>
+                    <Link
+                      className={
+                        currentPath === "/Register"
+                          ? "navLink text-lime-500"
+                          : "navLink"
+                      }
+                      href="/Register"
+                    >
+                      {" "}
+                      Account
+                    </Link>
                   </li>
                   <li className="navList flex items-center justify-start gap-2 py-2">
                     <span>
                       <BsCartPlus />
                     </span>
-                    <Link className={currentPath === "/Cart" ? "navLink text-lime-500" : "navLink"} href="/cart"> Cart</Link>
+                    <Link
+                      className={
+                        currentPath === "/Cart"
+                          ? "navLink text-lime-500"
+                          : "navLink"
+                      }
+                      href="/cart"
+                    >
+                      {" "}
+                      Cart
+                    </Link>
                   </li>
                 </div>
-                {/*                 <div className="gap-4 m-auto">
-                  <li className="flex items-center justify-center gap-2 py-2">
-                    <span>
-                      <VscAccount />
-                    </span>
-                    <Link href="/Register"> Account</Link>
-                  </li>
-                  <li className="flex items-center justify-center gap-2 py-2">
-                    <span>
-                      <BsCartPlus />
-                    </span>
-                    <Link href="/cart"> Cart</Link>
-                  </li>
-                </div> */}
               </div>
             </div>
           </nav>
