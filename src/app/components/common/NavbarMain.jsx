@@ -14,8 +14,10 @@ const NavbarMain = ({ params }) => {
   // const [width, setWidth] = useState(768);
   const currentPath = usePathname();
   const { cart } = useContext(CartContextProvider);
+  const [cartItem, setCartItem] = cart;
   const [toggleNav, setToggleNav] = useState(false);
   const [width, setWidth] = useState(window?.innerWidth);
+  console.log(cartItem);
 
   useEffect(() => {
     const calcSize = () => {
@@ -128,8 +130,8 @@ const NavbarMain = ({ params }) => {
                 >
                   Cart{" "}
                   <span>
-                    <p className="absolute left-full top-0 mb-1 ml-1 flex h-4 w-4 items-center justify-center rounded-full bg-gray-200 text-extraSmall font-bold">
-                      {cart.length}
+                    <p className="absolute left-full top-0 mb-1 ml-1 flex h-4 w-4 items-center justify-center rounded-full bg-gray-300 text-extraSmall font-bold">
+                      {cartItem.length}
                     </p>
                   </span>
                 </Link>
