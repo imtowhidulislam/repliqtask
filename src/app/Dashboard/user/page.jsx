@@ -28,7 +28,7 @@ const page = () => {
             <Image src={Empty} alt={user} width={400} height={400} />
           </div>
           <div className="grid place-items-center">
-            <h2 className="py-4 text-2xl font-bold">
+            <h2 className="py-4 text-2xl font-bold text-center md:text-left">
               User not found, Create first.
             </h2>
             <Link href="/register">

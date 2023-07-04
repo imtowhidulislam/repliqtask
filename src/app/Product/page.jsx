@@ -24,29 +24,24 @@ const Page = () => {
     const data = await res.json();
     if (!res.ok) throw Error("Url might be not found.");
 
-    console.log(data);
-    (() => {
-      let unique = data?.map((but) => but.category);
-      unique = [...new Set(unique)];
-      setButton(unique);
-    })();
+    let unique = data?.map((but) => but.category);
+    unique = [...new Set(unique)];
+    setButton(unique);
+    
     setProductValue([...data]);
     return data;
   };
+
+  /* (() => {
+    let unique = data?.map((but) => but.category);
+    unique = [...new Set(unique)];
+    setButton(unique);
+  })() */;
 
   const { data, isLoading, error } = useQuery({
     queryKey: ["productData"],
     queryFn: fetchData,
   });
-
-  // !! Setting up the Unique Buton Data...
-  useEffect(() => {
-   
-  }, []);
-
-  console.log(productValue);
-  console.log(data);
-  console.log(button);
 
   // !!! Back To Top
   const handleTop = () => {
@@ -60,6 +55,7 @@ const Page = () => {
     setFilterProduct(e.target.dataset.name);
   };
 
+  console.log(button);
   return (
     <div className="container px-3 py-8 sm:py-24 md:px-0 ">
       <div id="buttonSection" className="btn_container mt-16 md:mt-0">

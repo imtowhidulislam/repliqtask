@@ -35,9 +35,12 @@ const NavbarMain = ({ params }) => {
   const handleToggle = () => {
     setToggleNav(!toggleNav);
   };
+  const toggleMobNav = () => {
+    setToggleNav(true);
+  }
 
   return (
-    <div className="fixed left-0 top-0 z-50 w-full bg-lime-100 sm:relative sm:bg-lime-200">
+    <div className="fixed left-0 top-0 z-50 w-full bg-lime-100 md:relative md:bg-lime-200">
       <div className="container py-4">
         {width > 768 ? (
           <nav className="flex w-full max-w-7xl items-center justify-between gap-2">
@@ -162,9 +165,10 @@ const NavbarMain = ({ params }) => {
                 </div>
                 <div className="mt-4 gap-2">
                   <Link
+                    onClick={toggleMobNav}
                     className={
                       currentPath === "/"
-                        ? "navLink navList text-lime-600"
+                        ? "navLink navList text-lime-200"
                         : "navLink navList"
                     }
                     href="/"
@@ -173,9 +177,10 @@ const NavbarMain = ({ params }) => {
                   </Link>
 
                   <Link
+                    onClick={toggleMobNav}
                     className={
                       currentPath === "/product"
-                        ? "navLink navList text-lime-600"
+                        ? "navLink navList text-lime-200"
                         : "navLink navList"
                     }
                     href="/product"
@@ -184,9 +189,10 @@ const NavbarMain = ({ params }) => {
                   </Link>
 
                   <Link
+                    onClick={toggleMobNav}
                     className={
                       currentPath === "/dashboard"
-                        ? "navLink navList text-lime-600"
+                        ? "navLink navList text-lime-200"
                         : "navLink navList"
                     }
                     href="/dashboard"
@@ -197,9 +203,10 @@ const NavbarMain = ({ params }) => {
                   <li className="navList flex items-center justify-start gap-2 py-2">
                     
                     <Link
+                      onClick={toggleMobNav}
                       className={
                         currentPath === "/register"
-                          ? "navLink text-lime-600"
+                          ? "navLink text-lime-200"
                           : "navLink"
                       }
                       href="/register"
@@ -213,9 +220,10 @@ const NavbarMain = ({ params }) => {
                   <li className="navList flex items-center justify-start gap-2 py-2">
                     
                     <Link
+                      onClick={toggleMobNav}
                       className={
                         currentPath === "/cart"
-                          ? "navLink text-lime-600"
+                          ? "navLink text-lime-200"
                           : "navLink"
                       }
                       href="/cart"

@@ -48,7 +48,7 @@ const page = () => {
       <div className="relative flex h-full w-full items-center justify-center bg-contact-image bg-cover bg-center bg-no-repeat  before:absolute before:left-0 before:top-0 before:h-full before:w-full before:bg-[rgba(10,46,16,0.57)] before:backdrop-blur-sm">
         <form
           onSubmit={handleSubmit}
-          className="registerForm mx-4 my-8 w-full max-w-md animate-moveUp overflow-hidden rounded-md border border-gray-200 bg-[#14141483] px-4 py-6 backdrop-blur-md backdrop-filter sm:mx-0"
+          className="registerForm md:mx-4 md:my-8 w-full max-w-md animate-moveUp overflow-hidden rounded-md border border-gray-200 bg-[#14141483] px-4 pb-6 pt-0 backdrop-blur-md backdrop-filter sm:mx-0"
         >
           <div className="flex items-center justify-center pb-1 text-6xl text-cyan-700"></div>
           <div className="pb-2">
@@ -79,7 +79,7 @@ const page = () => {
                 }
               />
               {errors.title && touched.title && (
-                <p className="absolute left-0 top-full text-sm font-semibold capitalize text-red-600">
+                <p className="absolute left-0 top-full text-small md:text-sm capitalize text-red-300">
                   {errors.title}
                 </p>
               )}
@@ -108,7 +108,7 @@ const page = () => {
                 placeholder="enter product desc"
               />
               {errors.desc && touched.desc && (
-                <p className="absolute left-0 top-full text-sm font-semibold capitalize text-red-600">
+                <p className="absolute left-0 top-full text-small md:text-sm capitalize text-red-300">
                   {errors.desc}
                 </p>
               )}{" "}
@@ -136,7 +136,7 @@ const page = () => {
                 placeholder="enter product price"
               />
               {errors.price && touched.price && (
-                <p className="absolute left-0 top-full text-sm font-semibold capitalize text-red-600">
+                <p className="absolute left-0 top-full text-small md:text-sm capitalize text-red-300">
                   {errors.price}
                 </p>
               )}
@@ -164,7 +164,7 @@ const page = () => {
                 placeholder="enter product Image"
               />
               {errors.file && touched.file && (
-                <p className="absolute left-0 top-full text-sm font-semibold capitalize text-red-600">
+                <p className="absolute left-0 top-full text-small md:text-sm capitalize text-red-300">
                   {errors.file}
                 </p>
               )}
@@ -192,14 +192,14 @@ const page = () => {
                 placeholder="enter product category"
               />
               {errors.category && touched.category && (
-                <p className="absolute left-0 top-full text-sm font-semibold capitalize text-red-600">
+                <p className="absolute left-0 top-full text-small md:text-sm capitalize text-red-300">
                   {errors.category}
                 </p>
               )}
             </div>
           </div>
 
-          <div className="mt-12 w-full">
+          <div className="mt-4 md:mt-12 w-full">
             <button
               type="submit"
               // onClick={handleSubmit}

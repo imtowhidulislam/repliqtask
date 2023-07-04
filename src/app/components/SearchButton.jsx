@@ -11,7 +11,6 @@ const SearchButton = () => {
         const {name,value} = e.target;
         setSearchInput({...searchInput, [name]:value});
     }
-    console.log(searchInput);
     const handleSumbit = (e) => {
         e.preventDefault();
         if(searchInput.search) {
@@ -21,8 +20,6 @@ const SearchButton = () => {
             setSearchInput({search : ""})
         } 
     }
-    console.log(searchValue);
-    console.log(searchInput);
 
     useEffect(() => {
         focusSearch.current.focus();

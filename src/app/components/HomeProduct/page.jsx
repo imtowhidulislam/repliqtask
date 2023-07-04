@@ -58,7 +58,7 @@ const HomeTopratedProduct = () => {
           {isLoading ? (
             <h2 className="text-center text-2xl font-bold">Loading...</h2>
           ) : (
-            <div className="grid grid-cols-productLayoutTop place-items-start gap-4 overflow-hidden">
+            <div className="grid grid-cols-homepageLayoutHero1 w-full sm:grid-cols-productLayoutTop place-items-start gap-4 overflow-hidden">
               {topRate?.map((topProduct) => {
                 const { id, title, price, rating, image } = topProduct;
                 const titleLength = title.split(" ").slice(0, 5).join(" ");
@@ -69,13 +69,13 @@ const HomeTopratedProduct = () => {
                   >
                     <Link href={`/product/${id}`} className="">
                       <div>
-                        <div className="m-auto mb-4 h-44 w-52 overflow-hidden p-4">
+                        <div className="m-auto mb-4 h-60 max-w-xs p-4">
                           <Image
-                            className="block object-cover object-center"
+                            className="objece-center block h-60 object-cover"
                             src={image}
                             alt=""
-                            width={250}
-                            height={200}
+                            width={400}
+                            height={300}
                           />
                         </div>
                         <div className="z-20 px-4 pb-4 pt-2 text-gray-700">

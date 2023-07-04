@@ -37,10 +37,10 @@ const Dashboard = () => {
   return (
     <div>
       <div>
-        <h2 className="mb-4 font-mono text-2xl font-bold capitalize">
+        <h2 className="mb-4 font-mono text-base uppercase md:text-2xl font-bold ">
           total no of product is : {productValue.length}
         </h2>
-        <div>
+        <div className="">
           {productValue.map((item) => {
             const { id, title, price, image, category } = item;
             const setDelay = id * 100;
@@ -49,7 +49,7 @@ const Dashboard = () => {
                 key={id}
                 className={`border-1 z-0 mb-2 flex animate-moveUp items-center justify-between gap-8 rounded-md border-lime-600 bg-lime-300 p-3 drop-shadow-md delay-[${setDelay}]`}
               >
-                <div className="flex items-center gap-6">
+                <div className="flex items-center gap-2 md:gap-6">
                   <div className="h-20 w-20 overflow-hidden rounded-md">
                     <Image
                       className="h-20 w-full object-cover"
@@ -60,10 +60,10 @@ const Dashboard = () => {
                     />
                   </div>
                   <div>
-                    <h2 className="text-left text-xs font-medium capitalize md:text-base">
+                    <h2 className="text-left text-small font-medium capitalize md:text-base ">
                       {title}
                     </h2>
-                    <h2 className="text-left text-xs font-medium capitalize text-lime-800 md:text-base">
+                    <h2 className="text-left text-xs font-medium capitalize text-lime-900 md:text-base">
                       {category}
                     </h2>
                     <h2 className="text-left text-xs font-medium capitalize md:text-base">

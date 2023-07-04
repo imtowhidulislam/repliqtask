@@ -31,7 +31,7 @@ const page = () => {
       <div className="relative flex h-full w-full items-center justify-center overflow-hidden bg-contact-image bg-cover bg-center bg-no-repeat  before:absolute before:left-0 before:top-0 before:h-full before:w-full before:bg-[rgba(10,46,16,0.57)] before:backdrop-blur-sm">
         <form
           onSubmit={handleSubmit}
-          className="registerForm mx-4 my-8 w-full max-w-md animate-moveUp overflow-hidden rounded-md border border-gray-200 bg-[#14141483] px-4 py-6 backdrop-blur-md backdrop-filter sm:mx-0"
+          className="registerForm md:mx-4 my-4 md:my-8 w-full max-w-md animate-moveUp overflow-hidden rounded-md border border-gray-200 bg-[#14141483] px-4 py-6 backdrop-blur-md backdrop-filter sm:mx-0"
         >
           <div className="pb-2">
             <h2 className="text-center text-xl font-bold uppercase text-[#ffff]">
@@ -61,7 +61,7 @@ const page = () => {
                 placeholder="enter your email"
               />
               {errors.email && touched.email && (
-                <p className="absolute left-0 top-full text-sm font-semibold capitalize text-red-600">
+                <p className="absolute left-0 top-full text-small md:text-sm capitalize text-red-300">
                   {errors.email}
                 </p>
               )}
@@ -90,14 +90,14 @@ const page = () => {
                 placeholder="enter you password"
               />
               {errors.password && touched.password && (
-                <p className="absolute left-0 top-full text-sm font-semibold capitalize text-red-600">
+                <p className="absolute left-0 top-full text-small md:text-sm capitalize text-red-300">
                   {errors.password}
                 </p>
               )}
             </div>
           </div>
 
-          <div className="mt-12 w-full">
+          <div className="mt-4 md:mt-12 w-full">
             <button
               type="submit"
               // onClick={handleSubmit}
