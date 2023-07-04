@@ -4,30 +4,41 @@ import {RxCross1} from "react-icons/rx"
 
 const SearchButton = () => {
     const focusSearch = useRef(null);
-    const [search,setSearch] = useState({search:""});
+    const [searchInput,setSearchInput] = useState({search:""});
+    const [searchValue , setSearchValue] = useState([]);
 
     const handleChange = (e) => {
         const {name,value} = e.target;
-        setSearch({...search, [name]:value});
+        setSearchInput({...searchInput, [name]:value});
     }
+    console.log(searchInput);
     const handleSumbit = (e) => {
         e.preventDefault();
+        if(searchInput.search) {
+            const id = new Date().getTime().toString();
+            const newSearch = {...searchInput,id};
+            setSearchValue([...searchValue,newSearch]);
+            setSearchInput({search : ""})
+        } 
     }
+    console.log(searchValue);
+    console.log(searchInput);
 
     useEffect(() => {
         focusSearch.current.focus();
-    },[search])
+    },[searchInput])
 
     const deleteSearchText = () => {
-        setSearch({search : ""})
+        setSearchInput({search : ""})
     }
+
   return (
     <div className='flex items-center justify-between border border-gray-500 rounded-full overflow-hidden'>
         <form className='flex items-center justify-center' onSubmit={handleSumbit}>
-            <input id='search' ref={focusSearch} name='search' value={search.search} onChange={handleChange} placeholder='search' className='w-full lg:w-full placeholder:capitalize bg-transparent pl-4 border-none outline-none'>
+            <input type='text' id='searchInput' ref={focusSearch} name='search' value={searchInput.search} onChange={handleChange} placeholder='search' className='w-full lg:w-full placeholder:capitalize bg-transparent pl-4 border-none outline-none'>
             </input>
-            <div className={`flex items-center justify-center px-2 transition-all duration-150 ease-in-out ${search.search ? 'visible':'collapse'}`}>
-                <button onClick={deleteSearchText}>
+            <div className={`flex items-center justify-center px-2 transition-all duration-150 ease-in-out ${searchInput.search ? 'visible':'collapse'}`}>
+                <button type='submit' onClick={deleteSearchText}>
                     <span className='text-xl font-bold'><RxCross1 /></span>
                 </button>
             </div>
