@@ -32,7 +32,7 @@ const SearchButton = () => {
   return (
     <div className='flex items-center justify-between border border-lime-800 rounded-full overflow-hidden'>
         <form className='flex items-center justify-center' onSubmit={handleSumbit}>
-            <input type='text' id='searchInput' ref={focusSearch} name='search' value={searchInput.search} onChange={handleChange} placeholder='search' className='w-full lg:w-full placeholder:capitalize bg-transparent pl-4 border-none outline-none'>
+            <input type='text' id='searchInput' ref={focusSearch} name='search' value={searchInput.search} onChange={handleChange} placeholder='search' className='w-full lg:w-full placeholder:capitalize bg-transparent pl-4 border-none outline-none placeholder:text-[#222]'>
             </input>
             <div className={`flex items-center justify-center px-2 transition-all duration-150 ease-in-out ${searchInput.search ? 'visible':'collapse'}`}>
                 <button type='submit' onClick={deleteSearchText}>
