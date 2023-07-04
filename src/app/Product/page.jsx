@@ -44,9 +44,9 @@ const Page = () => {
    
   }, []);
 
-  console.log(productValue);
-  console.log(data);
-  console.log(button);
+  // console.log(productValue);
+  // console.log(data);
+  // console.log(button);
 
   // !!! Back To Top
   const handleTop = () => {
