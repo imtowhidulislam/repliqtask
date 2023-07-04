@@ -61,7 +61,7 @@ const Cart = () => {
             <HiArchiveBoxXMark className="hover:animate-shake text-xl text-red-500" />
           </button>
         </div>
-        <div className="grid grid-cols-homepageLayoutHero place-items-center gap-24 sm:place-items-stretch">
+        <div className="grid grid-cols-productLayout md:grid-cols-homepageLayoutHero gap-24 sm:place-items-stretch">
           <div>
             {uniqueCart.map((item) => {
               const { id, title, price, image, category } = item;
