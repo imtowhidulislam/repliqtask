@@ -47,9 +47,9 @@ const Cart = () => {
 
   return (
     <div className="cartHeight bg-lime-100 py-16">
-      <div className="container p-4 md:p-0 ">
+      <div className="container p-2 sm:p-4 md:p-0 ">
         <div className="mb-8 flex items-center justify-between gap-4 sm:gap-20">
-          <h2 className="cartTitle text-left font-mono text-4xl font-bold capitalize text-lime-700 ">
+          <h2 className="cartTitle text-left font-mono text-2xl ms:text-4xl font-bold capitalize text-lime-700 ">
             Your Cart
           </h2>
           <button
