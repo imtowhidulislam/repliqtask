@@ -37,7 +37,7 @@ const NavbarMain = ({ params }) => {
   };
   const toggleMobNav = () => {
     setToggleNav(true);
-  }
+  };
 
   return (
     <div className="fixed left-0 top-0 z-50 w-full bg-lime-100 md:relative md:bg-lime-200">
@@ -85,7 +85,6 @@ const NavbarMain = ({ params }) => {
               >
                 Dashboard
               </Link>
-
             </div>
             <div className="flexRow gap-4">
               <li>
@@ -201,7 +200,6 @@ const NavbarMain = ({ params }) => {
                   </Link>
 
                   <li className="navList flex items-center justify-start gap-2 py-2">
-                    
                     <Link
                       onClick={toggleMobNav}
                       className={
@@ -213,25 +211,37 @@ const NavbarMain = ({ params }) => {
                     >
                       {" "}
                       <span>
-                      <VscAccount />
-                    </span> Account
+                        <VscAccount />
+                      </span>{" "}
+                      Account
                     </Link>
                   </li>
                   <li className="navList flex items-center justify-start gap-2 py-2">
-                    
                     <Link
                       onClick={toggleMobNav}
                       className={
                         currentPath === "/cart"
-                          ? "navLink text-lime-200"
-                          : "navLink"
+                          ? "navLink relative text-lime-200"
+                          : "navLink relative"
                       }
                       href="/cart"
                     >
                       {" "}
                       <span>
-                      <BsCartPlus />
-                    </span> Cart
+                        <BsCartPlus />
+                      </span>{" "}
+                      Cart{" "}
+                      <span>
+                        <p
+                          className={
+                            currentPath === "/cart"
+                              ? "absolute -top-2 left-14 mb-1 ml-1 flex h-4 w-4 items-center justify-center rounded-full bg-gray-300 text-extraSmall font-bold text-lime-900"
+                              : "absolute -top-3 left-14 mb-1 ml-1 flex h-4 w-4 items-center justify-center rounded-full bg-gray-300 text-extraSmall font-bold"
+                          }
+                        >
+                          {cartItem.length}
+                        </p>
+                      </span>
                     </Link>
                   </li>
                 </div>
