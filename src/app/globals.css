@@ -28,6 +28,7 @@ a {
 
 body {
   color: rgb(var(--foreground-rgb));
+  background: #e7e7e7cc;
   /* background: linear-gradient(
       to bottom,
       transparent,
