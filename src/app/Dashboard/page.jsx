@@ -47,7 +47,7 @@ const Dashboard = () => {
             return (
               <div
                 key={id}
-                className={`border-1 z-0 mb-2 flex animate-moveUp items-center justify-between gap-8 rounded-md border-lime-600 bg-lime-100 p-3 drop-shadow-md delay-[${setDelay}]`}
+                className={`border-1 z-0 mb-2 flex animate-moveUp items-center justify-between gap-8 rounded-md border-lime-600 bg-lime-300 p-3 drop-shadow-md delay-[${setDelay}]`}
               >
                 <div className="flex items-center gap-6">
                   <div className="h-20 w-20 overflow-hidden rounded-md">

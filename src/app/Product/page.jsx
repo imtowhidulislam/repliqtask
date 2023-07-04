@@ -19,17 +19,17 @@ const Page = () => {
   const [button, setButton] = useState([]);
   const [filterProduct, setFilterProduct] = useState("All");
 
-  const fetchCat = (data) => {
-    let unique = data.map((but) => but.category);
-    unique = [...new Set(unique)];
-    setButton(unique);
-  };
   const fetchData = async () => {
     const res = await fetch("https://fakestoreapi.com/products");
     const data = await res.json();
     if (!res.ok) throw Error("Url might be not found.");
 
-    fetchCat(data);
+    console.log(data);
+    (() => {
+      let unique = data?.map((but) => but.category);
+      unique = [...new Set(unique)];
+      setButton(unique);
+    })();
     setProductValue([...data]);
     return data;
   };
@@ -38,7 +38,15 @@ const Page = () => {
     queryKey: ["productData"],
     queryFn: fetchData,
   });
+
+  // !! Setting up the Unique Buton Data...
+  useEffect(() => {
+   
+  }, []);
+
+  console.log(productValue);
   console.log(data);
+  console.log(button);
 
   // !!! Back To Top
   const handleTop = () => {
@@ -53,15 +61,17 @@ const Page = () => {
   };
 
   return (
-    <div className="container px-3 py-8 sm:py-24 md:px-0">
-      <div id="buttonSection" className="btn_container">
-        <button
-          className="btn w-full sm:w-max"
-          onClick={handleClick}
-          data-name="All"
-        >
-          {button && "All"}
-        </button>
+    <div className="container px-3 py-8 sm:py-24 md:px-0 ">
+      <div id="buttonSection" className="btn_container mt-16 md:mt-0">
+        {data && (
+          <button
+            className="btn w-full sm:w-max"
+            onClick={handleClick}
+            data-name="All"
+          >
+            All
+          </button>
+        )}
         <div className="flex flex-wrap items-center justify-center gap-2">
           {button.map((btns) => {
             return (
@@ -89,7 +99,7 @@ const Page = () => {
           {filterProduct === "All" ? (
             <ProductOfList
               filterProduct={filterProduct}
-              product={productValue}
+              product={data}
               // setProduct={setProductValue}
               loading={isLoading}
               cart={cartValue}
@@ -98,7 +108,7 @@ const Page = () => {
           ) : (
             <ProductCategory
               filterProduct={filterProduct}
-              product={productValue}
+              product={data}
               // setProduct={setProductValue}
               loading={isLoading}
               cart={cartValue}

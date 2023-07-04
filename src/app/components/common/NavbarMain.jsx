@@ -23,7 +23,7 @@ const NavbarMain = ({ params }) => {
         setWidth(window.innerWidth);
       };
 
-      setToggleNav(false);
+      setToggleNav(true);
       window.addEventListener("resize", calcSize);
       return () => {
         window.removeEventListener("resize", calcSize);
@@ -43,7 +43,7 @@ const NavbarMain = ({ params }) => {
           <nav className="flex w-full max-w-7xl items-center justify-between gap-2">
             <div>
               <Link href="/">
-                <h2 className="flex items-center gap-2 text-2xl font-bold uppercase text-lime-300">
+                <h2 className="flex items-center gap-2 text-2xl font-bold uppercase text-lime-700">
                   <span className="text-pink-500">
                     <RiShoppingBagFill />
                   </span>
@@ -137,8 +137,8 @@ const NavbarMain = ({ params }) => {
         ) : (
           <nav className="relative z-20 flex w-full max-w-7xl items-center justify-between gap-4">
             <div>
-              <h2 className="flex items-center gap-2 text-2xl font-bold uppercase text-blue-600">
-                <span className="text-green-600">
+              <h2 className="flex items-center gap-2 text-2xl font-bold uppercase text-lime-600">
+                <span className="text-pink-600">
                   <RiShoppingBagFill />
                 </span>
                 repliq
