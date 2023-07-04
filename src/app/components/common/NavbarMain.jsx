@@ -37,13 +37,13 @@ const NavbarMain = ({ params }) => {
   };
 
   return (
-    <div className="fixed left-0 top-0 z-50 w-full bg-lime-100 sm:relative sm:bg-[#0b0f0bab] md:backdrop-blur-sm">
+    <div className="fixed left-0 top-0 z-50 w-full bg-lime-100 sm:relative sm:bg-[#71f171ea] md:backdrop-blur-sm">
       <div className="container py-4">
         {width > 768 ? (
           <nav className="flex w-full max-w-7xl items-center justify-between gap-2">
             <div>
               <Link href="/">
-                <h2 className="flex items-center gap-2 text-2xl font-bold uppercase text-lime-900">
+                <h2 className="flex items-center gap-2 text-2xl font-bold uppercase text-lime-300">
                   <span className="text-pink-500">
                     <RiShoppingBagFill />
                   </span>
@@ -55,7 +55,7 @@ const NavbarMain = ({ params }) => {
               <Link
                 className={
                   currentPath === "/"
-                    ? "navList navLink text-pink-300"
+                    ? "navList navLink text-pink-600"
                     : "navLink navList"
                 }
                 href="/"
@@ -65,7 +65,7 @@ const NavbarMain = ({ params }) => {
               <Link
                 className={
                   currentPath === "/product"
-                    ? "navLink navList text-pink-300"
+                    ? "navLink navList text-pink-600"
                     : "navLink navList"
                 }
                 href="/product"
@@ -75,7 +75,7 @@ const NavbarMain = ({ params }) => {
               <Link
                 className={
                   currentPath === "/dashboard"
-                    ? "navLink navList text-pink-300"
+                    ? "navLink navList text-pink-600"
                     : "navLink navList"
                 }
                 href="/dashboard"
@@ -83,16 +83,6 @@ const NavbarMain = ({ params }) => {
                 Dashboard
               </Link>
 
-              <Link
-                className={
-                  currentPath === "/PracticePage"
-                    ? "navLink navList text-pink-300"
-                    : "navLink navList"
-                }
-                href="/PracticePage"
-              >
-                Practice
-              </Link>
             </div>
             <div className="flexRow gap-4">
               <li>
@@ -107,7 +97,7 @@ const NavbarMain = ({ params }) => {
                 <Link
                   className={
                     currentPath === "/register"
-                      ? "navLink text-pink-300"
+                      ? "navLink text-pink-600"
                       : "navLink"
                   }
                   href="/register"
@@ -123,7 +113,7 @@ const NavbarMain = ({ params }) => {
                 <Link
                   className={
                     currentPath === "/cart"
-                      ? "navLink relative text-pink-300"
+                      ? "navLink relative text-pink-600"
                       : "navLink relative"
                   }
                   href="/cart"
@@ -174,7 +164,7 @@ const NavbarMain = ({ params }) => {
                   <Link
                     className={
                       currentPath === "/"
-                        ? "navLink navList text-pink-300"
+                        ? "navLink navList text-pink-600"
                         : "navLink navList"
                     }
                     href="/"
@@ -185,7 +175,7 @@ const NavbarMain = ({ params }) => {
                   <Link
                     className={
                       currentPath === "/product"
-                        ? "navLink navList text-pink-300"
+                        ? "navLink navList text-pink-600"
                         : "navLink navList"
                     }
                     href="/product"
@@ -196,7 +186,7 @@ const NavbarMain = ({ params }) => {
                   <Link
                     className={
                       currentPath === "/dashboard"
-                        ? "navLink navList text-pink-300"
+                        ? "navLink navList text-pink-600"
                         : "navLink navList"
                     }
                     href="/dashboard"
@@ -204,24 +194,12 @@ const NavbarMain = ({ params }) => {
                     Dashboard
                   </Link>
 
-                  <li className="navList">
-                    <Link
-                      className={
-                        currentPath === "/PracticePage"
-                          ? "navLink text-pink-300"
-                          : "navLink"
-                      }
-                      href="/PracticePage"
-                    >
-                      Practice
-                    </Link>
-                  </li>
                   <li className="navList flex items-center justify-start gap-2 py-2">
                     
                     <Link
                       className={
                         currentPath === "/register"
-                          ? "navLink text-pink-300"
+                          ? "navLink text-pink-600"
                           : "navLink"
                       }
                       href="/register"
@@ -237,7 +215,7 @@ const NavbarMain = ({ params }) => {
                     <Link
                       className={
                         currentPath === "/cart"
-                          ? "navLink text-pink-300"
+                          ? "navLink text-pink-600"
                           : "navLink"
                       }
                       href="/cart"

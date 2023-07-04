@@ -38,6 +38,7 @@ const Page = () => {
     queryKey: ["productData"],
     queryFn: fetchData,
   });
+  console.log(data);
 
   // !!! Back To Top
   const handleTop = () => {
