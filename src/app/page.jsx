@@ -11,8 +11,10 @@ import Subscribe from "./components/Subscribe";
 import { HiOutlineArrowCircleUp } from "react-icons/hi";
 import HomeTopratedProduct from "./components/HomeProduct/page";
 import CartContextProvider from "./context/cartContext";
+import { useProductData } from "./Data/productData";
 
 export default function Home() {
+  const { data, isLoading, error: error } = useProductData();
   const { cart } = useContext(CartContextProvider);
   const [cartValue, setCartValue] = cart;
   const [product, setProduct] = useState([]);

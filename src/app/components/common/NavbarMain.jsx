@@ -37,7 +37,7 @@ const NavbarMain = ({ params }) => {
   };
 
   return (
-    <div className="fixed left-0 top-0 z-50 w-full bg-lime-100 sm:relative sm:bg-[#71f171ea] md:backdrop-blur-sm">
+    <div className="fixed left-0 top-0 z-50 w-full bg-lime-100 sm:relative sm:bg-lime-200">
       <div className="container py-4">
         {width > 768 ? (
           <nav className="flex w-full max-w-7xl items-center justify-between gap-2">
@@ -55,7 +55,7 @@ const NavbarMain = ({ params }) => {
               <Link
                 className={
                   currentPath === "/"
-                    ? "navList navLink text-pink-600"
+                    ? "navList navLink text-lime-600"
                     : "navLink navList"
                 }
                 href="/"
@@ -65,7 +65,7 @@ const NavbarMain = ({ params }) => {
               <Link
                 className={
                   currentPath === "/product"
-                    ? "navLink navList text-pink-600"
+                    ? "navLink navList text-lime-600"
                     : "navLink navList"
                 }
                 href="/product"
@@ -75,7 +75,7 @@ const NavbarMain = ({ params }) => {
               <Link
                 className={
                   currentPath === "/dashboard"
-                    ? "navLink navList text-pink-600"
+                    ? "navLink navList text-lime-600"
                     : "navLink navList"
                 }
                 href="/dashboard"
@@ -97,7 +97,7 @@ const NavbarMain = ({ params }) => {
                 <Link
                   className={
                     currentPath === "/register"
-                      ? "navLink text-pink-600"
+                      ? "navLink text-lime-600"
                       : "navLink"
                   }
                   href="/register"
@@ -113,7 +113,7 @@ const NavbarMain = ({ params }) => {
                 <Link
                   className={
                     currentPath === "/cart"
-                      ? "navLink relative text-pink-600"
+                      ? "navLink relative text-lime-600"
                       : "navLink relative"
                   }
                   href="/cart"
@@ -138,7 +138,7 @@ const NavbarMain = ({ params }) => {
           <nav className="relative z-20 flex w-full max-w-7xl items-center justify-between gap-4">
             <div>
               <h2 className="flex items-center gap-2 text-2xl font-bold uppercase text-lime-600">
-                <span className="text-pink-600">
+                <span className="text-lime-600">
                   <RiShoppingBagFill />
                 </span>
                 repliq
@@ -164,7 +164,7 @@ const NavbarMain = ({ params }) => {
                   <Link
                     className={
                       currentPath === "/"
-                        ? "navLink navList text-pink-600"
+                        ? "navLink navList text-lime-600"
                         : "navLink navList"
                     }
                     href="/"
@@ -175,7 +175,7 @@ const NavbarMain = ({ params }) => {
                   <Link
                     className={
                       currentPath === "/product"
-                        ? "navLink navList text-pink-600"
+                        ? "navLink navList text-lime-600"
                         : "navLink navList"
                     }
                     href="/product"
@@ -186,7 +186,7 @@ const NavbarMain = ({ params }) => {
                   <Link
                     className={
                       currentPath === "/dashboard"
-                        ? "navLink navList text-pink-600"
+                        ? "navLink navList text-lime-600"
                         : "navLink navList"
                     }
                     href="/dashboard"
@@ -199,7 +199,7 @@ const NavbarMain = ({ params }) => {
                     <Link
                       className={
                         currentPath === "/register"
-                          ? "navLink text-pink-600"
+                          ? "navLink text-lime-600"
                           : "navLink"
                       }
                       href="/register"
@@ -215,7 +215,7 @@ const NavbarMain = ({ params }) => {
                     <Link
                       className={
                         currentPath === "/cart"
-                          ? "navLink text-pink-600"
+                          ? "navLink text-lime-600"
                           : "navLink"
                       }
                       href="/cart"

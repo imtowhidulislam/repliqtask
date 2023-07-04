@@ -9,10 +9,27 @@ import CartContextProvider from "@/app/context/cartContext";
 
 const HomeTopratedProduct = () => {
   const { cart } = useContext(CartContextProvider);
-  const { data, isLoading, error: error } = useProductData();
+  // const { data, isLoading, error: error } = useProductData();
   const [topRate, setTopRate] = useState([]);
   const [cartValue, setCartValue] = cart;
 
+  // ?? Fetching Data use TanStack Query...
+  const fetchData = async () => {
+    const res = await fetch("https://fakestoreapi.com/products");
+    const data = await res.json();
+    if (!res.ok) throw new Error("Url might be not found.");
+
+    const topProducts = data?.filter((item) => item.rating.rate >= 4.0);
+    localStorage.setItem("topRatedProduct", JSON.stringify(topProducts));
+    setTopRate(topProducts);
+    
+    return data;
+  };
+  const {data, isLoading,error} = useQuery({
+    queryKey: ["productData"],
+    queryFn: fetchData,
+  });
+  
   const addToCart = (id) => {
     try {
       const fetchCartItem = data?.find((item) => {
@@ -28,13 +45,6 @@ const HomeTopratedProduct = () => {
       toast.error("Product not found");
     }
   };
-  const fetchingTopRatedProducts = () => {
-    const topProducts = data?.filter((item) => item.rating.rate >= 4.0);
-    return setTopRate(topProducts);
-  };
-  useEffect(() => {
-    fetchingTopRatedProducts();
-  }, []);
 
   if (error) return "Url might not be found" + error.message;
 
