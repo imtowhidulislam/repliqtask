@@ -47,6 +47,7 @@ const HomeTopratedProduct = () => {
   };
 
   if (error) return "Url might not be found" + error.message;
+  console.log(topRate);
 
   return (
     <div>

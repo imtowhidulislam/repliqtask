@@ -37,13 +37,13 @@ const Footer = () => {
   }, [newsletterUser]);
 
   return (
-    <div className="bg-lime-700 px-4 py-8">
+    <div className="bg-lime-200 px-4 py-8 mt-1">
       <div className="container">
         <div className="mb-10 flex items-center justify-start text-6xl text-gray-100">
           <div>
             <Link href="/" className="cursor-pointer">
-              <h2 className="flex items-center gap-2 text-2xl font-bold uppercase text-white">
-                <span className="text-4xl text-lime-400">
+              <h2 className="flex items-center gap-2 text-2xl font-bold uppercase text-lime-800">
+                <span className="text-4xl text-lime-800">
                   <RiShoppingBagFill />
                 </span>
                 repliq
@@ -88,9 +88,10 @@ const Footer = () => {
           <div className="footerStyle">
             <h2>Follow Us</h2>
 
-            <div className="mt-2 flex gap-2 text-2xl text-gray-300">
+            <div className="mt-2 flex gap-2 text-2xl text-lime-800">
               <FaFacebookSquare className="footerSocialIcon" />
-              <FaTwitterSquare className="footerSocialIcon" />
+              <FaTwitterSquare className="footerSocialIcon
+              " />
               <FaInstagramSquare className="footerSocialIcon" />
               <FaLinkedin className="footerSocialIcon" />
             </div>

@@ -29,12 +29,12 @@ export default function Home() {
                 <h2 className="text-left font-mono text-4xl font-bold capitalize text-lime-950 sm:text-5xl lg:text-7xl">
                   shopping and department store
                 </h2>
-                <p className="py-4 text-left text-sm text-lime-800 sm:text-base md:text-base">
+                <p className="py-4 text-left text-sm text-lime-900 sm:text-base md:text-base">
                   Lorem ipsum, dolor sit amet consectetur adipisicing elit.
                   Dolores eaque eligendi animi accusamus voluptatibus cupiditate
                   consequuntur doloribus repudiandae adipisci temporibus?
                 </p>
-                <p className="pb-4 text-left text-sm text-lime-800 sm:text-base md:text-base">
+                <p className="pb-4 text-left text-sm text-lime-900 sm:text-base md:text-base">
                   Lorem ipsum dolor, sit amet consectetur adipisicing elit.
                   Reprehenderit, voluptatem!
                 </p>

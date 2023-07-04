@@ -59,7 +59,7 @@ body {
   margin-bottom: 0.5rem;
 }
 .footerSocialIcon {
-  @apply cursor-pointer transition-colors duration-200 ease-in-out hover:text-blue-400;
+  @apply cursor-pointer transition-colors duration-200 ease-in-out hover:text-lime-600;
 }
 /* ?? Footer Style End */
 
@@ -81,7 +81,7 @@ body {
   max-width: 13rem;
 }
 .card {
-  @apply z-10 overflow-hidden rounded-md border-2 border-lime-400 bg-[#ffff] text-left drop-shadow-md transition-transform duration-200 ease-in-out hover:scale-105;
+  @apply z-10 overflow-hidden rounded-md border border-[#cccccc] bg-[#ffff] text-left drop-shadow-md transition-transform duration-200 ease-in-out hover:scale-105;
 }
 /* *** Product Image Container Style End */
 
