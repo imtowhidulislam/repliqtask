@@ -18,7 +18,7 @@ const Subscribe = () => {
             <h2 className=' sm:text-[#333]'>subscribe our newsletter and get 10% off!!</h2>
             <form className='' action="" onSubmit={handleSubmit}></form>
             <div className='w-full'>
-                <input className='w-full border border-lime-800 sm:border-lime-300 rounded-sm mb-4 py-2 px-4 bg-transparent placeholder:text-lime-800 sm:placeholder:text-lime-200' id='email' name="email" value={values.email} onChange={handleChange} placeholder='Email' type="email" /></div>
+                <input className='w-full border border-lime-800 sm:border-[#222] rounded-sm mb-4 py-2 px-4 bg-transparent placeholder:text-lime-800 sm:placeholder:text-[#cccccc]' id='email' name="email" value={values.email} onChange={handleChange} placeholder='Email' type="email" /></div>
             <div className='subscribeBtn'>
                 <button type='submit' onClick={handleSubmit} className='w-full cursor-pointer capitalize text-base text-center '>subscribe</button>
             </div>
