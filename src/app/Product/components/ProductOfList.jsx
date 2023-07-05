@@ -30,6 +30,7 @@ const ProductOfList = ({ product, loading, cart, setCart }) => {
       toast.error("product not found");
     }
   };
+  console.log(product);
 
   return (
     <>

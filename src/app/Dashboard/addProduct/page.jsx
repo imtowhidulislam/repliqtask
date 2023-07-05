@@ -6,13 +6,13 @@ import toast from "react-hot-toast";
 import CartContextProvider from "@/app/context/cartContext";
 import { useProductData } from "@/app/Data/productData";
 import { productSchema } from "@/app/Register/schemas/page";
+import NewProductProviderContext from "@/app/context/newProduct";
 
 const page = () => {
   const { data, isLoading, error } = useProductData();
-  const { user } = useContext(CartContextProvider);
-  const [users, setUsers] = user;
+  const {newProduct, setNewProduct} = useContext(NewProductProviderContext);
+  // const [newProducts, setNewProducts] = product;
 
-  console.log(data);
 
   const {
     values,
@@ -32,14 +32,16 @@ const page = () => {
     },
     validationSchema: productSchema,
     onSubmit: async (
-      { fName, lName, email, password, file },
+      values,
       { resetForm }
     ) => {
       const userId = new Date().getTime().toString();
-      const newUser = { ...values, userId };
-      setUsers([...users, newUser]);
+      const addNewProduct = { ...values, userId };
+      setNewProduct([...newProduct, addNewProduct]);
+      console.log(values);
+      console.log(values.file.name);
       resetForm();
-      toast.success("Submitted successfully");
+      toast.success("New Product Added");
     },
   });
 
@@ -170,34 +172,34 @@ const page = () => {
               )}
             </div>
           </div>
-          <div className="">
-            <label
-              className="lableWidth font-bold capitalize text-gray-100"
-              htmlFor="categor"
-            >
-              Category
-            </label>
-            <div className="relative">
-              <input
-                type="text"
-                name="category"
-                onBlur={handleBlur}
-                onChange={handleChange}
-                value={values.category}
-                className={
-                  errors.category && touched.category
-                    ? "form border-2 border-red-500 pl-4 placeholder:capitalize"
-                    : "form bg-transparent pl-4 placeholder:capitalize"
-                }
-                placeholder="enter product category"
-              />
-              {errors.category && touched.category && (
-                <p className="absolute left-0 top-full text-small md:text-sm capitalize text-red-300">
-                  {errors.category}
-                </p>
-              )}
-            </div>
+        <div className="">
+          <label
+            className="lableWidth font-bold capitalize text-gray-100"
+            htmlFor="categor"
+          >
+            Category
+          </label>
+          <div className="relative">
+            <input
+              type="text"
+              name="category"
+              onBlur={handleBlur}
+              onChange={handleChange}
+              value={values.category}
+              className={
+                errors.category && touched.category
+                  ? "form border-2 border-red-500 pl-4 placeholder:capitalize"
+                  : "form bg-transparent pl-4 placeholder:capitalize"
+              }
+              placeholder="enter product category"
+            />
+            {errors.category && touched.category && (
+              <p className="absolute left-0 top-full text-small md:text-sm capitalize text-red-300">
+                {errors.category}
+              </p>
+            )}
           </div>
+        </div>
 
           <div className="mt-4 md:mt-12 w-full">
             <button

@@ -6,7 +6,7 @@ const Loading = () => {
   const { data } = useProductData();
   return (
     <>
-    <div className="flex items-center">
+    <div className="flex items-center mt-8">
         <div className="container grid my-16 grid-cols-productLayout gap-4">
         {data?.map((product) => {
             const {id} = product;

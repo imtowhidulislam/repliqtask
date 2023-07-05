@@ -56,7 +56,7 @@ const ProductDetailsPage = ({ params }) => {
             return (
               <div key={id} className="my-20">
                 <div className="grid grid-cols-productLayout  gap-4">
-                  <div className="grid animate-moveInLeft place-items-center rounded-md bg-gray-200">
+                  <div className="grid animate-moveInLeft drop-shadow-lg place-items-center rounded-md bg-gray-300">
                     <Image
                       className="m-4 block rounded-md bg-gray-100 object-cover object-center"
                       src={img}

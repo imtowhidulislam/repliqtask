@@ -23,6 +23,12 @@ const DashboardNavbar = () => {
         >
           users
         </Link>
+        <Link
+          href="/dashboard/newproduct"
+          className="w-full cursor-pointer rounded-full border-2 border-transparent bg-lime-300 px-8 py-2 text-center font-serif font-medium capitalize text-lime-900 hover:border-lime-600 hover:bg-transparent hover:text-lime-900"
+        >
+          new product
+        </Link>
       </div>
     </div>
   );
