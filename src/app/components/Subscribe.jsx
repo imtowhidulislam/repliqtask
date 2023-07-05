@@ -13,7 +13,7 @@ const Subscribe = () => {
         onSubmit,
     })
   return (
-    <div className='bg-transparent grid place-items-center py-16'>
+    <div className='bg-transparent grid place-items-center px-4 md:px-0 py-16'>
         <div className='footerStyle max-w-lg border border-lime-800 p-4 rounded-md'>
             <h2 className=' sm:text-[#333]'>subscribe our newsletter and get 10% off!!</h2>
             <form className='' action="" onSubmit={handleSubmit}></form>

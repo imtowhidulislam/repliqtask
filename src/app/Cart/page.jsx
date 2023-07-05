@@ -12,7 +12,6 @@ const Cart = () => {
   const [uniqueCart, setUniqueCart] = useState([]);
   const counterRef = useRef(null);
 
-  console.log(cartValue);
   const deleteItem = () => {
     try {
       setCartValue([]);
@@ -42,7 +41,6 @@ const Cart = () => {
     fetchUniqueCart();
   }, []);
 
-  console.log(uniqueCart);
   const total = uniqueCart
     .reduce((total, item) => total + item.quantity * item.price, 0)
     .toFixed(2);

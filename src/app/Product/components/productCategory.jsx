@@ -40,7 +40,7 @@ const ProductCategory = ({
       setCart((prevItem) => [...prevItem, checkProductInThere]);
       
       cart.find(item => item.id === id && (item.quantity += 1))
-      
+
       toast.success("Product Added");
     } catch (error) {
       toast.error("Product not found");
@@ -111,7 +111,7 @@ const ProductCategory = ({
                   </div>
                 </div>
               </Link>
-              <div className="flex w-full items-center justify-between px-2 pb-4">
+              <div className="flex w-full items-center justify-between px-4 pb-4">
                 {/* <Button actionType="add to card" />
                                 <Button actionType="buy now" /> */}
                 <button

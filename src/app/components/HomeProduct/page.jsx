@@ -47,7 +47,6 @@ const HomeTopratedProduct = () => {
   };
 
   if (error) return "Url might not be found" + error.message;
-  console.log(topRate);
 
   return (
     <div>
@@ -105,7 +104,7 @@ const HomeTopratedProduct = () => {
                         </div>
                       </div>
                     </Link>
-                    <div className="flex w-full items-center justify-between px-2 pb-4">
+                    <div className="flex w-full items-center justify-between px-4 pb-4">
                       <button
                         type="button"
                         onClick={() => addToCart(id)}

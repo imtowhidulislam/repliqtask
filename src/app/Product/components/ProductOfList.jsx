@@ -10,7 +10,6 @@ import FavoriteBtn from "./FavoriteBtn";
 
 const ProductOfList = ({ product, loading, cart, setCart }) => {
   // const [cart,setCart] = useState([]);
-  console.log(product);
   const getProduct = (id) => {
     try {
       let quantity = 0;
@@ -95,7 +94,7 @@ const ProductOfList = ({ product, loading, cart, setCart }) => {
                   </div>
                 </div>
               </Link>
-              <div className="flex w-full items-center justify-between px-2 pb-4">
+              <div className="flex w-full items-center justify-between px-4 pb-4">
                 {/* <Button actionType="add to card" />
                                 <Button actionType="buy now" /> */}
 

@@ -7,6 +7,7 @@ import { HiOutlineArrowUpCircle, HiArrowUpCircle } from "react-icons/hi2";
 // import { useProductData } from "../Data/productData";
 import CartContextProvider from "../context/cartContext";
 import Loading from "./loading";
+import { buttonData } from "../Data/buttonData";
 
 const Page = () => {
   const sectionRef = useRef(null);
@@ -62,7 +63,7 @@ const Page = () => {
           </button>
         )}
         <div className="flex flex-wrap items-center justify-center gap-2">
-          {button.map((btns, i) => {
+          {button.length !== 0 ? button.map((btns, i) => {
             return (
               <>
                 <button
@@ -75,7 +76,22 @@ const Page = () => {
                 </button>
               </>
             );
-          })}
+          }) : (
+            buttonData.map((btns, i) => {
+              return (
+                <>
+                  <button
+                    key={i}
+                    className="btn w-full sm:w-max"
+                    onClick={handleClick}
+                    data-name={btns}
+                  >
+                    {btns}
+                  </button>
+                </>
+              );
+            })
+          )}
         </div>
       </div>
       {isLoading ? (
