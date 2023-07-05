@@ -2,27 +2,26 @@ import React, { useContext, useState } from 'react'
 import CartContextProvider from '../context/cartContext';
 import {HiChevronDown, HiChevronUp} from "react-icons/hi"
 
-const Counter = ({id}) => {
+const Counter = ({quantity,productId:id, uniqueCart, setUniqueCart}) => {
     
     const {cart} = useContext(CartContextProvider);
     const [cartValue,setCartValue] = cart;
     
-    const [itemCount, setItemCount] = useState(1);
+    const [itemCount, setItemCount] = useState(quantity);
 
+    console.log(itemCount);
     const decrementItem = (id) => {
-        console.log("product id : "+id);
-    cartValue.find(item => {
-        if(item.id === id) item.quantity -= 1;
-    } )
+
         setItemCount(prevCount => prevCount - 1);
         if(!itemCount > 0) setItemCount(0);
+
+        uniqueCart.find(item => item.id === id && (item.quantity -= 1))
     }
     const incrementItem = (id) => {
         console.log(id);
-        cartValue.find(item => {
-            if(item.id === id) item.quantity += 1;
-        } )
+        
         setItemCount(prevCount => prevCount + 1);
+        uniqueCart.find(item => item.id === id && (item.quantity += 1))
     }
   return (
     <div>

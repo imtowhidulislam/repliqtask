@@ -28,7 +28,7 @@ const page = () => {
 
   return (
     <>
-      <div className="relative flex h-full w-full items-center justify-center overflow-hidden bg-contact-image bg-cover bg-center bg-no-repeat  before:absolute before:left-0 before:top-0 before:h-full before:w-full before:bg-[rgba(10,46,16,0.57)] before:backdrop-blur-sm">
+      <div className="relative flex h-full min-h-custom-h-form w-full items-center justify-center overflow-hidden bg-contact-image bg-cover bg-center bg-no-repeat  before:absolute before:left-0 before:top-0 before:h-full before:w-full before:bg-[rgba(10,46,16,0.57)] before:backdrop-blur-sm">
         <form
           onSubmit={handleSubmit}
           className="registerForm md:mx-4 my-4 md:my-8 w-full max-w-md animate-moveUp overflow-hidden rounded-md border border-gray-200 bg-[#14141483] px-4 py-6 backdrop-blur-md backdrop-filter sm:mx-0"

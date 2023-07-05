@@ -10,15 +10,21 @@ import FavoriteBtn from "./FavoriteBtn";
 
 const ProductOfList = ({ product, loading, cart, setCart }) => {
   // const [cart,setCart] = useState([]);
+  console.log(product);
   const getProduct = (id) => {
     try {
-      const fetchCartItem = product.find((item) => {
-        if (item.id === id) item.quantity += 1;
-
+      let quantity = 0;
+      /* const checkProductInThere = cart.find(item => item.id === id ? item.quantity =+ 1 : (product.find((item) => {
         item.quantity = 1;
         return item.id === id;
-      });
-      setCart((prevItem) => [...prevItem, fetchCartItem]);
+      }))) */
+      const checkProductInThere = product.find(item => {
+        item.quantity = 1;
+        return item.id === id;
+      })
+      setCart((prevItem) => [...prevItem, checkProductInThere]);
+      
+      cart.find(item => item.id === id && (item.quantity += 1))
 
       toast.success("Product Added");
     } catch (error) {

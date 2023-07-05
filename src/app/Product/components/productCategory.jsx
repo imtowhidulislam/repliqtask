@@ -30,8 +30,17 @@ const ProductCategory = ({
 
   const getProduct = (id) => {
     try {
-      const fetchCartItem = product.find((item) => item.id === id);
-      setCart((prevValue) => [...prevValue, fetchCartItem]);
+      // const fetchCartItem = product.find((item) => item.id === id);
+      // setCart((prevValue) => [...prevValue, fetchCartItem]);
+
+      const checkProductInThere = product.find(item => {
+        item.quantity = 1;
+        return item.id === id;
+      })
+      setCart((prevItem) => [...prevItem, checkProductInThere]);
+      
+      cart.find(item => item.id === id && (item.quantity += 1))
+      
       toast.success("Product Added");
     } catch (error) {
       toast.error("Product not found");

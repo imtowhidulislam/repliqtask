@@ -24,19 +24,12 @@ const Page = () => {
     const data = await res.json();
     if (!res.ok) throw Error("Url might be not found.");
 
-    let unique = data?.map((but) => but.category);
-    unique = [...new Set(unique)];
+    let unique = [...new Set(data?.map((item) => item.category))];
     setButton(unique);
-    
+
     setProductValue([...data]);
     return data;
   };
-
-  /* (() => {
-    let unique = data?.map((but) => but.category);
-    unique = [...new Set(unique)];
-    setButton(unique);
-  })() */;
 
   const { data, isLoading, error } = useQuery({
     queryKey: ["productData"],
@@ -51,15 +44,15 @@ const Page = () => {
   };
 
   // !! Fetching the Unique Category Product >>>
+
   const handleClick = (e) => {
     setFilterProduct(e.target.dataset.name);
   };
 
-  console.log(button);
   return (
     <div className="container px-3 py-8 sm:py-24 md:px-0 ">
       <div id="buttonSection" className="btn_container mt-16 md:mt-0">
-        {data && (
+        {button && (
           <button
             className="btn w-full sm:w-max"
             onClick={handleClick}
@@ -69,11 +62,11 @@ const Page = () => {
           </button>
         )}
         <div className="flex flex-wrap items-center justify-center gap-2">
-          {button.map((btns) => {
+          {button.map((btns, i) => {
             return (
               <>
                 <button
-                  key={btns.id}
+                  key={i}
                   className="btn w-full sm:w-max"
                   onClick={handleClick}
                   data-name={btns}
@@ -114,6 +107,7 @@ const Page = () => {
         </div>
       )}
 
+      {/* Move to Top Button. */}
       <div className="fixed bottom-5 left-3/4 z-50">
         <button
           className="rounded-full border-2 border-lime-200 p-1"

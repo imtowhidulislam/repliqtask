@@ -15,6 +15,7 @@ module.exports = {
       },
       minHeight: {
         "custom-min-h": "500px",
+        "custom-h-form": "600px",
       },
       gridTemplateColumns: {
         footerLayout: "repeat(auto-fit, minmax(14rem, 1fr))",

@@ -97,7 +97,7 @@ const Footer = () => {
             </div>
           </div>
         </div>
-        <div className="mt-12 flex items-center justify-start gap-1 capitalize text-gray-300">
+        <div className="mt-12 flex items-center justify-start gap-1 capitalize text-[#363535cc]">
           <FaCopyright className="text-small sm:text-base" />
           <p className="text-small font-light sm:text-base">
             copyright <span>2023. </span>all rights reserve to Repliq

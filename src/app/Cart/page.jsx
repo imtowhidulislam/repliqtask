@@ -12,6 +12,7 @@ const Cart = () => {
   const [uniqueCart, setUniqueCart] = useState([]);
   const counterRef = useRef(null);
 
+  console.log(cartValue);
   const deleteItem = () => {
     try {
       setCartValue([]);
@@ -41,6 +42,7 @@ const Cart = () => {
     fetchUniqueCart();
   }, []);
 
+  console.log(uniqueCart);
   const total = uniqueCart
     .reduce((total, item) => total + item.quantity * item.price, 0)
     .toFixed(2);
@@ -49,7 +51,7 @@ const Cart = () => {
     <div className="cartHeight bg-lime-100 py-16">
       <div className="container p-2 sm:p-4 md:p-0 ">
         <div className="mb-8 flex items-center justify-between gap-4 sm:gap-20">
-          <h2 className="cartTitle text-left font-mono text-2xl ms:text-4xl font-bold capitalize text-lime-700 ">
+          <h2 className="cartTitle ms:text-4xl text-left font-mono text-2xl font-bold capitalize text-lime-700 ">
             Your Cart
           </h2>
           <button
@@ -61,10 +63,10 @@ const Cart = () => {
             <HiArchiveBoxXMark className="hover:animate-shake text-xl text-red-500" />
           </button>
         </div>
-        <div className="grid grid-cols-productLayout md:grid-cols-homepageLayoutHero gap-24 sm:place-items-stretch">
+        <div className="grid grid-cols-productLayout gap-24 sm:place-items-stretch md:grid-cols-homepageLayoutHero">
           <div>
             {uniqueCart.map((item) => {
-              const { id, title, price, image, category } = item;
+              const { id, title, price, image, category, quantity } = item;
 
               return (
                 <div
@@ -101,11 +103,13 @@ const Cart = () => {
                       </h2>
                     </div>
                   </div>
-{/*                   <div>
-                    <div>
-                      <Counter id={id} />
+                  <div>
+                    <div className="grid place-items-center">
+                      {/* <Counter setUniqueCart={setUniqueCart} uniqueCart={uniqueCart} productId={id} quantity={quantity} /> */}
+                      Quan
+                      <div className="text-xl text-lime-800 font-bold">{quantity}</div>
                     </div>
-                  </div> */}
+                  </div>
                 </div>
               );
             })}
@@ -135,7 +139,9 @@ const Cart = () => {
                 total
               </h2>
               <h2 className="text-left text-base font-medium capitalize">
-                ${(+total + 3.45).toFixed(2)}
+                {cartValue.length > 0
+                  ? `$ ${(+total + 3.45).toFixed(2)}`
+                  : `$ ${0.0}`}
               </h2>
             </div>
           </div>

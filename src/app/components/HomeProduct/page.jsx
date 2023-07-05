@@ -22,23 +22,23 @@ const HomeTopratedProduct = () => {
     const topProducts = data?.filter((item) => item.rating.rate >= 4.0);
     localStorage.setItem("topRatedProduct", JSON.stringify(topProducts));
     setTopRate(topProducts);
-    
+
     return data;
   };
-  const {data, isLoading,error} = useQuery({
+  const { data, isLoading, error } = useQuery({
     queryKey: ["productData"],
     queryFn: fetchData,
   });
-  
+
   const addToCart = (id) => {
     try {
       const fetchCartItem = data?.find((item) => {
-        if (item.id === id) item.quantity += 1;
-
         item.quantity = 1;
         return item.id === id;
       });
       setCartValue((prevItem) => [...prevItem, fetchCartItem]);
+
+      cart.find((item) => item.id === id && (item.quantity += 1));
 
       toast.success("Product Added");
     } catch (error) {
@@ -59,7 +59,7 @@ const HomeTopratedProduct = () => {
           {isLoading ? (
             <h2 className="text-center text-2xl font-bold">Loading...</h2>
           ) : (
-            <div className="grid grid-cols-homepageLayoutHero1 w-full sm:grid-cols-productLayoutTop place-items-start gap-4 overflow-hidden">
+            <div className="grid w-full grid-cols-homepageLayoutHero1 place-items-start gap-4 overflow-hidden sm:grid-cols-productLayoutTop">
               {topRate?.map((topProduct) => {
                 const { id, title, price, rating, image } = topProduct;
                 const titleLength = title.split(" ").slice(0, 5).join(" ");
