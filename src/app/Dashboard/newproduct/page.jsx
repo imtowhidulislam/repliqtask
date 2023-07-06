@@ -30,7 +30,7 @@ const NewProduct = () => {
             return (
               <div
                 key={id}
-                className="mb-2 flex max-w-xs flex-col flex-wrap items-center justify-center gap-2 rounded-md border-2 border-gray-300 p-4 shadow-lg sm:flex-row sm:justify-between sm:gap-1"
+                className="mb-2 animate-moveUp flex max-w-xs flex-col flex-wrap items-center justify-center gap-2 rounded-md border-2 border-gray-300 p-4 shadow-lg sm:flex-row sm:justify-between sm:gap-1"
               >
                 <div className="overflow-hidden rounded border-lime-700">
                   {/*  <Image
@@ -70,7 +70,7 @@ const NewProduct = () => {
             );
           })
         ) : (
-          <div className="grid place-items-center overflow-hidden">
+          <div className="grid w-full place-items-center overflow-hidden border border-red-100">
             <div className="animate-moveInRight">
               <Image src={EmptyProduct} alt="empty product" width={400} height={400} />
             </div>
@@ -78,7 +78,7 @@ const NewProduct = () => {
               <h2 className="py-4 text-center text-2xl font-bold md:text-left">
                 Product Not Found.
               </h2>
-              <Link href="/dashborad/addProduct">
+              <Link href="/dashboard/addProduct">
                 <ButtonOutlined btnText="Add New Product" />
               </Link>
             </div>

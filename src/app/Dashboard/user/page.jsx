@@ -50,7 +50,7 @@ const page = () => {
           return (
             <div
               key={id}
-              className="mb-2 flex flex-col flex-wrap items-center justify-center gap-2 rounded-md border-2 border-gray-300 p-4 shadow-lg sm:flex-row sm:justify-between sm:gap-1"
+              className="mb-2 animate-moveInRight flex flex-col flex-wrap items-center justify-center gap-2 rounded-md border-2 border-gray-300 p-4 shadow-lg sm:flex-row sm:justify-between sm:gap-1"
             >
               <div className="w-12 overflow-hidden rounded-full border border-lime-700">
                 {/* <Image

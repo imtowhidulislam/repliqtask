@@ -52,10 +52,12 @@ const Page = () => {
 
   return (
     <div className="container px-3 py-8 sm:py-24 md:px-0 ">
-      <div className="md-4 md:mb-10">
-        <h2 className="text-xl uppercase font-extrabold text-transparent md:text-6xl text-center bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600">Get your desired One.</h2>
+      <div ref={sectionRef} className="md-4 mt-16 sm:mt-0 md:mb-12">
+        <h2 className="bg-gradient-to-r from-purple-400 to-pink-600 bg-clip-text text-left text-2xl font-extrabold uppercase text-transparent md:text-center md:text-4xl lg:text-6xl">
+          Get your desired One.
+        </h2>
       </div>
-      <div id="buttonSection" className="btn_container mt-16 md:mt-0">
+      <div id="buttonSection" className="btn_container mt-4 md:mt-0">
         {button && (
           <button
             className="btn w-full sm:w-max"
@@ -66,42 +68,42 @@ const Page = () => {
           </button>
         )}
         <div className="flex flex-wrap items-center justify-center gap-2">
-          {button.length !== 0 ? button.map((btns, i) => {
-            return (
-              <>
-                <button
-                  key={i}
-                  className="btn w-full sm:w-max"
-                  onClick={handleClick}
-                  data-name={btns}
-                >
-                  {btns}
-                </button>
-              </>
-            );
-          }) : (
-            buttonData.map((btns, i) => {
-              return (
-                <>
-                  <button
-                    key={i}
-                    className="btn w-full sm:w-max"
-                    onClick={handleClick}
-                    data-name={btns}
-                  >
-                    {btns}
-                  </button>
-                </>
-              );
-            })
-          )}
+          {button.length !== 0
+            ? button.map((btns, i) => {
+                return (
+                  <>
+                    <button
+                      key={i}
+                      className="btn w-full sm:w-max"
+                      onClick={handleClick}
+                      data-name={btns}
+                    >
+                      {btns}
+                    </button>
+                  </>
+                );
+              })
+            : buttonData.map((btns, i) => {
+                return (
+                  <>
+                    <button
+                      key={i}
+                      className="btn w-full sm:w-max"
+                      onClick={handleClick}
+                      data-name={btns}
+                    >
+                      {btns}
+                    </button>
+                  </>
+                );
+              })}
         </div>
       </div>
       {isLoading ? (
         <Loading />
       ) : (
         <div
-          ref={sectionRef}
+          // ref={sectionRef}
           className="z-10 mt-10 grid min-h-custom-min-h grid-cols-productLayout place-items-start gap-4 overflow-hidden"
         >
           {filterProduct === "All" ? (

@@ -6,6 +6,7 @@ import Image from "next/image";
 import { useProductData } from "../../Data/productData";
 import { toast } from "react-hot-toast";
 import CartContextProvider from "@/app/context/cartContext";
+import Loading from "@/app/product/loading";
 
 const HomeTopratedProduct = () => {
   const { cart } = useContext(CartContextProvider);
@@ -20,8 +21,10 @@ const HomeTopratedProduct = () => {
     if (!res.ok) throw new Error("Url might be not found.");
 
     const topProducts = data?.filter((item) => item.rating.rate >= 4.0);
-    localStorage.setItem("topRatedProduct", JSON.stringify(topProducts));
-    setTopRate(topProducts);
+
+    // !! Sorting Top Rated Item By Accending order..
+    const sortTopRatedArray = topProducts.sort((a,b) => a.rating.rate - b.rating.rate); 
+    setTopRate(sortTopRatedArray);
 
     return data;
   };
@@ -47,13 +50,14 @@ const HomeTopratedProduct = () => {
   };
 
   if (error) return "Url might not be found" + error.message;
+  console.log(topRate);
 
   return (
     <div>
       <div>
         <div className="container py-20">
-          <div className="mb-8">
-            <h2 className="bg-gradient-to-r from-purple-400 to-pink-600 bg-clip-text text-xl font-extrabold uppercase text-transparent md:text-5xl">
+          <div className="mb-8 md:mb-12">
+            <h2 className={isLoading ? "bg-gradient-to-r from-pink-500 to-purple-600 bg-clip-text text-xl font-extrabold uppercase text-transparent md:text-5xl animate-pulse" : "bg-gradient-to-r from-pink-500 to-purple-600 bg-clip-text text-xl font-extrabold uppercase text-transparent md:text-5xl"}>
               Top Rated Product
             </h2>
           </div>

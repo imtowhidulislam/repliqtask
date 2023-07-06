@@ -1,5 +1,5 @@
 "use client";
-import React, { useContext, useState } from "react";
+import React, { useContext, useRef, useState } from "react";
 import { RiShoppingBagFill } from "react-icons/ri";
 import { useFormik } from "formik";
 import { formSchema } from "../Register/schemas/page";
@@ -8,6 +8,7 @@ import CartContextProvider from "../context/cartContext";
 
 const page = () => {
   const { user } = useContext(CartContextProvider);
+  const imgRef = useRef(null);
   const [users, setUsers] = user;
 
   const {
@@ -39,6 +40,8 @@ const page = () => {
     },
   });
 
+  const handleImg = () => imgRef.current.click();
+  
   return (
     <>
       <div className="relative flex h-full md:min-h-custom-min-h w-full items-center justify-center overflow-hidden bg-contact-image bg-cover bg-center bg-no-repeat  before:absolute before:left-0 before:top-0 before:h-full before:w-full before:bg-[rgba(10,46,16,0.57)] before:backdrop-blur-sm">
@@ -149,15 +152,17 @@ const page = () => {
                 type="file"
                 // accept="/*"
                 name="file"
+                // ref={imgRef}
                 onBlur={handleBlur}
                 onChange={(e) => setFieldValue("file", e.target.files[0])}
                 className={
                   errors.file && touched.file
-                    ? "form border-2 border-red-500 pl-4 placeholder:capitalize"
-                    : "form pl-4 placeholder:capitalize"
+                    ? " form border-2 border-red-500 pl-4 placeholder:capitalize"
+                    : " form pl-4 placeholder:capitalize"
                 }
                 placeholder="enter your Image"
               />
+              {/* <button className="form w-full text-[#cccccc] capitalize" onClick={handleImg}>uploade image</button> */}
               {errors.file && touched.file && (
                 <p className="absolute left-0 top-full text-small md:text-sm capitalize text-red-300">
                   {errors.file}
