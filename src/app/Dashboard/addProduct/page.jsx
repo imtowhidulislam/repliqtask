@@ -10,8 +10,8 @@ import NewProductProviderContext from "@/app/context/newProduct";
 
 const page = () => {
   const { data, isLoading, error } = useProductData();
-  const {newProduct, setNewProduct} = useContext(NewProductProviderContext);
-  // const [newProducts, setNewProducts] = product;
+  const {product} = useContext(CartContextProvider);
+  const [newProduct, setNewProduct] = product;
 
 
   const {
@@ -154,8 +154,8 @@ const page = () => {
             <div className="relative">
               <input
                 type="file"
-                // accept="/*"
-                name="file"
+                accept="image/*"
+                // name="file"
                 onBlur={handleBlur}
                 onChange={(e) => setFieldValue("file", e.target.files[0])}
                 className={

@@ -3,7 +3,7 @@ import { ButtonOutlined } from "@/app/Util/ButtonOutlined";
 import CartContextProvider from "@/app/context/cartContext";
 import Image from "next/image";
 import Link from "next/link";
-import React, { useContext } from "react";
+import React, { useContext,useState } from "react";
 import Empty from "../../../../public/emptyUser.svg";
 import { toast } from "react-hot-toast";
 
@@ -38,19 +38,28 @@ const page = () => {
         </div>
       ) : (
         users.map((user) => {
-          const { userId: id, fName, email, file: image } = user;
+          const { userId: id, fName, email, file } = user;
+          const [imageUrl, setImageurl] = useState(null);
+          const reader = new FileReader();
+          console.log(reader);
+          reader.readAsDataURL(file);
+          reader.onload = () => {
+            setImageurl(reader.result);
+          };
+
           return (
             <div
               key={id}
               className="mb-2 flex flex-col flex-wrap items-center justify-center gap-2 rounded-md border-2 border-gray-300 p-4 shadow-lg sm:flex-row sm:justify-between sm:gap-1"
             >
               <div className="w-12 overflow-hidden rounded-full border border-lime-700">
-                <Image
+                {/* <Image
                   src={`/${image?.name}`}
                   alt={fName}
                   width={50}
                   height={50}
-                />
+                /> */}
+                <img className="objejct-cover object-center h-12 w-full" src={imageUrl} alt="preview" />
               </div>
               <p className="text-xl font-bold capitalize text-lime-900">
                 {fName}

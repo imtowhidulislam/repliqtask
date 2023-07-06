@@ -52,9 +52,11 @@ const HomeTopratedProduct = () => {
     <div>
       <div>
         <div className="container py-20">
-          <h2 className="mb-6 text-left font-mono text-xl font-bold uppercase text-[#13194a] sm:text-2xl md:text-3xl">
-            Top Rated Items
-          </h2>
+          <div className="mb-8">
+            <h2 className="bg-gradient-to-r from-purple-400 to-pink-600 bg-clip-text text-xl font-extrabold uppercase text-transparent md:text-5xl">
+              Top Rated Product
+            </h2>
+          </div>
           {isLoading ? (
             <h2 className="text-center text-2xl font-bold">Loading...</h2>
           ) : (

@@ -52,6 +52,9 @@ const Page = () => {
 
   return (
     <div className="container px-3 py-8 sm:py-24 md:px-0 ">
+      <div className="md-4 md:mb-10">
+        <h2 className="text-xl uppercase font-extrabold text-transparent md:text-6xl text-center bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600">Get your desired One.</h2>
+      </div>
       <div id="buttonSection" className="btn_container mt-16 md:mt-0">
         {button && (
           <button
