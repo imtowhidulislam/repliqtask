@@ -23,6 +23,8 @@ const Counter = ({quantity,productId:id, uniqueCart, setUniqueCart}) => {
         setItemCount(prevCount => prevCount + 1);
         uniqueCart.find(item => item.id === id && (item.quantity += 1))
     }
+
+    
   return (
     <div>
         <div className='flex items-center flex-col gap-2'>
