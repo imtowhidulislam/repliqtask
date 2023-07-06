@@ -154,7 +154,7 @@ label {
 /* !! Dashboard Style End */
 /* ??? Cart style Start */
 .cartHeight {
-  min-height: 30rem;
+  min-height: 42rem;
 }
 .countCart {
   position: relative;

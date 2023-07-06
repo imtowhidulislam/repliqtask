@@ -46,7 +46,7 @@ const Cart = () => {
     .toFixed(2);
 
   return (
-    <div className="cartHeight bg-lime-100 py-16">
+    <div className="cartHeight py-16">
       <div className="container p-2 sm:p-4 md:p-0 ">
         <div className="mb-8 flex items-center justify-between gap-4 sm:gap-20">
           <h2 className="cartTitle ms:text-4xl text-left font-mono text-2xl font-bold capitalize text-lime-700 ">
@@ -69,7 +69,7 @@ const Cart = () => {
               return (
                 <div
                   key={id}
-                  className="group relative mb-2 flex items-center justify-between gap-8 rounded-md border-b border-gray-400 bg-lime-200 p-3 drop-shadow-md"
+                  className="group relative mb-2 flex items-center justify-between gap-8 rounded-md border-b border-gray-400 bg-[#f6f6f6cc] p-3 drop-shadow-md"
                 >
                   <div className="absolute left-0 top-0 flex h-8 w-8 -translate-x-1/2 -translate-y-2/4  items-center justify-center rounded-full bg-[#999a98a6] p-1 opacity-0 transition-all duration-200 ease-in-out group-hover:left-2/4 group-hover:opacity-100">
                     <button
